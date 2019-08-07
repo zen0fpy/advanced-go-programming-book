@@ -1,0 +1,1482 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.8 C++类包装 · Go语言高级编程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch2-09-static-shared-lib.html" />
+    
+    
+    <link rel="prev" href="ch2-07-memory.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch1-basic/readme.html">
+            
+                <a href="../ch1-basic/readme.html">
+            
+                    
+                    第1章 语言基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch1-basic/ch1-01-genesis.html">
+            
+                <a href="../ch1-basic/ch1-01-genesis.html">
+            
+                    
+                    1.1 Go语言创世纪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                <a href="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                    
+                    1.2 Hello, World 的革命
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                <a href="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                    
+                    1.3 数组、字符串和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                <a href="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                    
+                    1.4 函数、方法和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch1-basic/ch1-05-mem.html">
+            
+                <a href="../ch1-basic/ch1-05-mem.html">
+            
+                    
+                    1.5 面向并发的内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch1-basic/ch1-06-goroutine.html">
+            
+                <a href="../ch1-basic/ch1-06-goroutine.html">
+            
+                    
+                    1.6 常见的并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                <a href="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                    
+                    1.7 错误和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../ch1-basic/ch1-08-ext.html">
+            
+                <a href="../ch1-basic/ch1-08-ext.html">
+            
+                    
+                    1.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    第2章 CGO编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="ch2-01-hello-cgo.html">
+            
+                <a href="ch2-01-hello-cgo.html">
+            
+                    
+                    2.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ch2-02-basic.html">
+            
+                <a href="ch2-02-basic.html">
+            
+                    
+                    2.2 CGO基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="ch2-03-cgo-types.html">
+            
+                <a href="ch2-03-cgo-types.html">
+            
+                    
+                    2.3 类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="ch2-04-func.html">
+            
+                <a href="ch2-04-func.html">
+            
+                    
+                    2.4 函数调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="ch2-05-internal.html">
+            
+                <a href="ch2-05-internal.html">
+            
+                    
+                    2.5 内部机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="ch2-06-qsort.html">
+            
+                <a href="ch2-06-qsort.html">
+            
+                    
+                    2.6 实战: 封装qsort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="ch2-07-memory.html">
+            
+                <a href="ch2-07-memory.html">
+            
+                    
+                    2.7 CGO内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.8" data-path="ch2-08-class.html">
+            
+                <a href="ch2-08-class.html">
+            
+                    
+                    2.8 C++类包装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="ch2-09-static-shared-lib.html">
+            
+                <a href="ch2-09-static-shared-lib.html">
+            
+                    
+                    2.9 静态库和动态库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="ch2-10-link.html">
+            
+                <a href="ch2-10-link.html">
+            
+                    
+                    2.10 编译和链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="ch2-11-ext.html">
+            
+                <a href="ch2-11-ext.html">
+            
+                    
+                    2.11 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch3-asm/readme.html">
+            
+                <a href="../ch3-asm/readme.html">
+            
+                    
+                    第3章 汇编语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch3-asm/ch3-01-basic.html">
+            
+                <a href="../ch3-asm/ch3-01-basic.html">
+            
+                    
+                    3.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch3-asm/ch3-02-arch.html">
+            
+                <a href="../ch3-asm/ch3-02-arch.html">
+            
+                    
+                    3.2 计算机结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch3-asm/ch3-03-const-and-var.html">
+            
+                <a href="../ch3-asm/ch3-03-const-and-var.html">
+            
+                    
+                    3.3 常量和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch3-asm/ch3-04-func.html">
+            
+                <a href="../ch3-asm/ch3-04-func.html">
+            
+                    
+                    3.4 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../ch3-asm/ch3-05-control-flow.html">
+            
+                <a href="../ch3-asm/ch3-05-control-flow.html">
+            
+                    
+                    3.5 控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../ch3-asm/ch3-06-func-again.html">
+            
+                <a href="../ch3-asm/ch3-06-func-again.html">
+            
+                    
+                    3.6 再论函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../ch3-asm/ch3-07-hack-asm.html">
+            
+                <a href="../ch3-asm/ch3-07-hack-asm.html">
+            
+                    
+                    3.7 汇编语言的威力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                <a href="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                    
+                    3.8 例子：Goroutine ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../ch3-asm/ch3-09-debug.html">
+            
+                <a href="../ch3-asm/ch3-09-debug.html">
+            
+                    
+                    3.9 Delve调试器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../ch3-asm/ch3-10-ext.html">
+            
+                <a href="../ch3-asm/ch3-10-ext.html">
+            
+                    
+                    3.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch4-rpc/readme.html">
+            
+                <a href="../ch4-rpc/readme.html">
+            
+                    
+                    第4章 RPC和Protobuf
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                <a href="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                    
+                    4.1 RPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                <a href="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                    
+                    4.2 Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                    
+                    4.3 玩转RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch4-rpc/ch4-04-grpc.html">
+            
+                <a href="../ch4-rpc/ch4-04-grpc.html">
+            
+                    
+                    4.4 gRPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                    
+                    4.5 gRPC进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                <a href="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                    
+                    4.6 gRPC和Protobuf扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ch4-rpc/ch4-07-pbgo.html">
+            
+                <a href="../ch4-rpc/ch4-07-pbgo.html">
+            
+                    
+                    4.7 pbgo: 基于Protobuf的框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                <a href="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                    
+                    4.8 grpcurl工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ch4-rpc/ch4-09-ext.html">
+            
+                <a href="../ch4-rpc/ch4-09-ext.html">
+            
+                    
+                    4.9 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch5-web/readme.html">
+            
+                <a href="../ch5-web/readme.html">
+            
+                    
+                    第5章 Go和Web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch5-web/ch5-01-introduction.html">
+            
+                <a href="../ch5-web/ch5-01-introduction.html">
+            
+                    
+                    5.1 Web开发简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch5-web/ch5-02-router.html">
+            
+                <a href="../ch5-web/ch5-02-router.html">
+            
+                    
+                    5.2 请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch5-web/ch5-03-middleware.html">
+            
+                <a href="../ch5-web/ch5-03-middleware.html">
+            
+                    
+                    5.3 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch5-web/ch5-04-validator.html">
+            
+                <a href="../ch5-web/ch5-04-validator.html">
+            
+                    
+                    5.4 请求校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../ch5-web/ch5-05-database.html">
+            
+                <a href="../ch5-web/ch5-05-database.html">
+            
+                    
+                    5.5 和数据库打交道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../ch5-web/ch5-06-ratelimit.html">
+            
+                <a href="../ch5-web/ch5-06-ratelimit.html">
+            
+                    
+                    5.6 服务流量限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                <a href="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                    
+                    5.7 大型Web项目分层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../ch5-web/ch5-08-interface-and-web.html">
+            
+                <a href="../ch5-web/ch5-08-interface-and-web.html">
+            
+                    
+                    5.8 接口和表驱动开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../ch5-web/ch5-09-gated-launch.html">
+            
+                <a href="../ch5-web/ch5-09-gated-launch.html">
+            
+                    
+                    5.9 灰度发布和A/B测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../ch5-web/ch5-10-ext.html">
+            
+                <a href="../ch5-web/ch5-10-ext.html">
+            
+                    
+                    5.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch6-cloud/readme.html">
+            
+                <a href="../ch6-cloud/readme.html">
+            
+                    
+                    第6章 分布式系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch6-cloud/ch6-01-dist-id.html">
+            
+                <a href="../ch6-cloud/ch6-01-dist-id.html">
+            
+                    
+                    6.1 分布式 id 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch6-cloud/ch6-02-lock.html">
+            
+                <a href="../ch6-cloud/ch6-02-lock.html">
+            
+                    
+                    6.2 分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch6-cloud/ch6-03-delay-job.html">
+            
+                <a href="../ch6-cloud/ch6-03-delay-job.html">
+            
+                    
+                    6.3 延时任务系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch6-cloud/ch6-04-search-engine.html">
+            
+                <a href="../ch6-cloud/ch6-04-search-engine.html">
+            
+                    
+                    6.4 分布式搜索引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../ch6-cloud/ch6-05-load-balance.html">
+            
+                <a href="../ch6-cloud/ch6-05-load-balance.html">
+            
+                    
+                    6.5 负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../ch6-cloud/ch6-06-config.html">
+            
+                <a href="../ch6-cloud/ch6-06-config.html">
+            
+                    
+                    6.6 分布式配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../ch6-cloud/ch6-07-crawler.html">
+            
+                <a href="../ch6-cloud/ch6-07-crawler.html">
+            
+                    
+                    6.7 分布式爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../ch6-cloud/ch6-08-ext.html">
+            
+                <a href="../ch6-cloud/ch6-08-ext.html">
+            
+                    
+                    6.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/readme.html">
+            
+                <a href="../appendix/readme.html">
+            
+                    
+                    附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/appendix-a-trap.html">
+            
+                <a href="../appendix/appendix-a-trap.html">
+            
+                    
+                    附录A: Go语言常见坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/appendix-b-gems.html">
+            
+                <a href="../appendix/appendix-b-gems.html">
+            
+                    
+                    附录B: 有趣的代码片段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/appendix-c-author.html">
+            
+                <a href="../appendix/appendix-c-author.html">
+            
+                    
+                    附录C: 作者简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.8 C++类包装</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="28-c-&#x7C7B;&#x5305;&#x88C5;">2.8 C++ &#x7C7B;&#x5305;&#x88C5;</h1>
+<p>CGO&#x662F;C&#x8BED;&#x8A00;&#x548C;Go&#x8BED;&#x8A00;&#x4E4B;&#x95F4;&#x7684;&#x6865;&#x6881;&#xFF0C;&#x539F;&#x5219;&#x4E0A;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x652F;&#x6301;C++&#x7684;&#x7C7B;&#x3002;CGO&#x4E0D;&#x652F;&#x6301;C++&#x8BED;&#x6CD5;&#x7684;&#x6839;&#x672C;&#x539F;&#x56E0;&#x662F;C++&#x81F3;&#x4ECA;&#x4E3A;&#x6B62;&#x8FD8;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x63A5;&#x53E3;&#x89C4;&#x8303;(ABI)&#x3002;&#x4E00;&#x4E2A;C++&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5728;&#x7F16;&#x8BD1;&#x4E3A;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x65F6;&#x5982;&#x4F55;&#x751F;&#x6210;&#x94FE;&#x63A5;&#x7B26;&#x53F7;&#x540D;&#x79F0;&#x3001;&#x65B9;&#x6CD5;&#x5728;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x751A;&#x81F3;&#x662F;C++&#x7684;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x90FD;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x3002;&#x4F46;&#x662F;C++&#x662F;&#x517C;&#x5BB9;C&#x8BED;&#x8A00;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x589E;&#x52A0;&#x4E00;&#x7EC4;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x63A5;&#x53E3;&#x4F5C;&#x4E3A;C++&#x7C7B;&#x548C;CGO&#x4E4B;&#x95F4;&#x7684;&#x6865;&#x6881;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x95F4;&#x63A5;&#x5730;&#x5B9E;&#x73B0;C++&#x548C;Go&#x4E4B;&#x95F4;&#x7684;&#x4E92;&#x8054;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x56E0;&#x4E3A;CGO&#x53EA;&#x652F;&#x6301;C&#x8BED;&#x8A00;&#x4E2D;&#x503C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x662F;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;C++&#x7684;&#x5F15;&#x7528;&#x53C2;&#x6570;&#x7B49;&#x7279;&#x6027;&#x7684;&#x3002;</p>
+<h2 id="281-c-&#x7C7B;&#x5230;-go-&#x8BED;&#x8A00;&#x5BF9;&#x8C61;">2.8.1 C++ &#x7C7B;&#x5230; Go &#x8BED;&#x8A00;&#x5BF9;&#x8C61;</h2>
+<p>&#x5B9E;&#x73B0;C++&#x7C7B;&#x5230;Go&#x8BED;&#x8A00;&#x5BF9;&#x8C61;&#x7684;&#x5305;&#x88C5;&#x9700;&#x8981;&#x7ECF;&#x8FC7;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;&#x9996;&#x5148;&#x662F;&#x7528;&#x7EAF;C&#x51FD;&#x6570;&#x63A5;&#x53E3;&#x5305;&#x88C5;&#x8BE5;C++&#x7C7B;&#xFF1B;&#x5176;&#x6B21;&#x662F;&#x901A;&#x8FC7;CGO&#x5C06;&#x7EAF;C&#x51FD;&#x6570;&#x63A5;&#x53E3;&#x6620;&#x5C04;&#x5230;Go&#x51FD;&#x6570;&#xFF1B;&#x6700;&#x540E;&#x662F;&#x505A;&#x4E00;&#x4E2A;Go&#x5305;&#x88C5;&#x5BF9;&#x8C61;&#xFF0C;&#x5C06;C++&#x7C7B;&#x5230;&#x65B9;&#x6CD5;&#x7528;Go&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="2811-&#x51C6;&#x5907;&#x4E00;&#x4E2A;-c-&#x7C7B;">2.8.1.1 &#x51C6;&#x5907;&#x4E00;&#x4E2A; C++ &#x7C7B;</h3>
+<p>&#x4E3A;&#x4E86;&#x6F14;&#x793A;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x4EEC;&#x57FA;&#x4E8E;<code>std::string</code>&#x505A;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x7F13;&#x5B58;&#x7C7B;MyBuffer&#x3002;&#x9664;&#x4E86;&#x6784;&#x9020;&#x51FD;&#x6570;&#x548C;&#x6790;&#x6784;&#x51FD;&#x6570;&#x4E4B;&#x5916;&#xFF0C;&#x53EA;&#x6709;&#x4E24;&#x4E2A;&#x6210;&#x5458;&#x51FD;&#x6570;&#x5206;&#x522B;&#x662F;&#x8FD4;&#x56DE;&#x5E95;&#x5C42;&#x7684;&#x6570;&#x636E;&#x6307;&#x9488;&#x548C;&#x7F13;&#x5B58;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x56E0;&#x4E3A;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x7F13;&#x5B58;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x91CC;&#x9762;&#x4E2D;&#x653E;&#x7F6E;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">// my_buffer.h</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string&gt;</span></span>
+
+<span class="hljs-keyword">struct</span> MyBuffer {
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>* s_;
+
+    MyBuffer(<span class="hljs-keyword">int</span> size) {
+        <span class="hljs-keyword">this</span>-&gt;s_ = <span class="hljs-keyword">new</span> <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span>(size, <span class="hljs-keyword">char</span>(<span class="hljs-string">&apos;\0&apos;</span>));
+    }
+    ~MyBuffer() {
+        <span class="hljs-keyword">delete</span> <span class="hljs-keyword">this</span>-&gt;s_;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Size</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>-&gt;s_-&gt;size();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">Data</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">char</span>*)<span class="hljs-keyword">this</span>-&gt;s_-&gt;data();
+    }
+};
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x6307;&#x5B9A;&#x7F13;&#x5B58;&#x7684;&#x5927;&#x5C0F;&#x5E76;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x5B8C;&#x4E4B;&#x540E;&#x901A;&#x8FC7;&#x6790;&#x6784;&#x51FD;&#x6570;&#x91CA;&#x653E;&#x5185;&#x90E8;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x7B80;&#x5355;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">auto</span> pBuf = <span class="hljs-keyword">new</span> MyBuffer(<span class="hljs-number">1024</span>);
+
+    <span class="hljs-keyword">auto</span> data = pBuf-&gt;Data();
+    <span class="hljs-keyword">auto</span> size = pBuf-&gt;Size();
+
+    <span class="hljs-keyword">delete</span> pBuf;
+}
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x5411;C&#x8BED;&#x8A00;&#x63A5;&#x53E3;&#x8FC7;&#x6E21;&#xFF0C;&#x5728;&#x6B64;&#x5904;&#x6211;&#x4EEC;&#x6545;&#x610F;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;C++&#x7684;&#x62F7;&#x8D1D;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x4EE5;new&#x548C;delete&#x6765;&#x5206;&#x914D;&#x548C;&#x91CA;&#x653E;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x4EE5;&#x503C;&#x98CE;&#x683C;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
+<h3 id="2812-&#x7528;&#x7EAF;c&#x51FD;&#x6570;&#x63A5;&#x53E3;&#x5C01;&#x88C5;-c-&#x7C7B;">2.8.1.2 &#x7528;&#x7EAF;C&#x51FD;&#x6570;&#x63A5;&#x53E3;&#x5C01;&#x88C5; C++ &#x7C7B;</h3>
+<p>&#x5982;&#x679C;&#x8981;&#x5C06;&#x4E0A;&#x9762;&#x7684;C++&#x7C7B;&#x7528;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x63A5;&#x53E3;&#x5C01;&#x88C5;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4ECE;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x5165;&#x624B;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;new&#x548C;delete&#x6620;&#x5C04;&#x4E3A;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#xFF0C;&#x5C06;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x4E5F;&#x6620;&#x5C04;&#x4E3A;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5728;C&#x8BED;&#x8A00;&#x4E2D;&#x6211;&#x4EEC;&#x671F;&#x671B;MyBuffer&#x7C7B;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    MyBuffer* pBuf = NewMyBuffer(<span class="hljs-number">1024</span>);
+
+    <span class="hljs-keyword">char</span>* data = MyBuffer_Data(pBuf);
+    <span class="hljs-keyword">auto</span> size = MyBuffer_Size(pBuf);
+
+    DeleteMyBuffer(pBuf);
+}
+</code></pre>
+<p>&#x5148;&#x4ECE;C&#x8BED;&#x8A00;&#x63A5;&#x53E3;&#x7528;&#x6237;&#x7684;&#x89D2;&#x5EA6;&#x601D;&#x8003;&#x9700;&#x8981;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x521B;&#x5EFA; <code>my_buffer_capi.h</code> &#x5934;&#x6587;&#x4EF6;&#x63A5;&#x53E3;&#x89C4;&#x8303;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">// my_buffer_capi.h</span>
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">struct</span> MyBuffer_T MyBuffer_T;
+
+<span class="hljs-function">MyBuffer_T* <span class="hljs-title">NewMyBuffer</span><span class="hljs-params">(<span class="hljs-keyword">int</span> size)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DeleteMyBuffer</span><span class="hljs-params">(MyBuffer_T* p)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">MyBuffer_Data</span><span class="hljs-params">(MyBuffer_T* p)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">MyBuffer_Size</span><span class="hljs-params">(MyBuffer_T* p)</span></span>;
+</code></pre>
+<p>&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;C++&#x7684;MyBuffer&#x7C7B;&#x5B9A;&#x4E49;&#x8FD9;&#x4E9B;C&#x8BED;&#x8A00;&#x5305;&#x88C5;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x5BF9;&#x5E94;&#x7684;<code>my_buffer_capi.cc</code>&#x6587;&#x4EF6;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">// my_buffer_capi.cc</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;./my_buffer.h&quot;</span></span>
+
+<span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> {
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;./my_buffer_capi.h&quot;</span></span>
+}
+
+<span class="hljs-keyword">struct</span> MyBuffer_T: MyBuffer {
+    MyBuffer_T(<span class="hljs-keyword">int</span> size): MyBuffer(size) {}
+    ~MyBuffer_T() {}
+};
+
+<span class="hljs-function">MyBuffer_T* <span class="hljs-title">NewMyBuffer</span><span class="hljs-params">(<span class="hljs-keyword">int</span> size)</span> </span>{
+    <span class="hljs-keyword">auto</span> p = <span class="hljs-keyword">new</span> MyBuffer_T(size);
+    <span class="hljs-keyword">return</span> p;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">DeleteMyBuffer</span><span class="hljs-params">(MyBuffer_T* p)</span> </span>{
+    <span class="hljs-keyword">delete</span> p;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">MyBuffer_Data</span><span class="hljs-params">(MyBuffer_T* p)</span> </span>{
+    <span class="hljs-keyword">return</span> p-&gt;Data();
+}
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">MyBuffer_Size</span><span class="hljs-params">(MyBuffer_T* p)</span> </span>{
+    <span class="hljs-keyword">return</span> p-&gt;Size();
+}
+</code></pre>
+<p>&#x56E0;&#x4E3A;&#x5934;&#x6587;&#x4EF6;<code>my_buffer_capi.h</code>&#x662F;&#x7528;&#x4E8E;CGO&#xFF0C;&#x5FC5;&#x987B;&#x662F;&#x91C7;&#x7528;C&#x8BED;&#x8A00;&#x89C4;&#x8303;&#x7684;&#x540D;&#x5B57;&#x4FEE;&#x9970;&#x89C4;&#x5219;&#x3002;&#x5728;C++&#x6E90;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x65F6;&#x9700;&#x8981;&#x7528;<code>extern &quot;C&quot;</code>&#x8BED;&#x53E5;&#x8BF4;&#x660E;&#x3002;&#x53E6;&#x5916;MyBuffer_T&#x7684;&#x5B9E;&#x73B0;&#x53EA;&#x662F;&#x4ECE;MyBuffer&#x7EE7;&#x627F;&#x7684;&#x7C7B;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x7B80;&#x5316;&#x5305;&#x88C5;&#x4EE3;&#x7801;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x540C;&#x65F6;&#x548C;CGO&#x901A;&#x4FE1;&#x65F6;&#x5FC5;&#x987B;&#x901A;&#x8FC7;<code>MyBuffer_T</code>&#x6307;&#x9488;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5C06;&#x5177;&#x4F53;&#x7684;&#x5B9E;&#x73B0;&#x66B4;&#x9732;&#x7ED9;CGO&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x73B0;&#x4E2D;&#x5305;&#x542B;&#x4E86;C++&#x7279;&#x6709;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;CGO&#x65E0;&#x6CD5;&#x8BC6;&#x522B;C++&#x7279;&#x6027;&#x3002;</p>
+<p>&#x5C06;C++&#x7C7B;&#x5305;&#x88C5;&#x4E3A;&#x7EAF;C&#x63A5;&#x53E3;&#x4E4B;&#x540E;&#xFF0C;&#x4E0B;&#x4E00;&#x6B65;&#x7684;&#x5DE5;&#x4F5C;&#x5C31;&#x662F;&#x5C06;C&#x51FD;&#x6570;&#x8F6C;&#x4E3A;Go&#x51FD;&#x6570;&#x3002;</p>
+<h3 id="2813-&#x5C06;&#x7EAF;c&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x8F6C;&#x4E3A;go&#x51FD;&#x6570;">2.8.1.3 &#x5C06;&#x7EAF;C&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x8F6C;&#x4E3A;Go&#x51FD;&#x6570;</h3>
+<p>&#x5C06;&#x7EAF;C&#x51FD;&#x6570;&#x5305;&#x88C5;&#x4E3A;&#x5BF9;&#x5E94;&#x7684;Go&#x51FD;&#x6570;&#x7684;&#x8FC7;&#x7A0B;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x7684;&#x5305;&#x4E2D;&#x5305;&#x542B;C++11&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x901A;&#x8FC7;<code>#cgo CXXFLAGS: -std=c++11</code>&#x6253;&#x5F00;C++11&#x7684;&#x9009;&#x9879;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// my_buffer_capi.go</span>
+
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">/*
+#cgo CXXFLAGS: -std=c++11
+
+#include &quot;my_buffer_capi.h&quot;
+*/</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">type</span> cgo_MyBuffer_T C.MyBuffer_T
+
+<span class="hljs-keyword">func</span> cgo_NewMyBuffer(size <span class="hljs-keyword">int</span>) *cgo_MyBuffer_T {
+    p := C.NewMyBuffer(C.<span class="hljs-keyword">int</span>(size))
+    <span class="hljs-keyword">return</span> (*cgo_MyBuffer_T)(p)
+}
+
+<span class="hljs-keyword">func</span> cgo_DeleteMyBuffer(p *cgo_MyBuffer_T) {
+    C.DeleteMyBuffer((*C.MyBuffer_T)(p))
+}
+
+<span class="hljs-keyword">func</span> cgo_MyBuffer_Data(p *cgo_MyBuffer_T) *C.char {
+    <span class="hljs-keyword">return</span> C.MyBuffer_Data((*C.MyBuffer_T)(p))
+}
+
+<span class="hljs-keyword">func</span> cgo_MyBuffer_Size(p *cgo_MyBuffer_T) C.<span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">return</span> C.MyBuffer_Size((*C.MyBuffer_T)(p))
+}
+</code></pre>
+<p>&#x4E3A;&#x4E86;&#x533A;&#x5206;&#xFF0C;&#x6211;&#x4EEC;&#x5728;Go&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x7C7B;&#x578B;&#x548C;&#x51FD;&#x6570;&#x540D;&#x79F0;&#x524D;&#x9762;&#x589E;&#x52A0;&#x4E86;<code>cgo_</code>&#x524D;&#x7F00;&#xFF0C;&#x6BD4;&#x5982;cgo_MyBuffer_T&#x662F;&#x5BF9;&#x5E94;C&#x4E2D;&#x7684;MyBuffer_T&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x5904;&#x7406;&#x7B80;&#x5355;&#xFF0C;&#x5728;&#x5305;&#x88C5;&#x7EAF;C&#x51FD;&#x6570;&#x5230;Go&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x9664;&#x4E86;cgo_MyBuffer_T&#x7C7B;&#x578B;&#x5916;&#xFF0C;&#x5BF9;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x57FA;&#x7840;&#x7C7B;&#x578B;&#xFF0C;&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x662F;&#x7528;&#x7684;C&#x8BED;&#x8A00;&#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<h3 id="2814-&#x5305;&#x88C5;&#x4E3A;go&#x5BF9;&#x8C61;">2.8.1.4 &#x5305;&#x88C5;&#x4E3A;Go&#x5BF9;&#x8C61;</h3>
+<p>&#x5728;&#x5C06;&#x7EAF;C&#x63A5;&#x53E3;&#x5305;&#x88C5;&#x4E3A;Go&#x51FD;&#x6570;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5730;&#x57FA;&#x4E8E;&#x5305;&#x88C5;&#x7684;Go&#x51FD;&#x6570;&#x6784;&#x9020;&#x51FA;Go&#x5BF9;&#x8C61;&#x6765;&#x3002;&#x56E0;&#x4E3A;cgo_MyBuffer_T&#x662F;&#x4ECE;C&#x8BED;&#x8A00;&#x7A7A;&#x95F4;&#x5BFC;&#x5165;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5B83;&#x65E0;&#x6CD5;&#x5B9A;&#x4E49;&#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x6784;&#x9020;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;MyBuffer&#x7C7B;&#x578B;&#xFF0C;&#x91CC;&#x9762;&#x7684;&#x6210;&#x5458;&#x6301;&#x6709;cgo_MyBuffer_T&#x6307;&#x5411;&#x7684;C&#x8BED;&#x8A00;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// my_buffer.go</span>
+
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;unsafe&quot;</span>
+
+<span class="hljs-keyword">type</span> MyBuffer <span class="hljs-keyword">struct</span> {
+    cptr *cgo_MyBuffer_T
+}
+
+<span class="hljs-keyword">func</span> NewMyBuffer(size <span class="hljs-keyword">int</span>) *MyBuffer {
+    <span class="hljs-keyword">return</span> &amp;MyBuffer{
+        cptr: cgo_NewMyBuffer(size),
+    }
+}
+
+<span class="hljs-keyword">func</span> (p *MyBuffer) Delete() {
+    cgo_DeleteMyBuffer(p.cptr)
+}
+
+<span class="hljs-keyword">func</span> (p *MyBuffer) Data() []<span class="hljs-keyword">byte</span> {
+    data := cgo_MyBuffer_Data(p.cptr)
+    size := cgo_MyBuffer_Size(p.cptr)
+    <span class="hljs-keyword">return</span> ((*[<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">31</span>]<span class="hljs-keyword">byte</span>)(unsafe.Pointer(data)))[<span class="hljs-number">0</span>:<span class="hljs-keyword">int</span>(size):<span class="hljs-keyword">int</span>(size)]
+}
+</code></pre>
+<p>&#x540C;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;Go&#x8BED;&#x8A00;&#x7684;&#x5207;&#x7247;&#x672C;&#x8EAB;&#x542B;&#x6709;&#x957F;&#x5EA6;&#x4FE1;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;cgo_MyBuffer_Data&#x548C;cgo_MyBuffer_Size&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x5408;&#x5E76;&#x4E3A;<code>MyBuffer.Data</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x5E95;&#x5C42;C&#x8BED;&#x8A00;&#x7F13;&#x5B58;&#x7A7A;&#x95F4;&#x7684;&#x5207;&#x7247;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5728;Go&#x8BED;&#x8A00;&#x4E2D;&#x4F7F;&#x7528;&#x5305;&#x88C5;&#x540E;&#x7684;&#x7F13;&#x5B58;&#x5BF9;&#x8C61;&#x4E86;&#xFF08;&#x5E95;&#x5C42;&#x662F;&#x57FA;&#x4E8E;C++&#x7684;<code>std::string</code>&#x5B9E;&#x73B0;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;unsafe&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    buf := NewMyBuffer(<span class="hljs-number">1024</span>)
+    <span class="hljs-keyword">defer</span> buf.Delete()
+
+    <span class="hljs-built_in">copy</span>(buf.Data(), []<span class="hljs-keyword">byte</span>(<span class="hljs-string">&quot;hello\x00&quot;</span>))
+    C.puts((*C.char)(unsafe.Pointer(&amp;(buf.Data()[<span class="hljs-number">0</span>]))))
+}
+</code></pre>
+<p>&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;1024&#x5B57;&#x8282;&#x5927;&#x5C0F;&#x7684;&#x7F13;&#x5B58;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;copy&#x51FD;&#x6570;&#x5411;&#x7F13;&#x5B58;&#x586B;&#x5145;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;C&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x4E32;&#x51FD;&#x6570;&#x5904;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x586B;&#x5145;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x9ED8;&#x8BA4;&#x7528;&apos;\0&apos;&#x8868;&#x793A;&#x5B57;&#x7B26;&#x4E32;&#x7ED3;&#x675F;&#x3002;&#x6700;&#x540E;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x7F13;&#x5B58;&#x7684;&#x5E95;&#x5C42;&#x6570;&#x636E;&#x6307;&#x9488;&#xFF0C;&#x7528;C&#x8BED;&#x8A00;&#x7684;puts&#x51FD;&#x6570;&#x6253;&#x5370;&#x7F13;&#x5B58;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<h2 id="282-go-&#x8BED;&#x8A00;&#x5BF9;&#x8C61;&#x5230;-c-&#x7C7B;">2.8.2 Go &#x8BED;&#x8A00;&#x5BF9;&#x8C61;&#x5230; C++ &#x7C7B;</h2>
+<p>&#x8981;&#x5B9E;&#x73B0;Go&#x8BED;&#x8A00;&#x5BF9;&#x8C61;&#x5230;C++&#x7C7B;&#x7684;&#x5305;&#x88C5;&#x9700;&#x8981;&#x7ECF;&#x8FC7;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;&#x9996;&#x5148;&#x662F;&#x5C06;Go&#x5BF9;&#x8C61;&#x6620;&#x5C04;&#x4E3A;&#x4E00;&#x4E2A;id&#xFF1B;&#x7136;&#x540E;&#x57FA;&#x4E8E;id&#x5BFC;&#x51FA;&#x5BF9;&#x5E94;&#x7684;C&#x63A5;&#x53E3;&#x51FD;&#x6570;&#xFF1B;&#x6700;&#x540E;&#x662F;&#x57FA;&#x4E8E;C&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x5305;&#x88C5;&#x4E3A;C++&#x5BF9;&#x8C61;&#x3002;</p>
+<h3 id="2821-&#x6784;&#x9020;&#x4E00;&#x4E2A;go&#x5BF9;&#x8C61;">2.8.2.1 &#x6784;&#x9020;&#x4E00;&#x4E2A;Go&#x5BF9;&#x8C61;</h3>
+<p>&#x4E3A;&#x4E86;&#x4FBF;&#x4E8E;&#x6F14;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x7528;Go&#x8BED;&#x8A00;&#x6784;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;Person&#x5BF9;&#x8C61;&#xFF0C;&#x6BCF;&#x4E2A;Person&#x53EF;&#x4EE5;&#x6709;&#x540D;&#x5B57;&#x548C;&#x5E74;&#x9F84;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">type</span> Person <span class="hljs-keyword">struct</span> {
+    name <span class="hljs-keyword">string</span>
+    age  <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">func</span> NewPerson(name <span class="hljs-keyword">string</span>, age <span class="hljs-keyword">int</span>) *Person {
+    <span class="hljs-keyword">return</span> &amp;Person{
+        name: name,
+        age:  age,
+    }
+}
+
+<span class="hljs-keyword">func</span> (p *Person) Set(name <span class="hljs-keyword">string</span>, age <span class="hljs-keyword">int</span>) {
+    p.name = name
+    p.age = age
+}
+
+<span class="hljs-keyword">func</span> (p *Person) Get() (name <span class="hljs-keyword">string</span>, age <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">return</span> p.name, p.age
+}
+</code></pre>
+<p>Person&#x5BF9;&#x8C61;&#x5982;&#x679C;&#x60F3;&#x8981;&#x5728;C/C++&#x4E2D;&#x8BBF;&#x95EE;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7;cgo&#x5BFC;&#x51FA;C&#x63A5;&#x53E3;&#x6765;&#x8BBF;&#x95EE;&#x3002;</p>
+<h3 id="2822-&#x5BFC;&#x51FA;c&#x63A5;&#x53E3;">2.8.2.2 &#x5BFC;&#x51FA;C&#x63A5;&#x53E3;</h3>
+<p>&#x6211;&#x4EEC;&#x524D;&#x9762;&#x4EFF;&#x7167;C++&#x5BF9;&#x8C61;&#x5230;C&#x63A5;&#x53E3;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E5F;&#x62BD;&#x8C61;&#x4E00;&#x7EC4;C&#x63A5;&#x53E3;&#x63CF;&#x8FF0;Person&#x5BF9;&#x8C61;&#x3002;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>person_capi.h</code>&#x6587;&#x4EF6;&#xFF0C;&#x5BF9;&#x5E94;C&#x63A5;&#x53E3;&#x89C4;&#x8303;&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// person_capi.h</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdint.h&gt;</span></span>
+
+<span class="hljs-keyword">typedef</span> <span class="hljs-keyword">uintptr_t</span> <span class="hljs-keyword">person_handle_t</span>;
+
+<span class="hljs-keyword">person_handle_t</span> person_new(<span class="hljs-keyword">char</span>* name, <span class="hljs-keyword">int</span> age);
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">person_delete</span><span class="hljs-params">(person_handle_t p)</span></span>;
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">person_set</span><span class="hljs-params">(person_handle_t p, <span class="hljs-keyword">char</span>* name, <span class="hljs-keyword">int</span> age)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">person_get_name</span><span class="hljs-params">(person_handle_t p, <span class="hljs-keyword">char</span>* buf, <span class="hljs-keyword">int</span> size)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">person_get_age</span><span class="hljs-params">(person_handle_t p)</span></span>;
+</code></pre>
+<p>&#x7136;&#x540E;&#x662F;&#x5728;Go&#x8BED;&#x8A00;&#x4E2D;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x7EC4;C&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x901A;&#x8FC7;CGO&#x5BFC;&#x51FA;C&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x90FD;&#x4E0D;&#x652F;&#x6301;const&#x4FEE;&#x9970;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x4E0D;&#x652F;&#x6301;&#x53EF;&#x53D8;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#x3002;&#x540C;&#x65F6;&#x5982;&#x5185;&#x5B58;&#x6A21;&#x5F0F;&#x4E00;&#x8282;&#x6240;&#x8FF0;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5728;C/C++&#x4E2D;&#x76F4;&#x63A5;&#x957F;&#x671F;&#x8BBF;&#x95EE;Go&#x5185;&#x5B58;&#x5BF9;&#x8C61;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x524D;&#x4E00;&#x8282;&#x6240;&#x8BB2;&#x8FF0;&#x7684;&#x6280;&#x672F;&#x5C06;Go&#x5BF9;&#x8C61;&#x6620;&#x5C04;&#x4E3A;&#x4E00;&#x4E2A;&#x6574;&#x6570;id&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;<code>person_capi.go</code>&#x6587;&#x4EF6;&#xFF0C;&#x5BF9;&#x5E94;C&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// person_capi.go</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//#include &quot;./person_capi.h&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;unsafe&quot;</span>
+
+<span class="hljs-comment">//export person_new</span>
+<span class="hljs-keyword">func</span> person_new(name *C.char, age C.<span class="hljs-keyword">int</span>) C.person_handle_t {
+    id := NewObjectId(NewPerson(C.GoString(name), <span class="hljs-keyword">int</span>(age)))
+    <span class="hljs-keyword">return</span> C.person_handle_t(id)
+}
+
+<span class="hljs-comment">//export person_delete</span>
+<span class="hljs-keyword">func</span> person_delete(h C.person_handle_t) {
+    ObjectId(h).Free()
+}
+
+<span class="hljs-comment">//export person_set</span>
+<span class="hljs-keyword">func</span> person_set(h C.person_handle_t, name *C.char, age C.<span class="hljs-keyword">int</span>) {
+    p := ObjectId(h).Get().(*Person)
+    p.Set(C.GoString(name), <span class="hljs-keyword">int</span>(age))
+}
+
+<span class="hljs-comment">//export person_get_name</span>
+<span class="hljs-keyword">func</span> person_get_name(h C.person_handle_t, buf *C.char, size C.<span class="hljs-keyword">int</span>) *C.char {
+    p := ObjectId(h).Get().(*Person)
+    name, _ := p.Get()
+
+    n := <span class="hljs-keyword">int</span>(size) - <span class="hljs-number">1</span>
+    bufSlice := ((*[<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">31</span>]<span class="hljs-keyword">byte</span>)(unsafe.Pointer(buf)))[<span class="hljs-number">0</span>:n:n]
+    n = <span class="hljs-built_in">copy</span>(bufSlice, []<span class="hljs-keyword">byte</span>(name))
+    bufSlice[n] = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">return</span> buf
+}
+
+<span class="hljs-comment">//export person_get_age</span>
+<span class="hljs-keyword">func</span> person_get_age(h C.person_handle_t) C.<span class="hljs-keyword">int</span> {
+    p := ObjectId(h).Get().(*Person)
+    _, age := p.Get()
+    <span class="hljs-keyword">return</span> C.<span class="hljs-keyword">int</span>(age)
+}
+</code></pre>
+<p>&#x5728;&#x521B;&#x5EFA;Go&#x5BF9;&#x8C61;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;NewObjectId&#x5C06;Go&#x5BF9;&#x5E94;&#x6620;&#x5C04;&#x4E3A;id&#x3002;&#x7136;&#x540E;&#x5C06;id&#x5F3A;&#x5236;&#x8F6C;&#x4E49;&#x4E3A;person_handle_t&#x7C7B;&#x578B;&#x8FD4;&#x56DE;&#x3002;&#x5176;&#x5B83;&#x7684;&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x5219;&#x662F;&#x6839;&#x636E;person_handle_t&#x6240;&#x8868;&#x793A;&#x7684;id&#xFF0C;&#x8BA9;&#x6839;&#x636E;id&#x89E3;&#x6790;&#x51FA;&#x5BF9;&#x5E94;&#x7684;Go&#x5BF9;&#x8C61;&#x3002;</p>
+<h3 id="2823-&#x5C01;&#x88C5;c&#x5BF9;&#x8C61;">2.8.2.3 &#x5C01;&#x88C5;C++&#x5BF9;&#x8C61;</h3>
+<p>&#x6709;&#x4E86;C&#x63A5;&#x53E3;&#x4E4B;&#x540E;&#x5C01;&#x88C5;C++&#x5BF9;&#x8C61;&#x5C31;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x4E86;&#x3002;&#x5E38;&#x89C1;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;Person&#x7C7B;&#xFF0C;&#x91CC;&#x9762;&#x5305;&#x542B;&#x4E00;&#x4E2A;person_handle_t&#x7C7B;&#x578B;&#x7684;&#x6210;&#x5458;&#x5BF9;&#x5E94;&#x771F;&#x5B9E;&#x7684;Go&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x5728;Person&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x901A;&#x8FC7;C&#x63A5;&#x53E3;&#x521B;&#x5EFA;Go&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x6790;&#x6784;&#x51FD;&#x6570;&#x4E2D;&#x901A;&#x8FC7;C&#x63A5;&#x53E3;&#x91CA;&#x653E;Go&#x5BF9;&#x8C61;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x91C7;&#x7528;&#x8FD9;&#x79CD;&#x6280;&#x672F;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> {
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;./person_capi.h&quot;</span></span>
+}
+
+<span class="hljs-keyword">struct</span> Person {
+    <span class="hljs-keyword">person_handle_t</span> goobj_;
+
+    Person(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* name, <span class="hljs-keyword">int</span> age) {
+        <span class="hljs-keyword">this</span>-&gt;goobj_ = person_new((<span class="hljs-keyword">char</span>*)name, age);
+    }
+    ~Person() {
+        person_delete(<span class="hljs-keyword">this</span>-&gt;goobj_);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Set</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* name, <span class="hljs-keyword">int</span> age)</span> </span>{
+        person_set(<span class="hljs-keyword">this</span>-&gt;goobj_, name, age);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">GetName</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* buf, <span class="hljs-keyword">int</span> size)</span> </span>{
+        <span class="hljs-keyword">return</span> person_get_name(<span class="hljs-keyword">this</span>-&gt;goobj_ buf, size);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">GetAge</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> person_get_age(<span class="hljs-keyword">this</span>-&gt;goobj_);
+    }
+}
+</code></pre>
+<p>&#x5305;&#x88C5;&#x540E;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x666E;&#x901A;C++&#x7C7B;&#x90A3;&#x6837;&#x4F7F;&#x7528;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;person.h&quot;</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">auto</span> p = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;gopher&quot;</span>, <span class="hljs-number">10</span>);
+
+    <span class="hljs-keyword">char</span> buf[<span class="hljs-number">64</span>];
+    <span class="hljs-keyword">char</span>* name = p-&gt;GetName(buf, <span class="hljs-keyword">sizeof</span>(buf)<span class="hljs-number">-1</span>);
+    <span class="hljs-keyword">int</span> age = p-&gt;GetAge();
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%s, %d years old.\n&quot;</span>, name, age);
+    <span class="hljs-keyword">delete</span> p;
+
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<h3 id="2824-&#x5C01;&#x88C5;c&#x5BF9;&#x8C61;&#x6539;&#x8FDB;">2.8.2.4 &#x5C01;&#x88C5;C++&#x5BF9;&#x8C61;&#x6539;&#x8FDB;</h3>
+<p>&#x5728;&#x524D;&#x9762;&#x7684;&#x5C01;&#x88C5;C++&#x5BF9;&#x8C61;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x6BCF;&#x6B21;&#x901A;&#x8FC7;new&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Person&#x5B9E;&#x4F8B;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E24;&#x6B21;&#x5185;&#x5B58;&#x5206;&#x914D;&#xFF1A;&#x4E00;&#x6B21;&#x662F;&#x9488;&#x5BF9;C++&#x7248;&#x672C;&#x7684;Person&#xFF0C;&#x518D;&#x4E00;&#x6B21;&#x662F;&#x9488;&#x5BF9;Go&#x8BED;&#x8A00;&#x7248;&#x672C;&#x7684;Person&#x3002;&#x5176;&#x5B9E;C++&#x7248;&#x672C;&#x7684;Person&#x5185;&#x90E8;&#x53EA;&#x6709;&#x4E00;&#x4E2A;person_handle_t&#x7C7B;&#x578B;&#x7684;id&#xFF0C;&#x7528;&#x4E8E;&#x6620;&#x5C04;Go&#x5BF9;&#x8C61;&#x3002;&#x6211;&#x4EEC;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x5C06;person_handle_t&#x76F4;&#x63A5;&#x5F53;&#x4E2D;C++&#x5BF9;&#x8C61;&#x6765;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x65F6;&#x6539;&#x8FDB;&#x540E;&#x7684;&#x5305;&#x88C5;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> {
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;./person_capi.h&quot;</span></span>
+}
+
+<span class="hljs-keyword">struct</span> Person {
+    <span class="hljs-function"><span class="hljs-keyword">static</span> Person* <span class="hljs-title">New</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* name, <span class="hljs-keyword">int</span> age)</span> </span>{
+        <span class="hljs-keyword">return</span> (Person*)person_new((<span class="hljs-keyword">char</span>*)name, age);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Delete</span><span class="hljs-params">()</span> </span>{
+        person_delete(<span class="hljs-keyword">person_handle_t</span>(<span class="hljs-keyword">this</span>));
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Set</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* name, <span class="hljs-keyword">int</span> age)</span> </span>{
+        person_set(<span class="hljs-keyword">person_handle_t</span>(<span class="hljs-keyword">this</span>), name, age);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">char</span>* <span class="hljs-title">GetName</span><span class="hljs-params">(<span class="hljs-keyword">char</span>* buf, <span class="hljs-keyword">int</span> size)</span> </span>{
+        <span class="hljs-keyword">return</span> person_get_name(<span class="hljs-keyword">person_handle_t</span>(<span class="hljs-keyword">this</span>), buf, size);
+    }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">GetAge</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> person_get_age(<span class="hljs-keyword">person_handle_t</span>(<span class="hljs-keyword">this</span>));
+    }
+};
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5728;Person&#x7C7B;&#x4E2D;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x53EB;New&#x9759;&#x6001;&#x6210;&#x5458;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x65B0;&#x7684;Person&#x5B9E;&#x4F8B;&#x3002;&#x5728;New&#x51FD;&#x6570;&#x4E2D;&#x901A;&#x8FC7;&#x8C03;&#x7528;person_new&#x6765;&#x521B;&#x5EFA;Person&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x662F;<code>person_handle_t</code>&#x7C7B;&#x578B;&#x7684;id&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5176;&#x5F3A;&#x5236;&#x8F6C;&#x578B;&#x4F5C;&#x4E3A;<code>Person*</code>&#x7C7B;&#x578B;&#x6307;&#x9488;&#x8FD4;&#x56DE;&#x3002;&#x5728;&#x5176;&#x5B83;&#x7684;&#x6210;&#x5458;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5C06;this&#x6307;&#x9488;&#x518D;&#x53CD;&#x5411;&#x8F6C;&#x578B;&#x4E3A;<code>person_handle_t</code>&#x7C7B;&#x578B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;C&#x63A5;&#x53E3;&#x8C03;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5230;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x8FBE;&#x5230;&#x4E86;&#x5C06;Go&#x5BF9;&#x8C61;&#x5BFC;&#x51FA;&#x4E3A;C&#x63A5;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x57FA;&#x4E8E;C&#x63A5;&#x53E3;&#x518D;&#x5305;&#x88C5;&#x4E3A;C++&#x5BF9;&#x8C61;&#x4EE5;&#x4FBF;&#x4E8E;&#x4F7F;&#x7528;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
+<h2 id="283-&#x5F7B;&#x5E95;&#x89E3;&#x653E;c&#x7684;this&#x6307;&#x9488;">2.8.3 &#x5F7B;&#x5E95;&#x89E3;&#x653E;C++&#x7684;this&#x6307;&#x9488;</h2>
+<p>&#x719F;&#x6089;Go&#x8BED;&#x8A00;&#x7684;&#x7528;&#x6CD5;&#x4F1A;&#x53D1;&#x73B0;Go&#x8BED;&#x8A00;&#x4E2D;&#x65B9;&#x6CD5;&#x662F;&#x7ED1;&#x5B9A;&#x5230;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x57FA;&#x4E8E;int&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Int&#x7C7B;&#x578B;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Int <span class="hljs-keyword">int</span>
+
+<span class="hljs-keyword">func</span> (p Int) Twice() <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">int</span>(p)*<span class="hljs-number">2</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> x = Int(<span class="hljs-number">42</span>)
+    fmt.Println(<span class="hljs-keyword">int</span>(x))
+    fmt.Println(x.Twice())
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x6539;&#x53D8;&#x539F;&#x6709;&#x6570;&#x636E;&#x5E95;&#x5C42;&#x5185;&#x5B58;&#x7ED3;&#x6784;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x81EA;&#x7531;&#x5207;&#x6362;int&#x548C;Int&#x7C7B;&#x578B;&#x6765;&#x4F7F;&#x7528;&#x53D8;&#x91CF;&#x3002;</p>
+<p>&#x800C;&#x5728;C++&#x4E2D;&#x8981;&#x5B9E;&#x73B0;&#x7C7B;&#x4F3C;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x4E00;&#x822C;&#x4F1A;&#x91C7;&#x7528;&#x4EE5;&#x4E0B;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Int {
+    <span class="hljs-keyword">int</span> v_;
+
+    Int(v <span class="hljs-keyword">int</span>) { <span class="hljs-keyword">this</span>.v_ = v; }
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Twice</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span></span>{ <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.v_*<span class="hljs-number">2</span>; }
+};
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-function">Int <span class="hljs-title">v</span><span class="hljs-params">(<span class="hljs-number">42</span>)</span></span>;
+
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, v); <span class="hljs-comment">// error</span>
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, v.Twice());
+}
+</code></pre>
+<p>&#x65B0;&#x5305;&#x88C5;&#x540E;&#x7684;Int&#x7C7B;&#x867D;&#x7136;&#x589E;&#x52A0;&#x4E86;Twice&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x5931;&#x53BB;&#x4E86;&#x81EA;&#x7531;&#x8F6C;&#x56DE;int&#x7C7B;&#x578B;&#x7684;&#x6743;&#x5229;&#x3002;&#x8FD9;&#x65F6;&#x5019;&#x4E0D;&#x4EC5;&#x8FDE;printf&#x90FD;&#x65E0;&#x6CD5;&#x8F93;&#x51FA;Int&#x672C;&#x8EAB;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x4E14;&#x4E5F;&#x5931;&#x53BB;&#x4E86;int&#x7C7B;&#x578B;&#x8FD0;&#x7B97;&#x7684;&#x6240;&#x6709;&#x7279;&#x6027;&#x3002;&#x8FD9;&#x5C31;&#x662F;C++&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x90AA;&#x6076;&#x4E4B;&#x5904;&#xFF1A;&#x4EE5;&#x5931;&#x53BB;&#x539F;&#x6709;&#x7684;&#x4E00;&#x5207;&#x7279;&#x6027;&#x7684;&#x4EE3;&#x4EF7;&#x6362;&#x53D6;class&#x7684;&#x65BD;&#x820D;&#x3002;</p>
+<p>&#x9020;&#x6210;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x6839;&#x6E90;&#x662F;C++&#x4E2D;this&#x88AB;&#x56FA;&#x5B9A;&#x4E3A;class&#x7684;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x4E86;&#x3002;&#x6211;&#x4EEC;&#x91CD;&#x65B0;&#x56DE;&#x987E;&#x4E0B;this&#x5728;Go&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x672C;&#x8D28;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (this Int) Twice() <span class="hljs-keyword">int</span>
+<span class="hljs-keyword">func</span> Int_Twice(this Int) <span class="hljs-keyword">int</span>
+</code></pre>
+<p>&#x5728;Go&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x548C;this&#x6709;&#x7740;&#x76F8;&#x4F3C;&#x529F;&#x80FD;&#x7684;&#x7C7B;&#x578B;&#x63A5;&#x6536;&#x8005;&#x53C2;&#x6570;&#x5176;&#x5B9E;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x81EA;&#x7531;&#x9009;&#x62E9;&#x503C;&#x6216;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4EE5;C&#x8BED;&#x8A00;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x601D;&#x8003;&#xFF0C;this&#x4E5F;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;<code>void*</code>&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x968F;&#x610F;&#x81EA;&#x7531;&#x5730;&#x5C06;this&#x8F6C;&#x6362;&#x4E3A;&#x5176;&#x5B83;&#x7C7B;&#x578B;&#x3002;</p>
+<pre><code class="lang-c++"><span class="hljs-keyword">struct</span> Int {
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Twice</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span>* p = (<span class="hljs-keyword">int</span>*)(<span class="hljs-keyword">this</span>);
+        <span class="hljs-keyword">return</span> (*p) * <span class="hljs-number">2</span>;
+    }
+};
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">int</span> x = <span class="hljs-number">42</span>;
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, x);
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, ((Int*)(&amp;x))-&gt;Twice());
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C06;int&#x7C7B;&#x578B;&#x6307;&#x9488;&#x5F3A;&#x5236;&#x8F6C;&#x4E3A;Int&#x7C7B;&#x578B;&#x6307;&#x9488;&#xFF0C;&#x4EE3;&#x66FF;&#x901A;&#x8FC7;&#x9ED8;&#x8BA4;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x540E;new&#x6765;&#x6784;&#x9020;Int&#x5BF9;&#x8C61;&#x3002;
+&#x5728;Twice&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x4EE5;&#x76F8;&#x53CD;&#x7684;&#x64CD;&#x4F5C;&#x5C06;this&#x6307;&#x9488;&#x8F6C;&#x56DE;int&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x51FA;&#x539F;&#x6709;&#x7684;int&#x7C7B;&#x578B;&#x7684;&#x503C;&#x4E86;&#x3002;
+&#x8FD9;&#x65F6;&#x5019;Int&#x7C7B;&#x578B;&#x53EA;&#x662F;&#x7F16;&#x8BD1;&#x65F6;&#x7684;&#x4E00;&#x4E2A;&#x58F3;&#x5B50;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5360;&#x7528;&#x989D;&#x5916;&#x7684;&#x7A7A;&#x95F4;&#x3002;</p>
+<p>&#x56E0;&#x6B64;C++&#x7684;&#x65B9;&#x6CD5;&#x5176;&#x5B9E;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x666E;&#x901A;&#x975E; class &#x7C7B;&#x578B;&#xFF0C;C++&#x5230;&#x666E;&#x901A;&#x6210;&#x5458;&#x51FD;&#x6570;&#x5176;&#x5B9E;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7ED1;&#x5B9A;&#x5230;&#x7C7B;&#x578B;&#x7684;&#x3002;
+&#x53EA;&#x6709;&#x7EAF;&#x865A;&#x65B9;&#x6CD5;&#x662F;&#x7ED1;&#x5B9A;&#x5230;&#x5BF9;&#x8C61;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x63A5;&#x53E3;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch2-07-memory.html" class="navigation navigation-prev " aria-label="Previous page: 2.7 CGO内存模型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch2-09-static-shared-lib.html" class="navigation navigation-next " aria-label="Next page: 2.9 静态库和动态库">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.8 C++类包装","level":"1.3.8","depth":2,"next":{"title":"2.9 静态库和动态库","level":"1.3.9","depth":2,"path":"ch2-cgo/ch2-09-static-shared-lib.md","ref":"ch2-cgo/ch2-09-static-shared-lib.md","articles":[]},"previous":{"title":"2.7 CGO内存模型","level":"1.3.7","depth":2,"path":"ch2-cgo/ch2-07-memory.md","ref":"ch2-cgo/ch2-07-memory.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go语言高级编程","language":"zh-hans","gitbook":"3.x","description":"Go语言高级编程"},"file":{"path":"ch2-cgo/ch2-08-class.md","mtime":"2018-12-17T09:24:54.896Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T13:21:40.542Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

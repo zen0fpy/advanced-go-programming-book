@@ -1,0 +1,1208 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.2 CGO基础 · Go语言高级编程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch2-03-cgo-types.html" />
+    
+    
+    <link rel="prev" href="ch2-01-hello-cgo.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch1-basic/readme.html">
+            
+                <a href="../ch1-basic/readme.html">
+            
+                    
+                    第1章 语言基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch1-basic/ch1-01-genesis.html">
+            
+                <a href="../ch1-basic/ch1-01-genesis.html">
+            
+                    
+                    1.1 Go语言创世纪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                <a href="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                    
+                    1.2 Hello, World 的革命
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                <a href="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                    
+                    1.3 数组、字符串和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                <a href="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                    
+                    1.4 函数、方法和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch1-basic/ch1-05-mem.html">
+            
+                <a href="../ch1-basic/ch1-05-mem.html">
+            
+                    
+                    1.5 面向并发的内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch1-basic/ch1-06-goroutine.html">
+            
+                <a href="../ch1-basic/ch1-06-goroutine.html">
+            
+                    
+                    1.6 常见的并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                <a href="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                    
+                    1.7 错误和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../ch1-basic/ch1-08-ext.html">
+            
+                <a href="../ch1-basic/ch1-08-ext.html">
+            
+                    
+                    1.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    第2章 CGO编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="ch2-01-hello-cgo.html">
+            
+                <a href="ch2-01-hello-cgo.html">
+            
+                    
+                    2.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="ch2-02-basic.html">
+            
+                <a href="ch2-02-basic.html">
+            
+                    
+                    2.2 CGO基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="ch2-03-cgo-types.html">
+            
+                <a href="ch2-03-cgo-types.html">
+            
+                    
+                    2.3 类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="ch2-04-func.html">
+            
+                <a href="ch2-04-func.html">
+            
+                    
+                    2.4 函数调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="ch2-05-internal.html">
+            
+                <a href="ch2-05-internal.html">
+            
+                    
+                    2.5 内部机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="ch2-06-qsort.html">
+            
+                <a href="ch2-06-qsort.html">
+            
+                    
+                    2.6 实战: 封装qsort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="ch2-07-memory.html">
+            
+                <a href="ch2-07-memory.html">
+            
+                    
+                    2.7 CGO内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="ch2-08-class.html">
+            
+                <a href="ch2-08-class.html">
+            
+                    
+                    2.8 C++类包装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="ch2-09-static-shared-lib.html">
+            
+                <a href="ch2-09-static-shared-lib.html">
+            
+                    
+                    2.9 静态库和动态库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="ch2-10-link.html">
+            
+                <a href="ch2-10-link.html">
+            
+                    
+                    2.10 编译和链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="ch2-11-ext.html">
+            
+                <a href="ch2-11-ext.html">
+            
+                    
+                    2.11 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch3-asm/readme.html">
+            
+                <a href="../ch3-asm/readme.html">
+            
+                    
+                    第3章 汇编语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch3-asm/ch3-01-basic.html">
+            
+                <a href="../ch3-asm/ch3-01-basic.html">
+            
+                    
+                    3.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch3-asm/ch3-02-arch.html">
+            
+                <a href="../ch3-asm/ch3-02-arch.html">
+            
+                    
+                    3.2 计算机结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch3-asm/ch3-03-const-and-var.html">
+            
+                <a href="../ch3-asm/ch3-03-const-and-var.html">
+            
+                    
+                    3.3 常量和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch3-asm/ch3-04-func.html">
+            
+                <a href="../ch3-asm/ch3-04-func.html">
+            
+                    
+                    3.4 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../ch3-asm/ch3-05-control-flow.html">
+            
+                <a href="../ch3-asm/ch3-05-control-flow.html">
+            
+                    
+                    3.5 控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../ch3-asm/ch3-06-func-again.html">
+            
+                <a href="../ch3-asm/ch3-06-func-again.html">
+            
+                    
+                    3.6 再论函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../ch3-asm/ch3-07-hack-asm.html">
+            
+                <a href="../ch3-asm/ch3-07-hack-asm.html">
+            
+                    
+                    3.7 汇编语言的威力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                <a href="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                    
+                    3.8 例子：Goroutine ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../ch3-asm/ch3-09-debug.html">
+            
+                <a href="../ch3-asm/ch3-09-debug.html">
+            
+                    
+                    3.9 Delve调试器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../ch3-asm/ch3-10-ext.html">
+            
+                <a href="../ch3-asm/ch3-10-ext.html">
+            
+                    
+                    3.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch4-rpc/readme.html">
+            
+                <a href="../ch4-rpc/readme.html">
+            
+                    
+                    第4章 RPC和Protobuf
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                <a href="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                    
+                    4.1 RPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                <a href="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                    
+                    4.2 Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                    
+                    4.3 玩转RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch4-rpc/ch4-04-grpc.html">
+            
+                <a href="../ch4-rpc/ch4-04-grpc.html">
+            
+                    
+                    4.4 gRPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                    
+                    4.5 gRPC进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                <a href="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                    
+                    4.6 gRPC和Protobuf扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ch4-rpc/ch4-07-pbgo.html">
+            
+                <a href="../ch4-rpc/ch4-07-pbgo.html">
+            
+                    
+                    4.7 pbgo: 基于Protobuf的框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                <a href="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                    
+                    4.8 grpcurl工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ch4-rpc/ch4-09-ext.html">
+            
+                <a href="../ch4-rpc/ch4-09-ext.html">
+            
+                    
+                    4.9 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch5-web/readme.html">
+            
+                <a href="../ch5-web/readme.html">
+            
+                    
+                    第5章 Go和Web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch5-web/ch5-01-introduction.html">
+            
+                <a href="../ch5-web/ch5-01-introduction.html">
+            
+                    
+                    5.1 Web开发简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch5-web/ch5-02-router.html">
+            
+                <a href="../ch5-web/ch5-02-router.html">
+            
+                    
+                    5.2 请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch5-web/ch5-03-middleware.html">
+            
+                <a href="../ch5-web/ch5-03-middleware.html">
+            
+                    
+                    5.3 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch5-web/ch5-04-validator.html">
+            
+                <a href="../ch5-web/ch5-04-validator.html">
+            
+                    
+                    5.4 请求校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../ch5-web/ch5-05-database.html">
+            
+                <a href="../ch5-web/ch5-05-database.html">
+            
+                    
+                    5.5 和数据库打交道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../ch5-web/ch5-06-ratelimit.html">
+            
+                <a href="../ch5-web/ch5-06-ratelimit.html">
+            
+                    
+                    5.6 服务流量限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                <a href="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                    
+                    5.7 大型Web项目分层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../ch5-web/ch5-08-interface-and-web.html">
+            
+                <a href="../ch5-web/ch5-08-interface-and-web.html">
+            
+                    
+                    5.8 接口和表驱动开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../ch5-web/ch5-09-gated-launch.html">
+            
+                <a href="../ch5-web/ch5-09-gated-launch.html">
+            
+                    
+                    5.9 灰度发布和A/B测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../ch5-web/ch5-10-ext.html">
+            
+                <a href="../ch5-web/ch5-10-ext.html">
+            
+                    
+                    5.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch6-cloud/readme.html">
+            
+                <a href="../ch6-cloud/readme.html">
+            
+                    
+                    第6章 分布式系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch6-cloud/ch6-01-dist-id.html">
+            
+                <a href="../ch6-cloud/ch6-01-dist-id.html">
+            
+                    
+                    6.1 分布式 id 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch6-cloud/ch6-02-lock.html">
+            
+                <a href="../ch6-cloud/ch6-02-lock.html">
+            
+                    
+                    6.2 分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch6-cloud/ch6-03-delay-job.html">
+            
+                <a href="../ch6-cloud/ch6-03-delay-job.html">
+            
+                    
+                    6.3 延时任务系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch6-cloud/ch6-04-search-engine.html">
+            
+                <a href="../ch6-cloud/ch6-04-search-engine.html">
+            
+                    
+                    6.4 分布式搜索引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../ch6-cloud/ch6-05-load-balance.html">
+            
+                <a href="../ch6-cloud/ch6-05-load-balance.html">
+            
+                    
+                    6.5 负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../ch6-cloud/ch6-06-config.html">
+            
+                <a href="../ch6-cloud/ch6-06-config.html">
+            
+                    
+                    6.6 分布式配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../ch6-cloud/ch6-07-crawler.html">
+            
+                <a href="../ch6-cloud/ch6-07-crawler.html">
+            
+                    
+                    6.7 分布式爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../ch6-cloud/ch6-08-ext.html">
+            
+                <a href="../ch6-cloud/ch6-08-ext.html">
+            
+                    
+                    6.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/readme.html">
+            
+                <a href="../appendix/readme.html">
+            
+                    
+                    附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/appendix-a-trap.html">
+            
+                <a href="../appendix/appendix-a-trap.html">
+            
+                    
+                    附录A: Go语言常见坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/appendix-b-gems.html">
+            
+                <a href="../appendix/appendix-b-gems.html">
+            
+                    
+                    附录B: 有趣的代码片段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/appendix-c-author.html">
+            
+                <a href="../appendix/appendix-c-author.html">
+            
+                    
+                    附录C: 作者简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.2 CGO基础</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="22-cgo&#x57FA;&#x7840;">2.2 CGO&#x57FA;&#x7840;</h1>
+<p>&#x8981;&#x4F7F;&#x7528;CGO&#x7279;&#x6027;&#xFF0C;&#x9700;&#x8981;&#x5B89;&#x88C5;C/C++&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x94FE;&#xFF0C;&#x5728;macOS&#x548C;Linux&#x4E0B;&#x662F;&#x8981;&#x5B89;&#x88C5;GCC&#xFF0C;&#x5728;windows&#x4E0B;&#x662F;&#x9700;&#x8981;&#x5B89;&#x88C5;MinGW&#x5DE5;&#x5177;&#x3002;&#x540C;&#x65F6;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x73AF;&#x5883;&#x53D8;&#x91CF;<code>CGO_ENABLED</code>&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;1&#xFF0C;&#x8FD9;&#x8868;&#x793A;CGO&#x662F;&#x88AB;&#x542F;&#x7528;&#x7684;&#x72B6;&#x6001;&#x3002;&#x5728;&#x672C;&#x5730;&#x6784;&#x5EFA;&#x65F6;<code>CGO_ENABLED</code>&#x9ED8;&#x8BA4;&#x662F;&#x542F;&#x7528;&#x7684;&#xFF0C;&#x5F53;&#x4EA4;&#x53C9;&#x6784;&#x5EFA;&#x65F6;CGO&#x9ED8;&#x8BA4;&#x662F;&#x7981;&#x6B62;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x8981;&#x4EA4;&#x53C9;&#x6784;&#x5EFA;ARM&#x73AF;&#x5883;&#x8FD0;&#x884C;&#x7684;Go&#x7A0B;&#x5E8F;&#xFF0C;&#x9700;&#x8981;&#x624B;&#x5DE5;&#x8BBE;&#x7F6E;&#x597D;C/C++&#x4EA4;&#x53C9;&#x6784;&#x5EFA;&#x7684;&#x5DE5;&#x5177;&#x94FE;&#xFF0C;&#x540C;&#x65F6;&#x5F00;&#x542F;<code>CGO_ENABLED</code>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;&#x7136;&#x540E;&#x901A;&#x8FC7;<code>import &quot;C&quot;</code>&#x8BED;&#x53E5;&#x542F;&#x7528;CGO&#x7279;&#x6027;&#x3002;</p>
+<h2 id="221-import-c&#x8BED;&#x53E5;">2.2.1 <code>import &quot;C&quot;</code>&#x8BED;&#x53E5;</h2>
+<p>&#x5982;&#x679C;&#x5728;Go&#x4EE3;&#x7801;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;<code>import &quot;C&quot;</code>&#x8BED;&#x53E5;&#x5219;&#x8868;&#x793A;&#x4F7F;&#x7528;&#x4E86;CGO&#x7279;&#x6027;&#xFF0C;&#x7D27;&#x8DDF;&#x5728;&#x8FD9;&#x884C;&#x8BED;&#x53E5;&#x524D;&#x9762;&#x7684;&#x6CE8;&#x91CA;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x8BED;&#x6CD5;&#xFF0C;&#x91CC;&#x9762;&#x5305;&#x542B;&#x7684;&#x662F;&#x6B63;&#x5E38;&#x7684;C&#x8BED;&#x8A00;&#x4EE3;&#x7801;&#x3002;&#x5F53;&#x786E;&#x4FDD;CGO&#x542F;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E2D;&#x5305;&#x542B;C/C++&#x5BF9;&#x5E94;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code class="lang-Go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">/*
+#include &lt;stdio.h&gt;
+
+void printint(int v) {
+    printf(&quot;printint: %d\n&quot;, v);
+}
+*/</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    v := <span class="hljs-number">42</span>
+    C.printint(C.<span class="hljs-keyword">int</span>(v))
+}
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x5C55;&#x793A;&#x4E86;cgo&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x3002;&#x5F00;&#x5934;&#x7684;&#x6CE8;&#x91CA;&#x4E2D;&#x5199;&#x4E86;&#x8981;&#x8C03;&#x7528;&#x7684;C&#x51FD;&#x6570;&#x548C;&#x76F8;&#x5173;&#x7684;&#x5934;&#x6587;&#x4EF6;&#xFF0C;&#x5934;&#x6587;&#x4EF6;&#x88AB;include&#x4E4B;&#x540E;&#x91CC;&#x9762;&#x7684;&#x6240;&#x6709;&#x7684;C&#x8BED;&#x8A00;&#x5143;&#x7D20;&#x90FD;&#x4F1A;&#x88AB;&#x52A0;&#x5165;&#x5230;&#x201D;C&#x201D;&#x8FD9;&#x4E2A;&#x865A;&#x62DF;&#x7684;&#x5305;&#x4E2D;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;import &quot;C&quot;&#x5BFC;&#x5165;&#x8BED;&#x53E5;&#x9700;&#x8981;&#x5355;&#x72EC;&#x4E00;&#x884C;&#xFF0C;&#x4E0D;&#x80FD;&#x4E0E;&#x5176;&#x4ED6;&#x5305;&#x4E00;&#x540C;import&#x3002;&#x5411;C&#x51FD;&#x6570;&#x4F20;&#x9012;&#x53C2;&#x6570;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8F6C;&#x5316;&#x6210;&#x5BF9;&#x5E94;C&#x8BED;&#x8A00;&#x7C7B;&#x578B;&#x4F20;&#x9012;&#x5C31;&#x53EF;&#x4EE5;&#x3002;&#x5982;&#x4E0A;&#x4F8B;&#x4E2D;<code>C.int(v)</code>&#x7528;&#x4E8E;&#x5C06;&#x4E00;&#x4E2A;Go&#x4E2D;&#x7684;int&#x7C7B;&#x578B;&#x503C;&#x5F3A;&#x5236;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x8F6C;&#x5316;&#x4E3A;C&#x8BED;&#x8A00;&#x4E2D;&#x7684;int&#x7C7B;&#x578B;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;C&#x8BED;&#x8A00;&#x5B9A;&#x4E49;&#x7684;printint&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x6253;&#x5370;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;Go&#x662F;&#x5F3A;&#x7C7B;&#x578B;&#x8BED;&#x8A00;&#xFF0C;&#x6240;&#x4EE5;cgo&#x4E2D;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x4E0E;&#x58F0;&#x660E;&#x7684;&#x7C7B;&#x578B;&#x5B8C;&#x5168;&#x4E00;&#x81F4;&#xFF0C;&#x800C;&#x4E14;&#x4F20;&#x9012;&#x524D;&#x5FC5;&#x987B;&#x7528;&#x201D;C&#x201D;&#x4E2D;&#x7684;&#x8F6C;&#x5316;&#x51FD;&#x6570;&#x8F6C;&#x6362;&#x6210;&#x5BF9;&#x5E94;&#x7684;C&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x4F20;&#x5165;Go&#x4E2D;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x540C;&#x65F6;&#x901A;&#x8FC7;&#x865A;&#x62DF;&#x7684;C&#x5305;&#x5BFC;&#x5165;&#x7684;C&#x8BED;&#x8A00;&#x7B26;&#x53F7;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x662F;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x5F00;&#x5934;&#xFF0C;&#x5B83;&#x4EEC;&#x4E0D;&#x53D7;Go&#x8BED;&#x8A00;&#x7684;&#x5BFC;&#x51FA;&#x89C4;&#x5219;&#x7EA6;&#x675F;&#x3002;</p>
+<p>cgo&#x5C06;&#x5F53;&#x524D;&#x5305;&#x5F15;&#x7528;&#x7684;C&#x8BED;&#x8A00;&#x7B26;&#x53F7;&#x90FD;&#x653E;&#x5230;&#x4E86;&#x865A;&#x62DF;&#x7684;C&#x5305;&#x4E2D;&#xFF0C;&#x540C;&#x65F6;&#x5F53;&#x524D;&#x5305;&#x4F9D;&#x8D56;&#x7684;&#x5176;&#x5B83;Go&#x8BED;&#x8A00;&#x5305;&#x5185;&#x90E8;&#x53EF;&#x80FD;&#x4E5F;&#x901A;&#x8FC7;cgo&#x5F15;&#x5165;&#x4E86;&#x76F8;&#x4F3C;&#x7684;&#x865A;&#x62DF;C&#x5305;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x540C;&#x7684;Go&#x8BED;&#x8A00;&#x5305;&#x5F15;&#x5165;&#x7684;&#x865A;&#x62DF;&#x7684;C&#x5305;&#x4E4B;&#x95F4;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x4E0D;&#x80FD;&#x901A;&#x7528;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x7EA6;&#x675F;&#x5BF9;&#x4E8E;&#x8981;&#x81EA;&#x5DF1;&#x6784;&#x9020;&#x4E00;&#x4E9B;cgo&#x8F85;&#x52A9;&#x51FD;&#x6570;&#x65F6;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;&#x4E00;&#x70B9;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5728;Go&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;C&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x6307;&#x9488;&#x5BF9;&#x5E94;&#x7684;CChar&#x7C7B;&#x578B;&#xFF0C;&#x7136;&#x540E;&#x589E;&#x52A0;&#x4E00;&#x4E2A;GoString&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;Go&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> cgo_helper
+
+<span class="hljs-comment">//#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">type</span> CChar C.char
+
+<span class="hljs-keyword">func</span> (p *CChar) GoString() <span class="hljs-keyword">string</span> {
+    <span class="hljs-keyword">return</span> C.GoString((*C.char)(p))
+}
+
+<span class="hljs-keyword">func</span> PrintCString(cs *C.char) {
+    C.puts(cs)
+}
+</code></pre>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x60F3;&#x5728;&#x5176;&#x5B83;&#x7684;Go&#x8BED;&#x8A00;&#x5305;&#x4E2D;&#x4E5F;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x8F85;&#x52A9;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//static const char* cs = &quot;hello&quot;;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;./cgo_helper&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    cgo_helper.PrintCString(C.cs)
+}
+</code></pre>
+<p>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x662F;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5F53;&#x524D;main&#x5305;&#x5F15;&#x5165;&#x7684;<code>C.cs</code>&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x5F53;&#x524D;<code>main</code>&#x5305;&#x7684;cgo&#x6784;&#x9020;&#x7684;&#x865A;&#x62DF;&#x7684;C&#x5305;&#x4E0B;&#x7684;<code>*char</code>&#x7C7B;&#x578B;&#xFF08;&#x5177;&#x4F53;&#x70B9;&#x662F;<code>*C.char</code>&#xFF0C;&#x66F4;&#x5177;&#x4F53;&#x70B9;&#x662F;<code>*main.C.char</code>&#xFF09;&#xFF0C;&#x5B83;&#x548C;cgo_helper&#x5305;&#x5F15;&#x5165;&#x7684;<code>*C.char</code>&#x7C7B;&#x578B;&#xFF08;&#x5177;&#x4F53;&#x70B9;&#x662F;<code>*cgo_helper.C.char</code>&#xFF09;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x5728;Go&#x8BED;&#x8A00;&#x4E2D;&#x65B9;&#x6CD5;&#x662F;&#x4F9D;&#x9644;&#x4E8E;&#x7C7B;&#x578B;&#x5B58;&#x5728;&#x7684;&#xFF0C;&#x4E0D;&#x540C;Go&#x5305;&#x4E2D;&#x5F15;&#x5165;&#x7684;&#x865A;&#x62DF;&#x7684;C&#x5305;&#x7684;&#x7C7B;&#x578B;&#x5374;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF08;<code>main.C</code>&#x4E0D;&#x7B49;<code>cgo_helper.C</code>&#xFF09;&#xFF0C;&#x8FD9;&#x5BFC;&#x81F4;&#x4ECE;&#x5B83;&#x4EEC;&#x5EF6;&#x4F38;&#x51FA;&#x6765;&#x7684;Go&#x7C7B;&#x578B;&#x4E5F;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x578B;&#xFF08;<code>*main.C.char</code>&#x4E0D;&#x7B49;<code>*cgo_helper.C.char</code>&#xFF09;&#xFF0C;&#x8FD9;&#x6700;&#x7EC8;&#x5BFC;&#x81F4;&#x4E86;&#x524D;&#x9762;&#x4EE3;&#x7801;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x6709;Go&#x8BED;&#x8A00;&#x4F7F;&#x7528;&#x7ECF;&#x9A8C;&#x7684;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x4F1A;&#x5EFA;&#x8BAE;&#x53C2;&#x6570;&#x8F6C;&#x578B;&#x540E;&#x518D;&#x4F20;&#x5165;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F3C;&#x4E4E;&#x4E5F;&#x662F;&#x4E0D;&#x53EF;&#x884C;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;<code>cgo_helper.PrintCString</code>&#x7684;&#x53C2;&#x6570;&#x662F;&#x5B83;&#x81EA;&#x8EAB;&#x5305;&#x5F15;&#x5165;&#x7684;<code>*C.char</code>&#x7C7B;&#x578B;&#xFF0C;&#x5728;&#x5916;&#x90E8;&#x662F;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x83B7;&#x53D6;&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x3002;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x4E00;&#x4E2A;&#x5305;&#x5982;&#x679C;&#x5728;&#x516C;&#x5F00;&#x7684;&#x63A5;&#x53E3;&#x4E2D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E86;<code>*C.char</code>&#x7B49;&#x7C7B;&#x4F3C;&#x7684;&#x865A;&#x62DF;C&#x5305;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x5176;&#x5B83;&#x7684;Go&#x5305;&#x662F;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x9664;&#x975E;&#x8FD9;&#x4E2A;Go&#x5305;&#x540C;&#x65F6;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;<code>*C.char</code>&#x7C7B;&#x578B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x8BF8;&#x591A;&#x56E0;&#x7D20;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x5728;go test&#x73AF;&#x5883;&#x76F4;&#x63A5;&#x6D4B;&#x8BD5;&#x8FD9;&#x4E9B;cgo&#x5BFC;&#x51FA;&#x7684;&#x7C7B;&#x578B;&#x4E5F;&#x4F1A;&#x6709;&#x76F8;&#x540C;&#x7684;&#x9650;&#x5236;&#x3002;</p>
+<!-- 测试代码；需要确实是否有问题 -->
+<h2 id="222-cgo&#x8BED;&#x53E5;">2.2.2 <code>#cgo</code>&#x8BED;&#x53E5;</h2>
+<p>&#x5728;<code>import &quot;C&quot;</code>&#x8BED;&#x53E5;&#x524D;&#x7684;&#x6CE8;&#x91CA;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>#cgo</code>&#x8BED;&#x53E5;&#x8BBE;&#x7F6E;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#x548C;&#x94FE;&#x63A5;&#x9636;&#x6BB5;&#x7684;&#x76F8;&#x5173;&#x53C2;&#x6570;&#x3002;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#x7684;&#x53C2;&#x6570;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;&#x76F8;&#x5173;&#x5B8F;&#x548C;&#x6307;&#x5B9A;&#x5934;&#x6587;&#x4EF6;&#x68C0;&#x7D22;&#x8DEF;&#x5F84;&#x3002;&#x94FE;&#x63A5;&#x9636;&#x6BB5;&#x7684;&#x53C2;&#x6570;&#x4E3B;&#x8981;&#x662F;&#x6307;&#x5B9A;&#x5E93;&#x6587;&#x4EF6;&#x68C0;&#x7D22;&#x8DEF;&#x5F84;&#x548C;&#x8981;&#x94FE;&#x63A5;&#x7684;&#x5E93;&#x6587;&#x4EF6;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// #cgo CFLAGS: -DPNG_DEBUG=1 -I./include</span>
+<span class="hljs-comment">// #cgo LDFLAGS: -L/usr/local/lib -lpng</span>
+<span class="hljs-comment">// #include &lt;png.h&gt;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;CFLAGS&#x90E8;&#x5206;&#xFF0C;<code>-D</code>&#x90E8;&#x5206;&#x5B9A;&#x4E49;&#x4E86;&#x5B8F;PNG_DEBUG&#xFF0C;&#x503C;&#x4E3A;1&#xFF1B;<code>-I</code>&#x5B9A;&#x4E49;&#x4E86;&#x5934;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x7684;&#x68C0;&#x7D22;&#x76EE;&#x5F55;&#x3002;LDFLAGS&#x90E8;&#x5206;&#xFF0C;<code>-L</code>&#x6307;&#x5B9A;&#x4E86;&#x94FE;&#x63A5;&#x65F6;&#x5E93;&#x6587;&#x4EF6;&#x68C0;&#x7D22;&#x76EE;&#x5F55;&#xFF0C;<code>-l</code>&#x6307;&#x5B9A;&#x4E86;&#x94FE;&#x63A5;&#x65F6;&#x9700;&#x8981;&#x94FE;&#x63A5;png&#x5E93;&#x3002;</p>
+<p>&#x56E0;&#x4E3A;C/C++&#x9057;&#x7559;&#x7684;&#x95EE;&#x9898;&#xFF0C;C&#x5934;&#x6587;&#x4EF6;&#x68C0;&#x7D22;&#x76EE;&#x5F55;&#x53EF;&#x4EE5;&#x662F;&#x76F8;&#x5BF9;&#x76EE;&#x5F55;&#xFF0C;&#x4F46;&#x662F;&#x5E93;&#x6587;&#x4EF6;&#x68C0;&#x7D22;&#x76EE;&#x5F55;&#x5219;&#x9700;&#x8981;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;&#x5728;&#x5E93;&#x6587;&#x4EF6;&#x7684;&#x68C0;&#x7D22;&#x76EE;&#x5F55;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>${SRCDIR}</code>&#x53D8;&#x91CF;&#x8868;&#x793A;&#x5F53;&#x524D;&#x5305;&#x76EE;&#x5F55;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1A;</p>
+<pre><code>// #cgo LDFLAGS: -L${SRCDIR}/libs -lfoo
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x94FE;&#x63A5;&#x65F6;&#x5C06;&#x88AB;&#x5C55;&#x5F00;&#x4E3A;&#xFF1A;</p>
+<pre><code>// #cgo LDFLAGS: -L/go/src/foo/libs -lfoo
+</code></pre><p><code>#cgo</code>&#x8BED;&#x53E5;&#x4E3B;&#x8981;&#x5F71;&#x54CD;CFLAGS&#x3001;CPPFLAGS&#x3001;CXXFLAGS&#x3001;FFLAGS&#x548C;LDFLAGS&#x51E0;&#x4E2A;&#x7F16;&#x8BD1;&#x5668;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;LDFLAGS&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x94FE;&#x63A5;&#x65F6;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x7684;&#x51E0;&#x4E2A;&#x53D8;&#x91CF;&#x7528;&#x4E8E;&#x6539;&#x53D8;&#x7F16;&#x8BD1;&#x9636;&#x6BB5;&#x7684;&#x6784;&#x5EFA;&#x53C2;&#x6570;(CFLAGS&#x7528;&#x4E8E;&#x9488;&#x5BF9;C&#x8BED;&#x8A00;&#x4EE3;&#x7801;&#x8BBE;&#x7F6E;&#x7F16;&#x8BD1;&#x53C2;&#x6570;)&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5728;cgo&#x73AF;&#x5883;&#x6DF7;&#x5408;&#x4F7F;&#x7528;C&#x548C;C++&#x7684;&#x7528;&#x6237;&#x6765;&#x8BF4;&#xFF0C;&#x53EF;&#x80FD;&#x6709;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#xFF1A;&#x5176;&#x4E2D;CFLAGS&#x5BF9;&#x5E94;C&#x8BED;&#x8A00;&#x7279;&#x6709;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x3001;CXXFLAGS&#x5BF9;&#x5E94;&#x662F;C++&#x7279;&#x6709;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x3001;CPPFLAGS&#x5219;&#x5BF9;&#x5E94;C&#x548C;C++&#x5171;&#x6709;&#x7684;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x3002;&#x4F46;&#x662F;&#x5728;&#x94FE;&#x63A5;&#x9636;&#x6BB5;&#xFF0C;C&#x548C;C++&#x7684;&#x94FE;&#x63A5;&#x9009;&#x9879;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x6709;C&#x548C;C++&#x8BED;&#x8A00;&#x7684;&#x533A;&#x522B;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x76F8;&#x540C;&#x7684;&#x3002;</p>
+<p><code>#cgo</code>&#x6307;&#x4EE4;&#x8FD8;&#x652F;&#x6301;&#x6761;&#x4EF6;&#x9009;&#x62E9;&#xFF0C;&#x5F53;&#x6EE1;&#x8DB3;&#x67D0;&#x4E2A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x6216;&#x67D0;&#x4E2A;CPU&#x67B6;&#x6784;&#x7C7B;&#x578B;&#x65F6;&#x540E;&#x9762;&#x7684;&#x7F16;&#x8BD1;&#x6216;&#x94FE;&#x63A5;&#x9009;&#x9879;&#x751F;&#x6548;&#x3002;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x662F;&#x5206;&#x522B;&#x9488;&#x5BF9;windows&#x548C;&#x975E;windows&#x4E0B;&#x5E73;&#x53F0;&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x94FE;&#x63A5;&#x9009;&#x9879;&#xFF1A;</p>
+<pre><code>// #cgo windows CFLAGS: -DX86=1
+// #cgo !windows LDFLAGS: -lm
+</code></pre><p>&#x5176;&#x4E2D;&#x5728;windows&#x5E73;&#x53F0;&#x4E0B;&#xFF0C;&#x7F16;&#x8BD1;&#x524D;&#x4F1A;&#x9884;&#x5B9A;&#x4E49;X86&#x5B8F;&#x4E3A;1&#xFF1B;&#x5728;&#x975E;widnows&#x5E73;&#x53F0;&#x4E0B;&#xFF0C;&#x5728;&#x94FE;&#x63A5;&#x9636;&#x6BB5;&#x4F1A;&#x8981;&#x6C42;&#x94FE;&#x63A5;math&#x6570;&#x5B66;&#x5E93;&#x3002;&#x8FD9;&#x79CD;&#x7528;&#x6CD5;&#x5BF9;&#x4E8E;&#x5728;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x4E0B;&#x53EA;&#x6709;&#x5C11;&#x6570;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x5DEE;&#x5F02;&#x7684;&#x573A;&#x666F;&#x6BD4;&#x8F83;&#x9002;&#x7528;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x7CFB;&#x7EDF;&#x4E0B;cgo&#x5BF9;&#x5E94;&#x7740;&#x4E0D;&#x540C;&#x7684;c&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5148;&#x4F7F;&#x7528;<code>#cgo</code>&#x6307;&#x4EE4;&#x5B9A;&#x4E49;&#x4E0D;&#x540C;&#x7684;C&#x8BED;&#x8A00;&#x7684;&#x5B8F;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x5B8F;&#x6765;&#x533A;&#x5206;&#x4E0D;&#x540C;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">/*
+#cgo windows CFLAGS: -DCGO_OS_WINDOWS=1
+#cgo darwin CFLAGS: -DCGO_OS_DARWIN=1
+#cgo linux CFLAGS: -DCGO_OS_LINUX=1
+
+#if defined(CGO_OS_WINDOWS)
+    const char* os = &quot;windows&quot;;
+#elif defined(CGO_OS_DARWIN)
+    static const char* os = &quot;darwin&quot;;
+#elif defined(CGO_OS_LINUX)
+    static const char* os = &quot;linux&quot;;
+#else
+#    error(unknown os)
+#endif
+*/</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-built_in">print</span>(C.GoString(C.os))
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;C&#x8BED;&#x8A00;&#x4E2D;&#x5E38;&#x7528;&#x7684;&#x6280;&#x672F;&#x6765;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#x4EE3;&#x7801;&#x3002;</p>
+<h2 id="223-build-tag-&#x6761;&#x4EF6;&#x7F16;&#x8BD1;">2.2.3 build tag &#x6761;&#x4EF6;&#x7F16;&#x8BD1;</h2>
+<p>build tag &#x662F;&#x5728;Go&#x6216;cgo&#x73AF;&#x5883;&#x4E0B;&#x7684;C/C++&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x7684;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x6CE8;&#x91CA;&#x3002;&#x6761;&#x4EF6;&#x7F16;&#x8BD1;&#x7C7B;&#x4F3C;&#x4E8E;&#x524D;&#x9762;&#x901A;&#x8FC7;<code>#cgo</code>&#x6307;&#x4EE4;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x5B9A;&#x4E49;&#x7684;&#x5B8F;&#xFF0C;&#x53EA;&#x6709;&#x5728;&#x5BF9;&#x5E94;&#x5E73;&#x53F0;&#x7684;&#x5B8F;&#x88AB;&#x5B9A;&#x4E49;&#x4E4B;&#x540E;&#x624D;&#x4F1A;&#x6784;&#x5EFA;&#x5BF9;&#x5E94;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x4F46;&#x662F;&#x901A;&#x8FC7;<code>#cgo</code>&#x6307;&#x4EE4;&#x5B9A;&#x4E49;&#x5B8F;&#x6709;&#x4E2A;&#x9650;&#x5236;&#xFF0C;&#x5B83;&#x53EA;&#x80FD;&#x662F;&#x57FA;&#x4E8E;Go&#x8BED;&#x8A00;&#x652F;&#x6301;&#x7684;windows&#x3001;darwin&#x548C;linux&#x7B49;&#x5DF2;&#x7ECF;&#x652F;&#x6301;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;DEBUG&#x6807;&#x5FD7;&#x7684;&#x5B8F;&#xFF0C;<code>#cgo</code>&#x6307;&#x4EE4;&#x5C31;&#x65E0;&#x80FD;&#x4E3A;&#x529B;&#x4E86;&#x3002;&#x800C;Go&#x8BED;&#x8A00;&#x63D0;&#x4F9B;&#x7684;build tag &#x6761;&#x4EF6;&#x7F16;&#x8BD1;&#x7279;&#x6027;&#x5219;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x505A;&#x5230;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#x53EA;&#x6709;&#x5728;&#x8BBE;&#x7F6E;debug&#x6784;&#x5EFA;&#x6807;&#x5FD7;&#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x6784;&#x5EFA;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// +build debug</span>
+
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">var</span> buildMode = <span class="hljs-string">&quot;debug&quot;</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x6784;&#x5EFA;&#xFF1A;</p>
+<pre><code>go build -tags=&quot;debug&quot;
+go build -tags=&quot;windows debug&quot;
+</code></pre><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>-tags</code>&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x591A;&#x4E2A;build&#x6807;&#x5FD7;&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7528;&#x7A7A;&#x683C;&#x5206;&#x9694;&#x3002;</p>
+<p>&#x5F53;&#x6709;&#x591A;&#x4E2A;build tag&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x591A;&#x4E2A;&#x6807;&#x5FD7;&#x901A;&#x8FC7;&#x903B;&#x8F91;&#x64CD;&#x4F5C;&#x7684;&#x89C4;&#x5219;&#x6765;&#x7EC4;&#x5408;&#x4F7F;&#x7528;&#x3002;&#x6BD4;&#x5982;&#x4EE5;&#x4E0B;&#x7684;&#x6784;&#x5EFA;&#x6807;&#x5FD7;&#x8868;&#x793A;&#x53EA;&#x6709;&#x5728;&#x201D;linux/386&#x201C;&#x6216;&#x201D;darwin&#x5E73;&#x53F0;&#x4E0B;&#x975E;cgo&#x73AF;&#x5883;&#x201C;&#x624D;&#x8FDB;&#x884C;&#x6784;&#x5EFA;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// +build linux,386 darwin,!cgo</span>
+</code></pre>
+<p>&#x5176;&#x4E2D;<code>linux,386</code>&#x4E2D;linux&#x548C;386&#x7528;&#x9017;&#x53F7;&#x94FE;&#x63A5;&#x8868;&#x793A;AND&#x7684;&#x610F;&#x601D;&#xFF1B;&#x800C;<code>linux,386</code>&#x548C;<code>darwin,!cgo</code>&#x4E4B;&#x95F4;&#x901A;&#x8FC7;&#x7A7A;&#x767D;&#x5206;&#x5272;&#x6765;&#x8868;&#x793A;OR&#x7684;&#x610F;&#x601D;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch2-01-hello-cgo.html" class="navigation navigation-prev " aria-label="Previous page: 2.1 快速入门">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch2-03-cgo-types.html" class="navigation navigation-next " aria-label="Next page: 2.3 类型转换">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.2 CGO基础","level":"1.3.2","depth":2,"next":{"title":"2.3 类型转换","level":"1.3.3","depth":2,"path":"ch2-cgo/ch2-03-cgo-types.md","ref":"ch2-cgo/ch2-03-cgo-types.md","articles":[]},"previous":{"title":"2.1 快速入门","level":"1.3.1","depth":2,"path":"ch2-cgo/ch2-01-hello-cgo.md","ref":"ch2-cgo/ch2-01-hello-cgo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go语言高级编程","language":"zh-hans","gitbook":"3.x","description":"Go语言高级编程"},"file":{"path":"ch2-cgo/ch2-02-basic.md","mtime":"2019-02-06T13:14:41.304Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T13:21:40.542Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1240 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.5 负载均衡 · Go语言高级编程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch6-06-config.html" />
+    
+    
+    <link rel="prev" href="ch6-04-search-engine.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch1-basic/readme.html">
+            
+                <a href="../ch1-basic/readme.html">
+            
+                    
+                    第1章 语言基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch1-basic/ch1-01-genesis.html">
+            
+                <a href="../ch1-basic/ch1-01-genesis.html">
+            
+                    
+                    1.1 Go语言创世纪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                <a href="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                    
+                    1.2 Hello, World 的革命
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                <a href="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                    
+                    1.3 数组、字符串和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                <a href="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                    
+                    1.4 函数、方法和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch1-basic/ch1-05-mem.html">
+            
+                <a href="../ch1-basic/ch1-05-mem.html">
+            
+                    
+                    1.5 面向并发的内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch1-basic/ch1-06-goroutine.html">
+            
+                <a href="../ch1-basic/ch1-06-goroutine.html">
+            
+                    
+                    1.6 常见的并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                <a href="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                    
+                    1.7 错误和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../ch1-basic/ch1-08-ext.html">
+            
+                <a href="../ch1-basic/ch1-08-ext.html">
+            
+                    
+                    1.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ch2-cgo/readme.html">
+            
+                <a href="../ch2-cgo/readme.html">
+            
+                    
+                    第2章 CGO编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                <a href="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                    
+                    2.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ch2-cgo/ch2-02-basic.html">
+            
+                <a href="../ch2-cgo/ch2-02-basic.html">
+            
+                    
+                    2.2 CGO基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                <a href="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                    
+                    2.3 类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ch2-cgo/ch2-04-func.html">
+            
+                <a href="../ch2-cgo/ch2-04-func.html">
+            
+                    
+                    2.4 函数调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ch2-cgo/ch2-05-internal.html">
+            
+                <a href="../ch2-cgo/ch2-05-internal.html">
+            
+                    
+                    2.5 内部机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ch2-cgo/ch2-06-qsort.html">
+            
+                <a href="../ch2-cgo/ch2-06-qsort.html">
+            
+                    
+                    2.6 实战: 封装qsort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ch2-cgo/ch2-07-memory.html">
+            
+                <a href="../ch2-cgo/ch2-07-memory.html">
+            
+                    
+                    2.7 CGO内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ch2-cgo/ch2-08-class.html">
+            
+                <a href="../ch2-cgo/ch2-08-class.html">
+            
+                    
+                    2.8 C++类包装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                <a href="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                    
+                    2.9 静态库和动态库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ch2-cgo/ch2-10-link.html">
+            
+                <a href="../ch2-cgo/ch2-10-link.html">
+            
+                    
+                    2.10 编译和链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ch2-cgo/ch2-11-ext.html">
+            
+                <a href="../ch2-cgo/ch2-11-ext.html">
+            
+                    
+                    2.11 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch3-asm/readme.html">
+            
+                <a href="../ch3-asm/readme.html">
+            
+                    
+                    第3章 汇编语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch3-asm/ch3-01-basic.html">
+            
+                <a href="../ch3-asm/ch3-01-basic.html">
+            
+                    
+                    3.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch3-asm/ch3-02-arch.html">
+            
+                <a href="../ch3-asm/ch3-02-arch.html">
+            
+                    
+                    3.2 计算机结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch3-asm/ch3-03-const-and-var.html">
+            
+                <a href="../ch3-asm/ch3-03-const-and-var.html">
+            
+                    
+                    3.3 常量和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch3-asm/ch3-04-func.html">
+            
+                <a href="../ch3-asm/ch3-04-func.html">
+            
+                    
+                    3.4 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../ch3-asm/ch3-05-control-flow.html">
+            
+                <a href="../ch3-asm/ch3-05-control-flow.html">
+            
+                    
+                    3.5 控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../ch3-asm/ch3-06-func-again.html">
+            
+                <a href="../ch3-asm/ch3-06-func-again.html">
+            
+                    
+                    3.6 再论函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../ch3-asm/ch3-07-hack-asm.html">
+            
+                <a href="../ch3-asm/ch3-07-hack-asm.html">
+            
+                    
+                    3.7 汇编语言的威力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                <a href="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                    
+                    3.8 例子：Goroutine ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../ch3-asm/ch3-09-debug.html">
+            
+                <a href="../ch3-asm/ch3-09-debug.html">
+            
+                    
+                    3.9 Delve调试器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../ch3-asm/ch3-10-ext.html">
+            
+                <a href="../ch3-asm/ch3-10-ext.html">
+            
+                    
+                    3.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch4-rpc/readme.html">
+            
+                <a href="../ch4-rpc/readme.html">
+            
+                    
+                    第4章 RPC和Protobuf
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                <a href="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                    
+                    4.1 RPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                <a href="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                    
+                    4.2 Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                    
+                    4.3 玩转RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch4-rpc/ch4-04-grpc.html">
+            
+                <a href="../ch4-rpc/ch4-04-grpc.html">
+            
+                    
+                    4.4 gRPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                    
+                    4.5 gRPC进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                <a href="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                    
+                    4.6 gRPC和Protobuf扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ch4-rpc/ch4-07-pbgo.html">
+            
+                <a href="../ch4-rpc/ch4-07-pbgo.html">
+            
+                    
+                    4.7 pbgo: 基于Protobuf的框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                <a href="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                    
+                    4.8 grpcurl工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ch4-rpc/ch4-09-ext.html">
+            
+                <a href="../ch4-rpc/ch4-09-ext.html">
+            
+                    
+                    4.9 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch5-web/readme.html">
+            
+                <a href="../ch5-web/readme.html">
+            
+                    
+                    第5章 Go和Web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch5-web/ch5-01-introduction.html">
+            
+                <a href="../ch5-web/ch5-01-introduction.html">
+            
+                    
+                    5.1 Web开发简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch5-web/ch5-02-router.html">
+            
+                <a href="../ch5-web/ch5-02-router.html">
+            
+                    
+                    5.2 请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch5-web/ch5-03-middleware.html">
+            
+                <a href="../ch5-web/ch5-03-middleware.html">
+            
+                    
+                    5.3 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch5-web/ch5-04-validator.html">
+            
+                <a href="../ch5-web/ch5-04-validator.html">
+            
+                    
+                    5.4 请求校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../ch5-web/ch5-05-database.html">
+            
+                <a href="../ch5-web/ch5-05-database.html">
+            
+                    
+                    5.5 和数据库打交道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../ch5-web/ch5-06-ratelimit.html">
+            
+                <a href="../ch5-web/ch5-06-ratelimit.html">
+            
+                    
+                    5.6 服务流量限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                <a href="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                    
+                    5.7 大型Web项目分层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../ch5-web/ch5-08-interface-and-web.html">
+            
+                <a href="../ch5-web/ch5-08-interface-and-web.html">
+            
+                    
+                    5.8 接口和表驱动开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../ch5-web/ch5-09-gated-launch.html">
+            
+                <a href="../ch5-web/ch5-09-gated-launch.html">
+            
+                    
+                    5.9 灰度发布和A/B测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../ch5-web/ch5-10-ext.html">
+            
+                <a href="../ch5-web/ch5-10-ext.html">
+            
+                    
+                    5.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    第6章 分布式系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="ch6-01-dist-id.html">
+            
+                <a href="ch6-01-dist-id.html">
+            
+                    
+                    6.1 分布式 id 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="ch6-02-lock.html">
+            
+                <a href="ch6-02-lock.html">
+            
+                    
+                    6.2 分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="ch6-03-delay-job.html">
+            
+                <a href="ch6-03-delay-job.html">
+            
+                    
+                    6.3 延时任务系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="ch6-04-search-engine.html">
+            
+                <a href="ch6-04-search-engine.html">
+            
+                    
+                    6.4 分布式搜索引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7.5" data-path="ch6-05-load-balance.html">
+            
+                <a href="ch6-05-load-balance.html">
+            
+                    
+                    6.5 负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="ch6-06-config.html">
+            
+                <a href="ch6-06-config.html">
+            
+                    
+                    6.6 分布式配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="ch6-07-crawler.html">
+            
+                <a href="ch6-07-crawler.html">
+            
+                    
+                    6.7 分布式爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="ch6-08-ext.html">
+            
+                <a href="ch6-08-ext.html">
+            
+                    
+                    6.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/readme.html">
+            
+                <a href="../appendix/readme.html">
+            
+                    
+                    附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/appendix-a-trap.html">
+            
+                <a href="../appendix/appendix-a-trap.html">
+            
+                    
+                    附录A: Go语言常见坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/appendix-b-gems.html">
+            
+                <a href="../appendix/appendix-b-gems.html">
+            
+                    
+                    附录B: 有趣的代码片段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/appendix-c-author.html">
+            
+                <a href="../appendix/appendix-c-author.html">
+            
+                    
+                    附录C: 作者简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.5 负载均衡</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="65-&#x8D1F;&#x8F7D;&#x5747;&#x8861;">6.5 &#x8D1F;&#x8F7D;&#x5747;&#x8861;</h1>
+<p>&#x672C;&#x8282;&#x5C06;&#x4F1A;&#x8BA8;&#x8BBA;&#x5E38;&#x89C1;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x624B;&#x6BB5;&#x3002;</p>
+<h2 id="651-&#x5E38;&#x89C1;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x601D;&#x8DEF;">6.5.1 &#x5E38;&#x89C1;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x601D;&#x8DEF;</h2>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4E0D;&#x8003;&#x8651;&#x5747;&#x8861;&#x7684;&#x8BDD;&#xFF0C;&#x73B0;&#x5728;&#x6709;n&#x4E2A;&#x670D;&#x52A1;&#x8282;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x5B8C;&#x6210;&#x4E1A;&#x52A1;&#x6D41;&#x7A0B;&#x53EA;&#x9700;&#x8981;&#x4ECE;&#x8FD9;n&#x4E2A;&#x4E2D;&#x6311;&#x51FA;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x3002;&#x6709;&#x51E0;&#x79CD;&#x601D;&#x8DEF;:</p>
+<ol>
+<li><p>&#x6309;&#x987A;&#x5E8F;&#x6311;: &#x4F8B;&#x5982;&#x4E0A;&#x6B21;&#x9009;&#x4E86;&#x7B2C;&#x4E00;&#x53F0;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x6B21;&#x5C31;&#x9009;&#x7B2C;&#x4E8C;&#x53F0;&#xFF0C;&#x4E0B;&#x6B21;&#x7B2C;&#x4E09;&#x53F0;&#xFF0C;&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x5230;&#x4E86;&#x6700;&#x540E;&#x4E00;&#x53F0;&#xFF0C;&#x90A3;&#x4E48;&#x4E0B;&#x4E00;&#x6B21;&#x4ECE;&#x7B2C;&#x4E00;&#x53F0;&#x5F00;&#x59CB;&#x3002;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;&#x670D;&#x52A1;&#x8282;&#x70B9;&#x4FE1;&#x606F;&#x90FD;&#x5B58;&#x50A8;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;&#x5B8C;&#x6210;&#x4E0B;&#x6E38;&#x4E4B;&#x540E;&#xFF0C;&#x5C06;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x540E;&#x79FB;&#x5373;&#x53EF;&#x3002;&#x5728;&#x79FB;&#x5230;&#x5C3D;&#x5934;&#x65F6;&#x518D;&#x79FB;&#x56DE;&#x6570;&#x7EC4;&#x5F00;&#x5934;&#x5904;&#x3002;</p>
+</li>
+<li><p>&#x968F;&#x673A;&#x6311;&#x4E00;&#x4E2A;: &#x6BCF;&#x6B21;&#x90FD;&#x968F;&#x673A;&#x6311;&#xFF0C;&#x771F;&#x968F;&#x673A;&#x4F2A;&#x968F;&#x673A;&#x5747;&#x53EF;&#x3002;&#x5047;&#x8BBE;&#x9009;&#x62E9;&#x7B2C; x &#x53F0;&#x673A;&#x5668;&#xFF0C;&#x90A3;&#x4E48;x&#x53EF;&#x63CF;&#x8FF0;&#x4E3A;<code>rand.Intn()%n</code>&#x3002;</p>
+</li>
+<li><p>&#x6839;&#x636E;&#x67D0;&#x79CD;&#x6743;&#x91CD;&#xFF0C;&#x5BF9;&#x4E0B;&#x6E38;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x9009;&#x62E9;&#x6743;&#x91CD;&#x6700;&#x5927;/&#x5C0F;&#x7684;&#x90A3;&#x4E00;&#x4E2A;&#x3002;</p>
+</li>
+</ol>
+<p>&#x5F53;&#x7136;&#x4E86;&#xFF0C;&#x5B9E;&#x9645;&#x573A;&#x666F;&#x6211;&#x4EEC;&#x4E0D;&#x53EF;&#x80FD;&#x65E0;&#x8111;&#x8F6E;&#x8BE2;&#x6216;&#x8005;&#x65E0;&#x8111;&#x968F;&#x673A;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x4E0B;&#x6E38;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x67D0;&#x79CD;&#x673A;&#x5236;&#x6765;&#x8FDB;&#x884C;&#x91CD;&#x8BD5;&#xFF0C;&#x5982;&#x679C;&#x7EAF;&#x7CB9;&#x7684;&#x968F;&#x673A;&#x7B97;&#x6CD5;&#xFF0C;&#x5B58;&#x5728;&#x4E00;&#x5B9A;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x4F7F;&#x4F60;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x4ECD;&#x7136;&#x968F;&#x673A;&#x5230;&#x8FD9;&#x6B21;&#x7684;&#x95EE;&#x9898;&#x8282;&#x70B9;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x6848;&#x4F8B;&#x3002;</p>
+<h2 id="652-&#x57FA;&#x4E8E;&#x6D17;&#x724C;&#x7B97;&#x6CD5;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;">6.5.2 &#x57FA;&#x4E8E;&#x6D17;&#x724C;&#x7B97;&#x6CD5;&#x7684;&#x8D1F;&#x8F7D;&#x5747;&#x8861;</h2>
+<p>&#x8003;&#x8651;&#x5230;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x968F;&#x673A;&#x9009;&#x53D6;&#x6BCF;&#x6B21;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x9047;&#x5230;&#x4E0B;&#x6E38;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x65F6;&#x6362;&#x5176;&#x5B83;&#x8282;&#x70B9;&#x91CD;&#x8BD5;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x548C;&#x8282;&#x70B9;&#x6570;&#x7EC4;&#x5927;&#x5C0F;&#x4E00;&#x81F4;&#x7684;&#x7D22;&#x5F15;&#x6570;&#x7EC4;&#xFF0C;&#x6BCF;&#x6B21;&#x6765;&#x65B0;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x6211;&#x4EEC;&#x5BF9;&#x7D22;&#x5F15;&#x6570;&#x7EC4;&#x505A;&#x6D17;&#x724C;&#xFF0C;&#x7136;&#x540E;&#x53D6;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4F5C;&#x4E3A;&#x9009;&#x4E2D;&#x7684;&#x670D;&#x52A1;&#x8282;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x5931;&#x8D25;&#xFF0C;&#x90A3;&#x4E48;&#x9009;&#x62E9;&#x4E0B;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x91CD;&#x8BD5;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;:</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> endpoints = []<span class="hljs-keyword">string</span> {
+    <span class="hljs-string">&quot;100.69.62.1:3232&quot;</span>,
+    <span class="hljs-string">&quot;100.69.62.32:3232&quot;</span>,
+    <span class="hljs-string">&quot;100.69.62.42:3232&quot;</span>,
+    <span class="hljs-string">&quot;100.69.62.81:3232&quot;</span>,
+    <span class="hljs-string">&quot;100.69.62.11:3232&quot;</span>,
+    <span class="hljs-string">&quot;100.69.62.113:3232&quot;</span>,
+    <span class="hljs-string">&quot;100.69.62.101:3232&quot;</span>,
+}
+
+<span class="hljs-comment">// &#x91CD;&#x70B9;&#x5728;&#x8FD9;&#x4E2A; shuffle</span>
+<span class="hljs-keyword">func</span> shuffle(slice []<span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(slice); i++ {
+        a := rand.Intn(<span class="hljs-built_in">len</span>(slice))
+        b := rand.Intn(<span class="hljs-built_in">len</span>(slice))
+        slice[a], slice[b] = slice[b], slice[a]
+    }
+}
+
+<span class="hljs-keyword">func</span> request(params <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}) error {
+    <span class="hljs-keyword">var</span> indexes = []<span class="hljs-keyword">int</span> {<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>}
+    <span class="hljs-keyword">var</span> err error
+
+    shuffle(indexes)
+    maxRetryTimes := <span class="hljs-number">3</span>
+
+    idx := <span class="hljs-number">0</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; maxRetryTimes; i++ {
+        err = apiRequest(params, indexes[idx])
+        <span class="hljs-keyword">if</span> err == <span class="hljs-literal">nil</span> {
+            <span class="hljs-keyword">break</span>
+        }
+        idx++
+    }
+
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-comment">// logging</span>
+        <span class="hljs-keyword">return</span> err
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5FAA;&#x73AF;&#x4E00;&#x904D;slice&#xFF0C;&#x4E24;&#x4E24;&#x4EA4;&#x6362;&#xFF0C;&#x8FD9;&#x4E2A;&#x548C;&#x6211;&#x4EEC;&#x5E73;&#x5E38;&#x6253;&#x724C;&#x65F6;&#x5E38;&#x7528;&#x7684;&#x6D17;&#x724C;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;&#x3002;&#x770B;&#x8D77;&#x6765;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x3002;</p>
+<h3 id="6521-&#x9519;&#x8BEF;&#x7684;&#x6D17;&#x724C;&#x5BFC;&#x81F4;&#x7684;&#x8D1F;&#x8F7D;&#x4E0D;&#x5747;&#x8861;">6.5.2.1 &#x9519;&#x8BEF;&#x7684;&#x6D17;&#x724C;&#x5BFC;&#x81F4;&#x7684;&#x8D1F;&#x8F7D;&#x4E0D;&#x5747;&#x8861;</h3>
+<p>&#x771F;&#x7684;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x4E48;&#xFF1F;&#x8FD8;&#x662F;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;&#x8FD9;&#x6BB5;&#x7B80;&#x77ED;&#x7684;&#x7A0B;&#x5E8F;&#x91CC;&#x6709;&#x4E24;&#x4E2A;&#x9690;&#x85CF;&#x7684;&#x9690;&#x60A3;:</p>
+<ol>
+<li><p>&#x6CA1;&#x6709;&#x968F;&#x673A;&#x79CD;&#x5B50;&#x3002;&#x5728;&#x6CA1;&#x6709;&#x968F;&#x673A;&#x79CD;&#x5B50;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>rand.Intn()</code>&#x8FD4;&#x56DE;&#x7684;&#x4F2A;&#x968F;&#x673A;&#x6570;&#x5E8F;&#x5217;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#x3002;</p>
+</li>
+<li><p>&#x6D17;&#x724C;&#x4E0D;&#x5747;&#x5300;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x6574;&#x4E2A;&#x6570;&#x7EC4;&#x7B2C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x6709;&#x5927;&#x6982;&#x7387;&#x88AB;&#x9009;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x591A;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x8D1F;&#x8F7D;&#x5206;&#x5E03;&#x4E0D;&#x5747;&#x8861;&#x3002;</p>
+</li>
+</ol>
+<p>&#x7B2C;&#x4E00;&#x70B9;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5E94;&#x8BE5;&#x4E0D;&#x7528;&#x5728;&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x8BC1;&#x660E;&#x4E86;&#x3002;&#x5173;&#x4E8E;&#x7B2C;&#x4E8C;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x6982;&#x7387;&#x77E5;&#x8BC6;&#x6765;&#x7B80;&#x5355;&#x8BC1;&#x660E;&#x4E00;&#x4E0B;&#x3002;&#x5047;&#x8BBE;&#x6BCF;&#x6B21;&#x6311;&#x9009;&#x90FD;&#x662F;&#x771F;&#x968F;&#x673A;&#xFF0C;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x7B2C;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#x7684;&#x8282;&#x70B9;&#x5728;<code>len(slice)</code>&#x6B21;&#x4EA4;&#x6362;&#x4E2D;&#x90FD;&#x4E0D;&#x88AB;&#x9009;&#x4E2D;&#x7684;&#x6982;&#x7387;&#x662F;<code>((6/7)*(6/7))^7 &#x2248; 0.34</code>&#x3002;&#x800C;&#x5206;&#x5E03;&#x5747;&#x5300;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x80AF;&#x5B9A;&#x5E0C;&#x671B;&#x88AB;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5728;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#x4E0A;&#x5206;&#x5E03;&#x7684;&#x6982;&#x7387;&#x5747;&#x7B49;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x88AB;&#x968F;&#x673A;&#x9009;&#x5230;&#x7684;&#x6982;&#x7387;&#x5E94;&#x8BE5;&#x7EA6;&#x7B49;&#x4E8E;<code>1/7&#x2248;0.14</code>&#x3002;</p>
+<p>&#x663E;&#x7136;&#xFF0C;&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x7684;&#x6D17;&#x724C;&#x7B97;&#x6CD5;&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;&#x7684;&#x5143;&#x7D20;&#x6765;&#x8BF4;&#xFF0C;&#x6709;30%&#x7684;&#x6982;&#x7387;&#x4E0D;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4EA4;&#x6362;&#x64CD;&#x4F5C;&#x3002;&#x6240;&#x4EE5;&#x6240;&#x6709;&#x5143;&#x7D20;&#x90FD;&#x503E;&#x5411;&#x4E8E;&#x7559;&#x5728;&#x539F;&#x6765;&#x7684;&#x4F4D;&#x7F6E;&#x3002;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x6BCF;&#x6B21;&#x5BF9;<code>shuffle</code>&#x6570;&#x7EC4;&#x8F93;&#x5165;&#x7684;&#x90FD;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#xFF0C;&#x6240;&#x4EE5;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x6709;&#x66F4;&#x5927;&#x7684;&#x6982;&#x7387;&#x4F1A;&#x88AB;&#x9009;&#x4E2D;&#x3002;&#x5728;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x8282;&#x70B9;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x53F0;&#x673A;&#x5668;&#x8D1F;&#x8F7D;&#x4F1A;&#x6BD4;&#x5176;&#x5B83;&#x673A;&#x5668;&#x9AD8;&#x4E0D;&#x5C11;(&#x8FD9;&#x91CC;&#x81F3;&#x5C11;&#x662F;3&#x500D;&#x4EE5;&#x4E0A;)&#x3002;</p>
+<h3 id="6522-&#x4FEE;&#x6B63;&#x6D17;&#x724C;&#x7B97;&#x6CD5;">6.5.2.2 &#x4FEE;&#x6B63;&#x6D17;&#x724C;&#x7B97;&#x6CD5;</h3>
+<p>&#x4ECE;&#x6570;&#x5B66;&#x4E0A;&#x5F97;&#x5230;&#x8FC7;&#x8BC1;&#x660E;&#x7684;&#x8FD8;&#x662F;&#x7ECF;&#x5178;&#x7684;fisher-yates&#x7B97;&#x6CD5;&#xFF0C;&#x4E3B;&#x8981;&#x601D;&#x8DEF;&#x4E3A;&#x6BCF;&#x6B21;&#x968F;&#x673A;&#x6311;&#x9009;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x653E;&#x5728;&#x6570;&#x7EC4;&#x672B;&#x5C3E;&#x3002;&#x7136;&#x540E;&#x5728;n-1&#x4E2A;&#x5143;&#x7D20;&#x7684;&#x6570;&#x7EC4;&#x4E2D;&#x518D;&#x968F;&#x673A;&#x6311;&#x9009;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x653E;&#x5728;&#x6570;&#x7EC4;&#x672B;&#x5C3E;&#xFF0C;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> shuffle(indexes []<span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> i:=<span class="hljs-built_in">len</span>(indexes); i&gt;<span class="hljs-number">0</span>; i-- {
+        lastIdx := i - <span class="hljs-number">1</span>
+        idx := rand.Int(i)
+        indexes[lastIdx], indexes[idx] = indexes[idx], indexes[lastIdx]
+    }
+}
+</code></pre>
+<p>&#x5728;Go&#x7684;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x5DF2;&#x7ECF;&#x4E3A;&#x6211;&#x4EEC;&#x5185;&#x7F6E;&#x4E86;&#x8BE5;&#x7B97;&#x6CD5;:</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> shuffle(n <span class="hljs-keyword">int</span>) []<span class="hljs-keyword">int</span> {
+    b := rand.Perm(n)
+    <span class="hljs-keyword">return</span> b
+}
+</code></pre>
+<p>&#x5728;&#x5F53;&#x524D;&#x7684;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x7528;<code>rand.Perm</code>&#x5C31;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x7D22;&#x5F15;&#x6570;&#x7EC4;&#x4E86;&#x3002;</p>
+<h2 id="653-zookeeper-&#x96C6;&#x7FA4;&#x7684;&#x968F;&#x673A;&#x8282;&#x70B9;&#x6311;&#x9009;&#x95EE;&#x9898;">6.5.3 ZooKeeper &#x96C6;&#x7FA4;&#x7684;&#x968F;&#x673A;&#x8282;&#x70B9;&#x6311;&#x9009;&#x95EE;&#x9898;</h2>
+<p>&#x672C;&#x8282;&#x4E2D;&#x7684;&#x573A;&#x666F;&#x662F;&#x4ECE;N&#x4E2A;&#x8282;&#x70B9;&#x4E2D;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x53D1;&#x9001;&#x8BF7;&#x6C42;&#xFF0C;&#x521D;&#x59CB;&#x8BF7;&#x6C42;&#x7ED3;&#x675F;&#x4E4B;&#x540E;&#xFF0C;&#x540E;&#x7EED;&#x7684;&#x8BF7;&#x6C42;&#x4F1A;&#x91CD;&#x65B0;&#x5BF9;&#x6570;&#x7EC4;&#x6D17;&#x724C;&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x4E24;&#x4E2A;&#x8BF7;&#x6C42;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x5173;&#x8054;&#x5173;&#x7CFB;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x7684;&#x6D17;&#x724C;&#x7B97;&#x6CD5;&#xFF0C;&#x7406;&#x8BBA;&#x4E0A;&#x4E0D;&#x521D;&#x59CB;&#x5316;&#x968F;&#x673A;&#x5E93;&#x7684;&#x79CD;&#x5B50;&#x4E5F;&#x662F;&#x4E0D;&#x4F1A;&#x51FA;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
+<p>&#x4F46;&#x5728;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x4F8B;&#x5982;&#x4F7F;&#x7528;ZooKeeper&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x521D;&#x59CB;&#x5316;&#x4ECE;&#x591A;&#x4E2A;&#x670D;&#x52A1;&#x8282;&#x70B9;&#x4E2D;&#x6311;&#x9009;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x540E;&#xFF0C;&#x662F;&#x4F1A;&#x5411;&#x8BE5;&#x8282;&#x70B9;&#x5EFA;&#x7ACB;&#x957F;&#x8FDE;&#x63A5;&#x7684;&#x3002;&#x4E4B;&#x540E;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42;&#x90FD;&#x4F1A;&#x53D1;&#x5F80;&#x8BE5;&#x8282;&#x70B9;&#x53BB;&#x3002;&#x76F4;&#x5230;&#x8BE5;&#x8282;&#x70B9;&#x4E0D;&#x53EF;&#x7528;&#xFF0C;&#x624D;&#x4F1A;&#x5728;&#x8282;&#x70B9;&#x5217;&#x8868;&#x4E2D;&#x6311;&#x9009;&#x4E0B;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x521D;&#x59CB;&#x8FDE;&#x63A5;&#x8282;&#x70B9;&#x9009;&#x62E9;&#x5C31;&#x8981;&#x6C42;&#x5FC5;&#x987B;&#x662F;&#x201C;&#x771F;&#x201D;&#x968F;&#x673A;&#x4E86;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x6240;&#x6709;&#x5BA2;&#x6237;&#x7AEF;&#x8D77;&#x52A8;&#x65F6;&#xFF0C;&#x90FD;&#x4F1A;&#x53BB;&#x8FDE;&#x63A5;&#x540C;&#x4E00;&#x4E2A;ZooKeeper&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x6839;&#x672C;&#x65E0;&#x6CD5;&#x8D77;&#x5230;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x76EE;&#x7684;&#x3002;&#x5982;&#x679C;&#x5728;&#x65E5;&#x5E38;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x4F60;&#x7684;&#x4E1A;&#x52A1;&#x4E5F;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x4E5F;&#x52A1;&#x5FC5;&#x8003;&#x8651;&#x4E00;&#x4E0B;&#x662F;&#x5426;&#x4F1A;&#x53D1;&#x751F;&#x7C7B;&#x4F3C;&#x7684;&#x60C5;&#x51B5;&#x3002;&#x4E3A;rand&#x5E93;&#x8BBE;&#x7F6E;&#x79CD;&#x5B50;&#x7684;&#x65B9;&#x6CD5;:</p>
+<pre><code class="lang-go">rand.Seed(time.Now().UnixNano())
+</code></pre>
+<p>&#x4E4B;&#x6240;&#x4EE5;&#x4F1A;&#x6709;&#x4E0A;&#x9762;&#x8FD9;&#x4E9B;&#x7ED3;&#x8BBA;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x67D0;&#x4E2A;&#x4F7F;&#x7528;&#x8F83;&#x5E7F;&#x6CDB;&#x7684;&#x5F00;&#x6E90;ZooKeeper&#x5E93;&#x7684;&#x65E9;&#x671F;&#x7248;&#x672C;&#x5C31;&#x72AF;&#x4E86;&#x4E0A;&#x8FF0;&#x9519;&#x8BEF;&#xFF0C;&#x76F4;&#x5230;2016&#x5E74;&#x65E9;&#x4E9B;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x624D;&#x88AB;&#x4FEE;&#x6B63;&#x3002;</p>
+<h2 id="654-&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B97;&#x6CD5;&#x6548;&#x679C;&#x9A8C;&#x8BC1;">6.5.4 &#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7B97;&#x6CD5;&#x6548;&#x679C;&#x9A8C;&#x8BC1;</h2>
+<p>&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x4E0D;&#x8003;&#x8651;&#x52A0;&#x6743;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x65E2;&#x7136;&#x540D;&#x5B57;&#x662F;&#x8D1F;&#x8F7D;&#x201C;&#x5747;&#x8861;&#x201D;&#x3002;&#x90A3;&#x4E48;&#x6700;&#x91CD;&#x8981;&#x7684;&#x5C31;&#x662F;&#x5747;&#x8861;&#x3002;&#x6211;&#x4EEC;&#x628A;&#x5F00;&#x7BC7;&#x4E2D;&#x7684;shuffle&#x7B97;&#x6CD5;&#xFF0C;&#x548C;&#x4E4B;&#x540E;&#x7684;fisher yates&#x7B97;&#x6CD5;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x5730;&#x5BF9;&#x6BD4;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;math/rand&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> init() {
+    rand.Seed(time.Now().UnixNano())
+}
+
+<span class="hljs-keyword">func</span> shuffle1(slice []<span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(slice); i++ {
+        a := rand.Intn(<span class="hljs-built_in">len</span>(slice))
+        b := rand.Intn(<span class="hljs-built_in">len</span>(slice))
+        slice[a], slice[b] = slice[b], slice[a]
+    }
+}
+
+<span class="hljs-keyword">func</span> shuffle2(indexes []<span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-built_in">len</span>(indexes); i &gt; <span class="hljs-number">0</span>; i-- {
+        lastIdx := i - <span class="hljs-number">1</span>
+        idx := rand.Intn(i)
+        indexes[lastIdx], indexes[idx] = indexes[idx], indexes[lastIdx]
+    }
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> cnt1 = <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">int</span>{}
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000000</span>; i++ {
+        <span class="hljs-keyword">var</span> sl = []<span class="hljs-keyword">int</span>{<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}
+        shuffle1(sl)
+        cnt1[sl[<span class="hljs-number">0</span>]]++
+    }
+
+    <span class="hljs-keyword">var</span> cnt2 = <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">int</span>{}
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000000</span>; i++ {
+        <span class="hljs-keyword">var</span> sl = []<span class="hljs-keyword">int</span>{<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>}
+        shuffle2(sl)
+        cnt2[sl[<span class="hljs-number">0</span>]]++
+    }
+
+    fmt.Println(cnt1, <span class="hljs-string">&quot;\n&quot;</span>, cnt2)
+}
+</code></pre>
+<p>&#x8F93;&#x51FA;&#xFF1A;</p>
+<pre><code class="lang-shell">map[0:224436 1:128780 5:129310 6:129194 2:129643 3:129384 4:129253]
+map[6:143275 5:143054 3:143584 2:143031 1:141898 0:142631 4:142527]
+</code></pre>
+<p>&#x5206;&#x5E03;&#x7ED3;&#x679C;&#x548C;&#x6211;&#x4EEC;&#x63A8;&#x5BFC;&#x51FA;&#x7684;&#x7ED3;&#x8BBA;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch6-04-search-engine.html" class="navigation navigation-prev " aria-label="Previous page: 6.4 分布式搜索引擎">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch6-06-config.html" class="navigation navigation-next " aria-label="Next page: 6.6 分布式配置管理">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.5 负载均衡","level":"1.7.5","depth":2,"next":{"title":"6.6 分布式配置管理","level":"1.7.6","depth":2,"path":"ch6-cloud/ch6-06-config.md","ref":"ch6-cloud/ch6-06-config.md","articles":[]},"previous":{"title":"6.4 分布式搜索引擎","level":"1.7.4","depth":2,"path":"ch6-cloud/ch6-04-search-engine.md","ref":"ch6-cloud/ch6-04-search-engine.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go语言高级编程","language":"zh-hans","gitbook":"3.x","description":"Go语言高级编程"},"file":{"path":"ch6-cloud/ch6-05-load-balance.md","mtime":"2019-07-14T09:43:54.102Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T13:21:40.542Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

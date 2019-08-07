@@ -1,0 +1,1431 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>4.5 gRPC进阶 · Go语言高级编程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch4-06-grpc-ext.html" />
+    
+    
+    <link rel="prev" href="ch4-04-grpc.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch1-basic/readme.html">
+            
+                <a href="../ch1-basic/readme.html">
+            
+                    
+                    第1章 语言基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch1-basic/ch1-01-genesis.html">
+            
+                <a href="../ch1-basic/ch1-01-genesis.html">
+            
+                    
+                    1.1 Go语言创世纪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                <a href="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                    
+                    1.2 Hello, World 的革命
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                <a href="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                    
+                    1.3 数组、字符串和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                <a href="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                    
+                    1.4 函数、方法和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch1-basic/ch1-05-mem.html">
+            
+                <a href="../ch1-basic/ch1-05-mem.html">
+            
+                    
+                    1.5 面向并发的内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch1-basic/ch1-06-goroutine.html">
+            
+                <a href="../ch1-basic/ch1-06-goroutine.html">
+            
+                    
+                    1.6 常见的并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                <a href="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                    
+                    1.7 错误和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../ch1-basic/ch1-08-ext.html">
+            
+                <a href="../ch1-basic/ch1-08-ext.html">
+            
+                    
+                    1.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ch2-cgo/readme.html">
+            
+                <a href="../ch2-cgo/readme.html">
+            
+                    
+                    第2章 CGO编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                <a href="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                    
+                    2.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ch2-cgo/ch2-02-basic.html">
+            
+                <a href="../ch2-cgo/ch2-02-basic.html">
+            
+                    
+                    2.2 CGO基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                <a href="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                    
+                    2.3 类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ch2-cgo/ch2-04-func.html">
+            
+                <a href="../ch2-cgo/ch2-04-func.html">
+            
+                    
+                    2.4 函数调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ch2-cgo/ch2-05-internal.html">
+            
+                <a href="../ch2-cgo/ch2-05-internal.html">
+            
+                    
+                    2.5 内部机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ch2-cgo/ch2-06-qsort.html">
+            
+                <a href="../ch2-cgo/ch2-06-qsort.html">
+            
+                    
+                    2.6 实战: 封装qsort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ch2-cgo/ch2-07-memory.html">
+            
+                <a href="../ch2-cgo/ch2-07-memory.html">
+            
+                    
+                    2.7 CGO内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ch2-cgo/ch2-08-class.html">
+            
+                <a href="../ch2-cgo/ch2-08-class.html">
+            
+                    
+                    2.8 C++类包装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                <a href="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                    
+                    2.9 静态库和动态库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ch2-cgo/ch2-10-link.html">
+            
+                <a href="../ch2-cgo/ch2-10-link.html">
+            
+                    
+                    2.10 编译和链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ch2-cgo/ch2-11-ext.html">
+            
+                <a href="../ch2-cgo/ch2-11-ext.html">
+            
+                    
+                    2.11 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch3-asm/readme.html">
+            
+                <a href="../ch3-asm/readme.html">
+            
+                    
+                    第3章 汇编语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch3-asm/ch3-01-basic.html">
+            
+                <a href="../ch3-asm/ch3-01-basic.html">
+            
+                    
+                    3.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch3-asm/ch3-02-arch.html">
+            
+                <a href="../ch3-asm/ch3-02-arch.html">
+            
+                    
+                    3.2 计算机结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch3-asm/ch3-03-const-and-var.html">
+            
+                <a href="../ch3-asm/ch3-03-const-and-var.html">
+            
+                    
+                    3.3 常量和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch3-asm/ch3-04-func.html">
+            
+                <a href="../ch3-asm/ch3-04-func.html">
+            
+                    
+                    3.4 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../ch3-asm/ch3-05-control-flow.html">
+            
+                <a href="../ch3-asm/ch3-05-control-flow.html">
+            
+                    
+                    3.5 控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../ch3-asm/ch3-06-func-again.html">
+            
+                <a href="../ch3-asm/ch3-06-func-again.html">
+            
+                    
+                    3.6 再论函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../ch3-asm/ch3-07-hack-asm.html">
+            
+                <a href="../ch3-asm/ch3-07-hack-asm.html">
+            
+                    
+                    3.7 汇编语言的威力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                <a href="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                    
+                    3.8 例子：Goroutine ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../ch3-asm/ch3-09-debug.html">
+            
+                <a href="../ch3-asm/ch3-09-debug.html">
+            
+                    
+                    3.9 Delve调试器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../ch3-asm/ch3-10-ext.html">
+            
+                <a href="../ch3-asm/ch3-10-ext.html">
+            
+                    
+                    3.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    第4章 RPC和Protobuf
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="ch4-01-rpc-intro.html">
+            
+                <a href="ch4-01-rpc-intro.html">
+            
+                    
+                    4.1 RPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="ch4-02-pb-intro.html">
+            
+                <a href="ch4-02-pb-intro.html">
+            
+                    
+                    4.2 Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="ch4-03-netrpc-hack.html">
+            
+                <a href="ch4-03-netrpc-hack.html">
+            
+                    
+                    4.3 玩转RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="ch4-04-grpc.html">
+            
+                <a href="ch4-04-grpc.html">
+            
+                    
+                    4.4 gRPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.5" data-path="ch4-05-grpc-hack.html">
+            
+                <a href="ch4-05-grpc-hack.html">
+            
+                    
+                    4.5 gRPC进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="ch4-06-grpc-ext.html">
+            
+                <a href="ch4-06-grpc-ext.html">
+            
+                    
+                    4.6 gRPC和Protobuf扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="ch4-07-pbgo.html">
+            
+                <a href="ch4-07-pbgo.html">
+            
+                    
+                    4.7 pbgo: 基于Protobuf的框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="ch4-08-grpcurl.html">
+            
+                <a href="ch4-08-grpcurl.html">
+            
+                    
+                    4.8 grpcurl工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="ch4-09-ext.html">
+            
+                <a href="ch4-09-ext.html">
+            
+                    
+                    4.9 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch5-web/readme.html">
+            
+                <a href="../ch5-web/readme.html">
+            
+                    
+                    第5章 Go和Web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch5-web/ch5-01-introduction.html">
+            
+                <a href="../ch5-web/ch5-01-introduction.html">
+            
+                    
+                    5.1 Web开发简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch5-web/ch5-02-router.html">
+            
+                <a href="../ch5-web/ch5-02-router.html">
+            
+                    
+                    5.2 请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch5-web/ch5-03-middleware.html">
+            
+                <a href="../ch5-web/ch5-03-middleware.html">
+            
+                    
+                    5.3 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch5-web/ch5-04-validator.html">
+            
+                <a href="../ch5-web/ch5-04-validator.html">
+            
+                    
+                    5.4 请求校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../ch5-web/ch5-05-database.html">
+            
+                <a href="../ch5-web/ch5-05-database.html">
+            
+                    
+                    5.5 和数据库打交道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../ch5-web/ch5-06-ratelimit.html">
+            
+                <a href="../ch5-web/ch5-06-ratelimit.html">
+            
+                    
+                    5.6 服务流量限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                <a href="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                    
+                    5.7 大型Web项目分层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../ch5-web/ch5-08-interface-and-web.html">
+            
+                <a href="../ch5-web/ch5-08-interface-and-web.html">
+            
+                    
+                    5.8 接口和表驱动开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../ch5-web/ch5-09-gated-launch.html">
+            
+                <a href="../ch5-web/ch5-09-gated-launch.html">
+            
+                    
+                    5.9 灰度发布和A/B测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../ch5-web/ch5-10-ext.html">
+            
+                <a href="../ch5-web/ch5-10-ext.html">
+            
+                    
+                    5.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch6-cloud/readme.html">
+            
+                <a href="../ch6-cloud/readme.html">
+            
+                    
+                    第6章 分布式系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch6-cloud/ch6-01-dist-id.html">
+            
+                <a href="../ch6-cloud/ch6-01-dist-id.html">
+            
+                    
+                    6.1 分布式 id 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch6-cloud/ch6-02-lock.html">
+            
+                <a href="../ch6-cloud/ch6-02-lock.html">
+            
+                    
+                    6.2 分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch6-cloud/ch6-03-delay-job.html">
+            
+                <a href="../ch6-cloud/ch6-03-delay-job.html">
+            
+                    
+                    6.3 延时任务系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch6-cloud/ch6-04-search-engine.html">
+            
+                <a href="../ch6-cloud/ch6-04-search-engine.html">
+            
+                    
+                    6.4 分布式搜索引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../ch6-cloud/ch6-05-load-balance.html">
+            
+                <a href="../ch6-cloud/ch6-05-load-balance.html">
+            
+                    
+                    6.5 负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../ch6-cloud/ch6-06-config.html">
+            
+                <a href="../ch6-cloud/ch6-06-config.html">
+            
+                    
+                    6.6 分布式配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../ch6-cloud/ch6-07-crawler.html">
+            
+                <a href="../ch6-cloud/ch6-07-crawler.html">
+            
+                    
+                    6.7 分布式爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../ch6-cloud/ch6-08-ext.html">
+            
+                <a href="../ch6-cloud/ch6-08-ext.html">
+            
+                    
+                    6.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/readme.html">
+            
+                <a href="../appendix/readme.html">
+            
+                    
+                    附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/appendix-a-trap.html">
+            
+                <a href="../appendix/appendix-a-trap.html">
+            
+                    
+                    附录A: Go语言常见坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/appendix-b-gems.html">
+            
+                <a href="../appendix/appendix-b-gems.html">
+            
+                    
+                    附录B: 有趣的代码片段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/appendix-c-author.html">
+            
+                <a href="../appendix/appendix-c-author.html">
+            
+                    
+                    附录C: 作者简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >4.5 gRPC进阶</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="45-grpc&#x8FDB;&#x9636;">4.5 gRPC&#x8FDB;&#x9636;</h1>
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x57FA;&#x7840;&#x7684;RPC&#x6846;&#x67B6;&#xFF0C;&#x5B89;&#x5168;&#x548C;&#x6269;&#x5C55;&#x662F;&#x7ECF;&#x5E38;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;&#x3002;&#x672C;&#x8282;&#x5C06;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x5982;&#x4F55;&#x5BF9;gRPC&#x8FDB;&#x884C;&#x5B89;&#x5168;&#x8BA4;&#x8BC1;&#x3002;&#x7136;&#x540E;&#x4ECB;&#x7ECD;&#x901A;&#x8FC7;gRPC&#x7684;&#x622A;&#x53D6;&#x5668;&#x7279;&#x6027;&#xFF0C;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x901A;&#x8FC7;&#x622A;&#x53D6;&#x5668;&#x4F18;&#x96C5;&#x5730;&#x5B9E;&#x73B0;Token&#x8BA4;&#x8BC1;&#x3001;&#x8C03;&#x7528;&#x8DDF;&#x8E2A;&#x4EE5;&#x53CA;Panic&#x6355;&#x83B7;&#x7B49;&#x7279;&#x6027;&#x3002;&#x6700;&#x540E;&#x4ECB;&#x7ECD;&#x4E86;gRPC&#x670D;&#x52A1;&#x5982;&#x4F55;&#x548C;&#x5176;&#x4ED6;Web&#x670D;&#x52A1;&#x5171;&#x5B58;&#x3002;</p>
+<h2 id="451-&#x8BC1;&#x4E66;&#x8BA4;&#x8BC1;">4.5.1 &#x8BC1;&#x4E66;&#x8BA4;&#x8BC1;</h2>
+<p>gRPC&#x5EFA;&#x7ACB;&#x5728;HTTP/2&#x534F;&#x8BAE;&#x4E4B;&#x4E0A;&#xFF0C;&#x5BF9;TLS&#x63D0;&#x4F9B;&#x4E86;&#x5F88;&#x597D;&#x7684;&#x652F;&#x6301;&#x3002;&#x6211;&#x4EEC;&#x524D;&#x9762;&#x7AE0;&#x8282;&#x4E2D;gRPC&#x7684;&#x670D;&#x52A1;&#x90FD;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x8BC1;&#x4E66;&#x652F;&#x6301;&#xFF0C;&#x56E0;&#x6B64;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x94FE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#x4E2D;&#x901A;&#x8FC7;<code>grpc.WithInsecure()</code>&#x9009;&#x9879;&#x8DF3;&#x8FC7;&#x4E86;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x7684;&#x9A8C;&#x8BC1;&#x3002;&#x6CA1;&#x6709;&#x542F;&#x7528;&#x8BC1;&#x4E66;&#x7684;gRPC&#x670D;&#x52A1;&#x5728;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x7684;&#x662F;&#x660E;&#x6587;&#x901A;&#x8BAF;&#xFF0C;&#x4FE1;&#x606F;&#x9762;&#x4E34;&#x88AB;&#x4EFB;&#x4F55;&#x7B2C;&#x4E09;&#x65B9;&#x76D1;&#x542C;&#x7684;&#x98CE;&#x9669;&#x3002;&#x4E3A;&#x4E86;&#x4FDD;&#x969C;gRPC&#x901A;&#x4FE1;&#x4E0D;&#x88AB;&#x7B2C;&#x4E09;&#x65B9;&#x76D1;&#x542C;&#x7BE1;&#x6539;&#x6216;&#x4F2A;&#x9020;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x542F;&#x52A8;TLS&#x52A0;&#x5BC6;&#x7279;&#x6027;&#x3002;</p>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x5206;&#x522B;&#x751F;&#x6210;&#x79C1;&#x94A5;&#x548C;&#x8BC1;&#x4E66;&#xFF1A;</p>
+<pre><code>$ openssl genrsa -out server.key 2048
+$ openssl req -new -x509 -days 3650 \
+    -subj &quot;/C=GB/L=China/O=grpc-server/CN=server.grpc.io&quot; \
+    -key server.key -out server.crt
+
+$ openssl genrsa -out client.key 2048
+$ openssl req -new -x509 -days 3650 \
+    -subj &quot;/C=GB/L=China/O=grpc-client/CN=client.grpc.io&quot; \
+    -key client.key -out client.crt
+</code></pre><p>&#x4EE5;&#x4E0A;&#x547D;&#x4EE4;&#x5C06;&#x751F;&#x6210;server.key&#x3001;server.crt&#x3001;client.key&#x548C;client.crt&#x56DB;&#x4E2A;&#x6587;&#x4EF6;&#x3002;&#x5176;&#x4E2D;&#x4EE5;.key&#x4E3A;&#x540E;&#x7F00;&#x540D;&#x7684;&#x662F;&#x79C1;&#x94A5;&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x59A5;&#x5584;&#x4FDD;&#x7BA1;&#x3002;&#x4EE5;.crt&#x4E3A;&#x540E;&#x7F00;&#x540D;&#x662F;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7406;&#x89E3;&#x4E3A;&#x516C;&#x94A5;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x79D8;&#x5BC6;&#x4FDD;&#x5B58;&#x3002;&#x5728;subj&#x53C2;&#x6570;&#x4E2D;&#x7684;<code>/CN=server.grpc.io</code>&#x8868;&#x793A;&#x670D;&#x52A1;&#x5668;&#x7684;&#x540D;&#x5B57;&#x4E3A;<code>server.grpc.io</code>&#xFF0C;&#x5728;&#x9A8C;&#x8BC1;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BC1;&#x4E66;&#x65F6;&#x9700;&#x8981;&#x7528;&#x5230;&#x8BE5;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x8BC1;&#x4E66;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x542F;&#x52A8;gRPC&#x670D;&#x52A1;&#x65F6;&#x4F20;&#x5165;&#x8BC1;&#x4E66;&#x9009;&#x9879;&#x53C2;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    creds, err := credentials.NewServerTLSFromFile(<span class="hljs-string">&quot;server.crt&quot;</span>, <span class="hljs-string">&quot;server.key&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+
+    server := grpc.NewServer(grpc.Creds(creds))
+
+    ...
+}
+</code></pre>
+<p>&#x5176;&#x4E2D;credentials.NewServerTLSFromFile&#x51FD;&#x6570;&#x662F;&#x4ECE;&#x6587;&#x4EF6;&#x4E3A;&#x670D;&#x52A1;&#x5668;&#x6784;&#x9020;&#x8BC1;&#x4E66;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;grpc.Creds(creds)&#x51FD;&#x6570;&#x5C06;&#x8BC1;&#x4E66;&#x5305;&#x88C5;&#x4E3A;&#x9009;&#x9879;&#x540E;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x5165;grpc.NewServer&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x57FA;&#x4E8E;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BC1;&#x4E66;&#x548C;&#x670D;&#x52A1;&#x5668;&#x540D;&#x5B57;&#x5C31;&#x53EF;&#x4EE5;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    creds, err := credentials.NewClientTLSFromFile(
+        <span class="hljs-string">&quot;server.crt&quot;</span>, <span class="hljs-string">&quot;server.grpc.io&quot;</span>,
+    )
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+
+    conn, err := grpc.Dial(<span class="hljs-string">&quot;localhost:5000&quot;</span>,
+        grpc.WithTransportCredentials(creds),
+    )
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+    <span class="hljs-keyword">defer</span> conn.Close()
+
+    ...
+}
+</code></pre>
+<p>&#x5176;&#x4E2D;redentials.NewClientTLSFromFile&#x662F;&#x6784;&#x9020;&#x5BA2;&#x6237;&#x7AEF;&#x7528;&#x7684;&#x8BC1;&#x4E66;&#x5BF9;&#x8C61;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x7B7E;&#x53D1;&#x8BC1;&#x4E66;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684;&#x540D;&#x5B57;&#x3002;&#x7136;&#x540E;&#x901A;&#x8FC7;grpc.WithTransportCredentials(creds)&#x5C06;&#x8BC1;&#x4E66;&#x5BF9;&#x8C61;&#x8F6C;&#x4E3A;&#x53C2;&#x6570;&#x9009;&#x9879;&#x4F20;&#x4EBA;grpc.Dial&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4EE5;&#x4E0A;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x9700;&#x8981;&#x63D0;&#x524D;&#x5C06;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BC1;&#x4E66;&#x544A;&#x77E5;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x8FD9;&#x6837;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x94FE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#x65F6;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x8BA4;&#x8BC1;&#x3002;&#x5728;&#x590D;&#x6742;&#x7684;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x7684;&#x4F20;&#x8F93;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x5371;&#x9669;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5982;&#x679C;&#x5728;&#x4E2D;&#x95F4;&#x67D0;&#x4E2A;&#x73AF;&#x8282;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x8BC1;&#x4E66;&#x88AB;&#x76D1;&#x542C;&#x6216;&#x66FF;&#x6362;&#x90A3;&#x4E48;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BA4;&#x8BC1;&#x4E5F;&#x5C06;&#x4E0D;&#x518D;&#x53EF;&#x9760;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x8BC1;&#x4E66;&#x7684;&#x4F20;&#x9012;&#x8FC7;&#x7A0B;&#x4E2D;&#x88AB;&#x7BE1;&#x6539;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x53EF;&#x9760;&#x7684;&#x6839;&#x8BC1;&#x4E66;&#x5206;&#x522B;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BC1;&#x4E66;&#x8FDB;&#x884C;&#x7B7E;&#x540D;&#x3002;&#x8FD9;&#x6837;&#x5BA2;&#x6237;&#x7AEF;&#x6216;&#x670D;&#x52A1;&#x5668;&#x5728;&#x6536;&#x5230;&#x5BF9;&#x65B9;&#x7684;&#x8BC1;&#x4E66;&#x540E;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6839;&#x8BC1;&#x4E66;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x8BC1;&#x4E66;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;</p>
+<p>&#x6839;&#x8BC1;&#x4E66;&#x7684;&#x751F;&#x6210;&#x65B9;&#x5F0F;&#x548C;&#x81EA;&#x7B7E;&#x540D;&#x8BC1;&#x4E66;&#x7684;&#x751F;&#x6210;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<pre><code>$ openssl genrsa -out ca.key 2048
+$ openssl req -new -x509 -days 3650 \
+    -subj &quot;/C=GB/L=China/O=gobook/CN=github.com&quot; \
+    -key ca.key -out ca.crt
+</code></pre><p>&#x7136;&#x540E;&#x662F;&#x91CD;&#x65B0;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8BC1;&#x4E66;&#x8FDB;&#x884C;&#x7B7E;&#x540D;&#xFF1A;</p>
+<pre><code>$ openssl req -new \
+    -subj &quot;/C=GB/L=China/O=server/CN=server.io&quot; \
+    -key server.key \
+    -out server.csr
+$ openssl x509 -req -sha256 \
+    -CA ca.crt -CAkey ca.key -CAcreateserial -days 3650 \
+    -in server.csr \
+    -out server.crt
+</code></pre><p>&#x7B7E;&#x540D;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x5F15;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4EE5;.csr&#x4E3A;&#x540E;&#x7F00;&#x540D;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x8BC1;&#x4E66;&#x7B7E;&#x540D;&#x8BF7;&#x6C42;&#x6587;&#x4EF6;&#x3002;&#x5728;&#x8BC1;&#x4E66;&#x7B7E;&#x540D;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x5220;&#x9664;.csr&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;CA&#x8BC1;&#x4E66;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    certificate, err := tls.LoadX509KeyPair(<span class="hljs-string">&quot;client.crt&quot;</span>, <span class="hljs-string">&quot;client.key&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+
+    certPool := x509.NewCertPool()
+    ca, err := ioutil.ReadFile(<span class="hljs-string">&quot;ca.crt&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+    <span class="hljs-keyword">if</span> ok := certPool.AppendCertsFromPEM(ca); !ok {
+        log.Fatal(<span class="hljs-string">&quot;failed to append ca certs&quot;</span>)
+    }
+
+    creds := credentials.NewTLS(&amp;tls.Config{
+        Certificates:       []tls.Certificate{certificate},
+        ServerName:         tlsServerName, <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> this is required!</span>
+        RootCAs:            certPool,
+    })
+
+    conn, err := grpc.Dial(
+        <span class="hljs-string">&quot;localhost:5000&quot;</span>, grpc.WithTransportCredentials(creds),
+    )
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+    <span class="hljs-keyword">defer</span> conn.Close()
+
+    ...
+}
+</code></pre>
+<p>&#x5728;&#x65B0;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x518D;&#x76F4;&#x63A5;&#x4F9D;&#x8D56;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8BC1;&#x4E66;&#x6587;&#x4EF6;&#x3002;&#x5728;credentials.NewTLS&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E2D;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x8FC7;&#x5F15;&#x5165;&#x4E00;&#x4E2A;CA&#x6839;&#x8BC1;&#x4E66;&#x548C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x540D;&#x5B57;&#x6765;&#x5B9E;&#x73B0;&#x5BF9;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x94FE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#x65F6;&#x4F1A;&#x9996;&#x5148;&#x8BF7;&#x6C42;&#x670D;&#x52A1;&#x5668;&#x7684;&#x8BC1;&#x4E66;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528;CA&#x6839;&#x8BC1;&#x4E66;&#x5BF9;&#x6536;&#x5230;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x8BC1;&#x4E66;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x8BC1;&#x4E66;&#x4E5F;&#x91C7;&#x7528;CA&#x6839;&#x8BC1;&#x4E66;&#x7B7E;&#x540D;&#x7684;&#x8BDD;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x8BC1;&#x4E66;&#x8BA4;&#x8BC1;&#x3002;&#x6211;&#x4EEC;&#x7528;CA&#x6839;&#x8BC1;&#x4E66;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x8BC1;&#x4E66;&#x7B7E;&#x540D;&#xFF1A;</p>
+<pre><code>$ openssl req -new \
+    -subj &quot;/C=GB/L=China/O=client/CN=client.io&quot; \
+    -key client.key \
+    -out client.csr
+$ openssl x509 -req -sha256 \
+    -CA ca.crt -CAkey ca.key -CAcreateserial -days 3650 \
+    -in client.csr \
+    -out client.crt
+</code></pre><p>&#x56E0;&#x4E3A;&#x5F15;&#x5165;&#x4E86;CA&#x6839;&#x8BC1;&#x4E66;&#x7B7E;&#x540D;&#xFF0C;&#x5728;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;&#x65F6;&#x540C;&#x6837;&#x8981;&#x914D;&#x7F6E;&#x6839;&#x8BC1;&#x4E66;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    certificate, err := tls.LoadX509KeyPair(<span class="hljs-string">&quot;server.crt&quot;</span>, <span class="hljs-string">&quot;server.key&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+
+    certPool := x509.NewCertPool()
+    ca, err := ioutil.ReadFile(<span class="hljs-string">&quot;ca.crt&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+    <span class="hljs-keyword">if</span> ok := certPool.AppendCertsFromPEM(ca); !ok {
+        log.Fatal(<span class="hljs-string">&quot;failed to append certs&quot;</span>)
+    }
+
+    creds := credentials.NewTLS(&amp;tls.Config{
+        Certificates: []tls.Certificate{certificate},
+        ClientAuth:   tls.RequireAndVerifyClientCert, <span class="hljs-comment">// <span class="hljs-doctag">NOTE:</span> this is optional!</span>
+        ClientCAs:    certPool,
+    })
+
+    server := grpc.NewServer(grpc.Creds(creds))
+    ...
+}
+</code></pre>
+<p>&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x540C;&#x6837;&#x6539;&#x7528;credentials.NewTLS&#x51FD;&#x6570;&#x751F;&#x6210;&#x8BC1;&#x4E66;&#xFF0C;&#x901A;&#x8FC7;ClientCAs&#x9009;&#x62E9;CA&#x6839;&#x8BC1;&#x4E66;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;ClientAuth&#x9009;&#x9879;&#x542F;&#x7528;&#x5BF9;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x3002;</p>
+<p>&#x5230;&#x6B64;&#x6211;&#x4EEC;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;&#x670D;&#x52A1;&#x5668;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x7684;&#x901A;&#x4FE1;&#x53EF;&#x9760;&#x7684;gRPC&#x7CFB;&#x7EDF;&#x3002;</p>
+<h2 id="452-token&#x8BA4;&#x8BC1;">4.5.2 Token&#x8BA4;&#x8BC1;</h2>
+<p>&#x524D;&#x9762;&#x8BB2;&#x8FF0;&#x7684;&#x57FA;&#x4E8E;&#x8BC1;&#x4E66;&#x7684;&#x8BA4;&#x8BC1;&#x662F;&#x9488;&#x5BF9;&#x6BCF;&#x4E2A;gRPC&#x94FE;&#x63A5;&#x7684;&#x8BA4;&#x8BC1;&#x3002;gRPC&#x8FD8;&#x4E3A;&#x6BCF;&#x4E2A;gRPC&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x63D0;&#x4F9B;&#x4E86;&#x8BA4;&#x8BC1;&#x652F;&#x6301;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x57FA;&#x4E8E;&#x7528;&#x6237;Token&#x5BF9;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x8BBF;&#x95EE;&#x8FDB;&#x884C;&#x6743;&#x9650;&#x7BA1;&#x7406;&#x3002;</p>
+<p>&#x8981;&#x5B9E;&#x73B0;&#x5BF9;&#x6BCF;&#x4E2A;gRPC&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x8BA4;&#x8BC1;&#xFF0C;&#x9700;&#x8981;&#x5B9E;&#x73B0;grpc.PerRPCCredentials&#x63A5;&#x53E3;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> PerRPCCredentials <span class="hljs-keyword">interface</span> {
+    <span class="hljs-comment">// GetRequestMetadata gets the current request metadata, refreshing</span>
+    <span class="hljs-comment">// tokens if required. This should be called by the transport layer on</span>
+    <span class="hljs-comment">// each request, and the data should be populated in headers or other</span>
+    <span class="hljs-comment">// context. If a status code is returned, it will be used as the status</span>
+    <span class="hljs-comment">// for the RPC. uri is the URI of the entry point for the request.</span>
+    <span class="hljs-comment">// When supported by the underlying implementation, ctx can be used for</span>
+    <span class="hljs-comment">// timeout and cancellation.</span>
+    <span class="hljs-comment">// TODO(zhaoq): Define the set of the qualified keys instead of leaving</span>
+    <span class="hljs-comment">// it as an arbitrary string.</span>
+    GetRequestMetadata(ctx context.Context, uri ...<span class="hljs-keyword">string</span>) (
+        <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span>,    error,
+    )
+    <span class="hljs-comment">// RequireTransportSecurity indicates whether the credentials requires</span>
+    <span class="hljs-comment">// transport security.</span>
+    RequireTransportSecurity() <span class="hljs-keyword">bool</span>
+}
+</code></pre>
+<p>&#x5728;GetRequestMetadata&#x65B9;&#x6CD5;&#x4E2D;&#x8FD4;&#x56DE;&#x8BA4;&#x8BC1;&#x9700;&#x8981;&#x7684;&#x5FC5;&#x8981;&#x4FE1;&#x606F;&#x3002;RequireTransportSecurity&#x65B9;&#x6CD5;&#x8868;&#x793A;&#x662F;&#x5426;&#x8981;&#x6C42;&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x94FE;&#x63A5;&#x3002;&#x5728;&#x771F;&#x5B9E;&#x7684;&#x73AF;&#x5883;&#x4E2D;&#x5EFA;&#x8BAE;&#x5FC5;&#x987B;&#x8981;&#x6C42;&#x5E95;&#x5C42;&#x542F;&#x7528;&#x5B89;&#x5168;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x5426;&#x5219;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x6709;&#x6CC4;&#x9732;&#x548C;&#x88AB;&#x7BE1;&#x6539;&#x7684;&#x98CE;&#x9669;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Authentication&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x4E8E;&#x5B9E;&#x73B0;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x7684;&#x8BA4;&#x8BC1;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> Authentication <span class="hljs-keyword">struct</span> {
+    User     <span class="hljs-keyword">string</span>
+    Password <span class="hljs-keyword">string</span>
+}
+
+<span class="hljs-keyword">func</span> (a *Authentication) GetRequestMetadata(context.Context, ...<span class="hljs-keyword">string</span>) (
+    <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span>, error,
+) {
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;user&quot;</span>:a.User, <span class="hljs-string">&quot;password&quot;</span>: a.Password}, <span class="hljs-literal">nil</span>
+}
+<span class="hljs-keyword">func</span> (a *Authentication) RequireTransportSecurity() <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+}
+</code></pre>
+<p>&#x5728;GetRequestMetadata&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8FD4;&#x56DE;&#x5730;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x5305;&#x88C5;login&#x548C;password&#x4E24;&#x4E2A;&#x4FE1;&#x606F;&#x3002;&#x4E3A;&#x4E86;&#x6F14;&#x793A;&#x4EE3;&#x7801;&#x7B80;&#x5355;&#xFF0C;RequireTransportSecurity&#x65B9;&#x6CD5;&#x8868;&#x793A;&#x4E0D;&#x8981;&#x6C42;&#x5E95;&#x5C42;&#x4F7F;&#x7528;&#x5B89;&#x5168;&#x94FE;&#x63A5;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x5728;&#x6BCF;&#x6B21;&#x8BF7;&#x6C42;gRPC&#x670D;&#x52A1;&#x65F6;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;Token&#x4FE1;&#x606F;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x9009;&#x9879;&#x4F20;&#x4EBA;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    auth := Authentication{
+        Login:    <span class="hljs-string">&quot;gopher&quot;</span>,
+        Password: <span class="hljs-string">&quot;password&quot;</span>,
+    }
+
+    conn, err := grpc.Dial(<span class="hljs-string">&quot;localhost&quot;</span>+port, grpc.WithInsecure(), grpc.WithPerRPCCredentials(&amp;auth))
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+    <span class="hljs-keyword">defer</span> conn.Close()
+
+    ...
+}
+</code></pre>
+<p>&#x901A;&#x8FC7;grpc.WithPerRPCCredentials&#x51FD;&#x6570;&#x5C06;Authentication&#x5BF9;&#x8C61;&#x8F6C;&#x4E3A;grpc.Dial&#x53C2;&#x6570;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x91CC;&#x6CA1;&#x6709;&#x542F;&#x7528;&#x5B89;&#x5168;&#x94FE;&#x63A5;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x4EBA;grpc.WithInsecure()&#x8868;&#x793A;&#x5FFD;&#x7565;&#x8BC1;&#x4E66;&#x8BA4;&#x8BC1;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x5728;gRPC&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x4E2D;&#x901A;&#x8FC7;Authentication&#x7C7B;&#x578B;&#x7684;Auth&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x8EAB;&#x4EFD;&#x8BA4;&#x8BC1;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> grpcServer <span class="hljs-keyword">struct</span> { auth *Authentication }
+
+<span class="hljs-keyword">func</span> (p *grpcServer) SomeMethod(
+    ctx context.Context, in *HelloRequest,
+) (*HelloReply, error) {
+    <span class="hljs-keyword">if</span> err := p.auth.Auth(ctx); err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>, err
+    }
+
+    <span class="hljs-keyword">return</span> &amp;HelloReply{Message: <span class="hljs-string">&quot;Hello &quot;</span> + in.Name}, <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> (a *Authentication) Auth(ctx context.Context) error {
+    md, ok := metadata.FromIncomingContext(ctx)
+    <span class="hljs-keyword">if</span> !ok {
+        <span class="hljs-keyword">return</span> fmt.Errorf(<span class="hljs-string">&quot;missing credentials&quot;</span>)
+    }
+
+    <span class="hljs-keyword">var</span> appid <span class="hljs-keyword">string</span>
+    <span class="hljs-keyword">var</span> appkey <span class="hljs-keyword">string</span>
+
+    <span class="hljs-keyword">if</span> val, ok := md[<span class="hljs-string">&quot;login&quot;</span>]; ok { appid = val[<span class="hljs-number">0</span>] }
+    <span class="hljs-keyword">if</span> val, ok := md[<span class="hljs-string">&quot;password&quot;</span>]; ok { appkey = val[<span class="hljs-number">0</span>] }
+
+    <span class="hljs-keyword">if</span> appid != a.Login || appkey != a.Password {
+        <span class="hljs-keyword">return</span> grpc.Errorf(codes.Unauthenticated, <span class="hljs-string">&quot;invalid token&quot;</span>)
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+</code></pre>
+<p>&#x8BE6;&#x7EC6;&#x5730;&#x8BA4;&#x8BC1;&#x5DE5;&#x4F5C;&#x4E3B;&#x8981;&#x5728;Authentication.Auth&#x65B9;&#x6CD5;&#x4E2D;&#x5B8C;&#x6210;&#x3002;&#x9996;&#x5148;&#x901A;&#x8FC7;metadata.FromIncomingContext&#x4ECE;ctx&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x83B7;&#x53D6;&#x5143;&#x4FE1;&#x606F;&#xFF0C;&#x7136;&#x540E;&#x53D6;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x8BA4;&#x8BC1;&#x4FE1;&#x606F;&#x8FDB;&#x884C;&#x8BA4;&#x8BC1;&#x3002;&#x5982;&#x679C;&#x8BA4;&#x8BC1;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;codes.Unauthenticated&#x7C7B;&#x578B;&#x5730;&#x9519;&#x8BEF;&#x3002;</p>
+<h2 id="453-&#x622A;&#x53D6;&#x5668;">4.5.3 &#x622A;&#x53D6;&#x5668;</h2>
+<p>gRPC&#x4E2D;&#x7684;grpc.UnaryInterceptor&#x548C;grpc.StreamInterceptor&#x5206;&#x522B;&#x5BF9;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x548C;&#x6D41;&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x622A;&#x53D6;&#x5668;&#x7684;&#x652F;&#x6301;&#x3002;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x7684;&#x622A;&#x53D6;&#x5668;&#x7528;&#x6CD5;&#x3002;</p>
+<p>&#x8981;&#x5B9E;&#x73B0;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x7684;&#x622A;&#x53D6;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x4E3A;grpc.UnaryInterceptor&#x7684;&#x53C2;&#x6570;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> filter(ctx context.Context,
+    req <span class="hljs-keyword">interface</span>{}, info *grpc.UnaryServerInfo,
+    handler grpc.UnaryHandler,
+) (resp <span class="hljs-keyword">interface</span>{}, err error) {
+    log.Println(<span class="hljs-string">&quot;fileter:&quot;</span>, info)
+    <span class="hljs-keyword">return</span> handler(ctx, req)
+}
+</code></pre>
+<p>&#x51FD;&#x6570;&#x7684;ctx&#x548C;req&#x53C2;&#x6570;&#x5C31;&#x662F;&#x6BCF;&#x4E2A;&#x666E;&#x901A;&#x7684;RPC&#x65B9;&#x6CD5;&#x7684;&#x524D;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x3002;&#x7B2C;&#x4E09;&#x4E2A;info&#x53C2;&#x6570;&#x8868;&#x793A;&#x5F53;&#x524D;&#x662F;&#x5BF9;&#x5E94;&#x7684;&#x90A3;&#x4E2A;gRPC&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x56DB;&#x4E2A;handler&#x53C2;&#x6570;&#x5BF9;&#x5E94;&#x5F53;&#x524D;&#x7684;gRPC&#x65B9;&#x6CD5;&#x51FD;&#x6570;&#x3002;&#x4E0A;&#x9762;&#x7684;&#x51FD;&#x6570;&#x4E2D;&#x9996;&#x5148;&#x662F;&#x65E5;&#x5FD7;&#x8F93;&#x51FA;info&#x53C2;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;handler&#x5BF9;&#x5E94;&#x7684;gRPC&#x65B9;&#x6CD5;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x8981;&#x4F7F;&#x7528;filter&#x622A;&#x53D6;&#x5668;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x542F;&#x52A8;gRPC&#x670D;&#x52A1;&#x65F6;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x8F93;&#x5165;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre><code class="lang-go">server := grpc.NewServer(grpc.UnaryInterceptor(filter))
+</code></pre>
+<p>&#x7136;&#x540E;&#x670D;&#x52A1;&#x5668;&#x5728;&#x6536;&#x5230;&#x6BCF;&#x4E2A;gRPC&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#xFF0C;&#x4F1A;&#x9996;&#x5148;&#x8F93;&#x51FA;&#x4E00;&#x884C;&#x65E5;&#x5FD7;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;&#x5BF9;&#x65B9;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x622A;&#x53D6;&#x5668;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x6B21;gRPC&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x5C06;&#x88AB;&#x89C6;&#x4F5C;&#x5931;&#x8D25;&#x5904;&#x7406;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x622A;&#x53D6;&#x5668;&#x4E2D;&#x5BF9;&#x8F93;&#x5165;&#x7684;&#x53C2;&#x6570;&#x505A;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x9A8C;&#x8BC1;&#x5DE5;&#x4F5C;&#x3002;&#x540C;&#x6837;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5BF9;handler&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x505A;&#x4E00;&#x4E9B;&#x9A8C;&#x8BC1;&#x5DE5;&#x4F5C;&#x3002;&#x622A;&#x53D6;&#x5668;&#x4E5F;&#x975E;&#x5E38;&#x9002;&#x5408;&#x524D;&#x9762;&#x5BF9;Token&#x8BA4;&#x8BC1;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x622A;&#x53D6;&#x5668;&#x589E;&#x52A0;&#x4E86;&#x5BF9;gRPC&#x65B9;&#x6CD5;&#x5F02;&#x5E38;&#x7684;&#x6355;&#x83B7;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> filter(
+    ctx context.Context, req <span class="hljs-keyword">interface</span>{},
+    info *grpc.UnaryServerInfo,
+    handler grpc.UnaryHandler,
+) (resp <span class="hljs-keyword">interface</span>{}, err error) {
+    log.Println(<span class="hljs-string">&quot;fileter:&quot;</span>, info)
+
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+        <span class="hljs-keyword">if</span> r := <span class="hljs-built_in">recover</span>(); r != <span class="hljs-literal">nil</span> {
+            err = fmt.Errorf(<span class="hljs-string">&quot;panic: %v&quot;</span>, r)
+        }
+    }()
+
+    <span class="hljs-keyword">return</span> handler(ctx, req)
+}
+</code></pre>
+<p>&#x4E0D;&#x8FC7;gRPC&#x6846;&#x67B6;&#x4E2D;&#x53EA;&#x80FD;&#x4E3A;&#x6BCF;&#x4E2A;&#x670D;&#x52A1;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x622A;&#x53D6;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x6240;&#x6709;&#x7684;&#x622A;&#x53D6;&#x5DE5;&#x4F5C;&#x53EA;&#x80FD;&#x5728;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x5B8C;&#x6210;&#x3002;&#x5F00;&#x6E90;&#x7684;grpc-ecosystem&#x9879;&#x76EE;&#x4E2D;&#x7684;go-grpc-middleware&#x5305;&#x5DF2;&#x7ECF;&#x57FA;&#x4E8E;gRPC&#x5BF9;&#x622A;&#x53D6;&#x5668;&#x5B9E;&#x73B0;&#x4E86;&#x94FE;&#x5F0F;&#x622A;&#x53D6;&#x5668;&#x7684;&#x652F;&#x6301;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;go-grpc-middleware&#x5305;&#x4E2D;&#x94FE;&#x5F0F;&#x622A;&#x53D6;&#x5668;&#x7684;&#x7B80;&#x5355;&#x7528;&#x6CD5;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">import</span> <span class="hljs-string">&quot;github.com/grpc-ecosystem/go-grpc-middleware&quot;</span>
+
+myServer := grpc.NewServer(
+    grpc.UnaryInterceptor(grpc_middleware.ChainUnaryServer(
+        filter1, filter2, ...
+    )),
+    grpc.StreamInterceptor(grpc_middleware.ChainStreamServer(
+        filter1, filter2, ...
+    )),
+)
+</code></pre>
+<p>&#x611F;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x53C2;&#x8003;go-grpc-middleware&#x5305;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<h2 id="454-&#x548C;web&#x670D;&#x52A1;&#x5171;&#x5B58;">4.5.4 &#x548C;Web&#x670D;&#x52A1;&#x5171;&#x5B58;</h2>
+<p>gRPC&#x6784;&#x5EFA;&#x5728;HTTP/2&#x534F;&#x8BAE;&#x4E4B;&#x4E0A;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;gRPC&#x670D;&#x52A1;&#x548C;&#x666E;&#x901A;&#x7684;Web&#x670D;&#x52A1;&#x67B6;&#x8BBE;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x4E4B;&#x4E0A;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x6CA1;&#x6709;&#x542F;&#x52A8;TLS&#x534F;&#x8BAE;&#x7684;&#x670D;&#x52A1;&#x5219;&#x9700;&#x8981;&#x5BF9;HTTP2/2&#x7279;&#x6027;&#x505A;&#x9002;&#x5F53;&#x7684;&#x8C03;&#x6574;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    mux := http.NewServeMux()
+
+    h2Handler := h2c.NewHandler(mux, &amp;http2.Server{})
+    server = &amp;http.Server{Addr: <span class="hljs-string">&quot;:3999&quot;</span>, Handler: h2Handler}
+    server.ListenAndServe()
+}
+</code></pre>
+<p>&#x542F;&#x7528;&#x666E;&#x901A;&#x7684;https&#x670D;&#x52A1;&#x5668;&#x5219;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    mux := http.NewServeMux()
+    mux.HandleFunc(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-keyword">func</span>(w http.ResponseWriter, req *http.Request) {
+        fmt.Fprintln(w, <span class="hljs-string">&quot;hello&quot;</span>)
+    })
+
+    http.ListenAndServeTLS(port, <span class="hljs-string">&quot;server.crt&quot;</span>, <span class="hljs-string">&quot;server.key&quot;</span>,
+        http.HandlerFunc(<span class="hljs-keyword">func</span>(w http.ResponseWriter, r *http.Request) {
+            mux.ServeHTTP(w, r)
+            <span class="hljs-keyword">return</span>
+        }),
+    )
+}
+</code></pre>
+<p>&#x800C;&#x5355;&#x72EC;&#x542F;&#x7528;&#x5E26;&#x8BC1;&#x4E66;&#x7684;gRPC&#x670D;&#x52A1;&#x4E5F;&#x662F;&#x540C;&#x6837;&#x7684;&#x7B80;&#x5355;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    creds, err := credentials.NewServerTLSFromFile(<span class="hljs-string">&quot;server.crt&quot;</span>, <span class="hljs-string">&quot;server.key&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        log.Fatal(err)
+    }
+
+    grpcServer := grpc.NewServer(grpc.Creds(creds))
+
+    ...
+}
+</code></pre>
+<p>&#x56E0;&#x4E3A;gRPC&#x670D;&#x52A1;&#x5DF2;&#x7ECF;&#x5B9E;&#x73B0;&#x4E86;ServeHTTP&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;Web&#x8DEF;&#x7531;&#x5904;&#x7406;&#x5BF9;&#x8C61;&#x3002;&#x5982;&#x679C;&#x5C06;gRPC&#x548C;Web&#x670D;&#x52A1;&#x653E;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;gRPC&#x548C;Web&#x8DEF;&#x5F84;&#x7684;&#x51B2;&#x7A81;&#xFF0C;&#x5728;&#x5904;&#x7406;&#x65F6;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x533A;&#x5206;&#x4E24;&#x7C7B;&#x670D;&#x52A1;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x751F;&#x6210;&#x540C;&#x65F6;&#x652F;&#x6301;Web&#x548C;gRPC&#x534F;&#x8BAE;&#x7684;&#x8DEF;&#x7531;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> main() {
+    ...
+
+    http.ListenAndServeTLS(port, <span class="hljs-string">&quot;server.crt&quot;</span>, <span class="hljs-string">&quot;server.key&quot;</span>,
+        http.HandlerFunc(<span class="hljs-keyword">func</span>(w http.ResponseWriter, r *http.Request) {
+            <span class="hljs-keyword">if</span> r.ProtoMajor != <span class="hljs-number">2</span> {
+                mux.ServeHTTP(w, r)
+                <span class="hljs-keyword">return</span>
+            }
+            <span class="hljs-keyword">if</span> strings.Contains(
+                r.Header.Get(<span class="hljs-string">&quot;Content-Type&quot;</span>), <span class="hljs-string">&quot;application/grpc&quot;</span>,
+            ) {
+                grpcServer.ServeHTTP(w, r) <span class="hljs-comment">// gRPC Server</span>
+                <span class="hljs-keyword">return</span>
+            }
+
+            mux.ServeHTTP(w, r)
+            <span class="hljs-keyword">return</span>
+        }),
+    )
+}
+</code></pre>
+<p>&#x9996;&#x5148;gRPC&#x662F;&#x5EFA;&#x7ACB;&#x5728;HTTP/2&#x7248;&#x672C;&#x4E4B;&#x4E0A;&#xFF0C;&#x5982;&#x679C;HTTP&#x4E0D;&#x662F;HTTP/2&#x534F;&#x8BAE;&#x5219;&#x5FC5;&#x7136;&#x65E0;&#x6CD5;&#x63D0;&#x4F9B;gRPC&#x652F;&#x6301;&#x3002;&#x540C;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;gRPC&#x8C03;&#x7528;&#x8BF7;&#x6C42;&#x7684;Content-Type&#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x6807;&#x6CE8;&#x4E3A;&quot;application/grpc&quot;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5728;gRPC&#x7AEF;&#x53E3;&#x4E0A;&#x540C;&#x65F6;&#x63D0;&#x4F9B;Web&#x670D;&#x52A1;&#x4E86;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch4-04-grpc.html" class="navigation navigation-prev " aria-label="Previous page: 4.4 gRPC入门">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch4-06-grpc-ext.html" class="navigation navigation-next " aria-label="Next page: 4.6 gRPC和Protobuf扩展">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"4.5 gRPC进阶","level":"1.5.5","depth":2,"next":{"title":"4.6 gRPC和Protobuf扩展","level":"1.5.6","depth":2,"path":"ch4-rpc/ch4-06-grpc-ext.md","ref":"ch4-rpc/ch4-06-grpc-ext.md","articles":[]},"previous":{"title":"4.4 gRPC入门","level":"1.5.4","depth":2,"path":"ch4-rpc/ch4-04-grpc.md","ref":"ch4-rpc/ch4-04-grpc.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go语言高级编程","language":"zh-hans","gitbook":"3.x","description":"Go语言高级编程"},"file":{"path":"ch4-rpc/ch4-05-grpc-hack.md","mtime":"2018-12-27T11:23:57.937Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T13:21:40.542Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

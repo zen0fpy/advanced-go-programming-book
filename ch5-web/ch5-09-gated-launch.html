@@ -1,0 +1,1318 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>5.9 灰度发布和A/B测试 · Go语言高级编程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch5-10-ext.html" />
+    
+    
+    <link rel="prev" href="ch5-08-interface-and-web.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch1-basic/readme.html">
+            
+                <a href="../ch1-basic/readme.html">
+            
+                    
+                    第1章 语言基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch1-basic/ch1-01-genesis.html">
+            
+                <a href="../ch1-basic/ch1-01-genesis.html">
+            
+                    
+                    1.1 Go语言创世纪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                <a href="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                    
+                    1.2 Hello, World 的革命
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                <a href="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                    
+                    1.3 数组、字符串和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                <a href="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                    
+                    1.4 函数、方法和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch1-basic/ch1-05-mem.html">
+            
+                <a href="../ch1-basic/ch1-05-mem.html">
+            
+                    
+                    1.5 面向并发的内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch1-basic/ch1-06-goroutine.html">
+            
+                <a href="../ch1-basic/ch1-06-goroutine.html">
+            
+                    
+                    1.6 常见的并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                <a href="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                    
+                    1.7 错误和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../ch1-basic/ch1-08-ext.html">
+            
+                <a href="../ch1-basic/ch1-08-ext.html">
+            
+                    
+                    1.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ch2-cgo/readme.html">
+            
+                <a href="../ch2-cgo/readme.html">
+            
+                    
+                    第2章 CGO编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                <a href="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                    
+                    2.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ch2-cgo/ch2-02-basic.html">
+            
+                <a href="../ch2-cgo/ch2-02-basic.html">
+            
+                    
+                    2.2 CGO基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                <a href="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                    
+                    2.3 类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ch2-cgo/ch2-04-func.html">
+            
+                <a href="../ch2-cgo/ch2-04-func.html">
+            
+                    
+                    2.4 函数调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ch2-cgo/ch2-05-internal.html">
+            
+                <a href="../ch2-cgo/ch2-05-internal.html">
+            
+                    
+                    2.5 内部机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ch2-cgo/ch2-06-qsort.html">
+            
+                <a href="../ch2-cgo/ch2-06-qsort.html">
+            
+                    
+                    2.6 实战: 封装qsort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ch2-cgo/ch2-07-memory.html">
+            
+                <a href="../ch2-cgo/ch2-07-memory.html">
+            
+                    
+                    2.7 CGO内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ch2-cgo/ch2-08-class.html">
+            
+                <a href="../ch2-cgo/ch2-08-class.html">
+            
+                    
+                    2.8 C++类包装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                <a href="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                    
+                    2.9 静态库和动态库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ch2-cgo/ch2-10-link.html">
+            
+                <a href="../ch2-cgo/ch2-10-link.html">
+            
+                    
+                    2.10 编译和链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ch2-cgo/ch2-11-ext.html">
+            
+                <a href="../ch2-cgo/ch2-11-ext.html">
+            
+                    
+                    2.11 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch3-asm/readme.html">
+            
+                <a href="../ch3-asm/readme.html">
+            
+                    
+                    第3章 汇编语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch3-asm/ch3-01-basic.html">
+            
+                <a href="../ch3-asm/ch3-01-basic.html">
+            
+                    
+                    3.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch3-asm/ch3-02-arch.html">
+            
+                <a href="../ch3-asm/ch3-02-arch.html">
+            
+                    
+                    3.2 计算机结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch3-asm/ch3-03-const-and-var.html">
+            
+                <a href="../ch3-asm/ch3-03-const-and-var.html">
+            
+                    
+                    3.3 常量和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch3-asm/ch3-04-func.html">
+            
+                <a href="../ch3-asm/ch3-04-func.html">
+            
+                    
+                    3.4 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../ch3-asm/ch3-05-control-flow.html">
+            
+                <a href="../ch3-asm/ch3-05-control-flow.html">
+            
+                    
+                    3.5 控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../ch3-asm/ch3-06-func-again.html">
+            
+                <a href="../ch3-asm/ch3-06-func-again.html">
+            
+                    
+                    3.6 再论函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../ch3-asm/ch3-07-hack-asm.html">
+            
+                <a href="../ch3-asm/ch3-07-hack-asm.html">
+            
+                    
+                    3.7 汇编语言的威力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                <a href="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                    
+                    3.8 例子：Goroutine ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../ch3-asm/ch3-09-debug.html">
+            
+                <a href="../ch3-asm/ch3-09-debug.html">
+            
+                    
+                    3.9 Delve调试器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../ch3-asm/ch3-10-ext.html">
+            
+                <a href="../ch3-asm/ch3-10-ext.html">
+            
+                    
+                    3.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch4-rpc/readme.html">
+            
+                <a href="../ch4-rpc/readme.html">
+            
+                    
+                    第4章 RPC和Protobuf
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                <a href="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                    
+                    4.1 RPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                <a href="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                    
+                    4.2 Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                    
+                    4.3 玩转RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch4-rpc/ch4-04-grpc.html">
+            
+                <a href="../ch4-rpc/ch4-04-grpc.html">
+            
+                    
+                    4.4 gRPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                    
+                    4.5 gRPC进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                <a href="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                    
+                    4.6 gRPC和Protobuf扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ch4-rpc/ch4-07-pbgo.html">
+            
+                <a href="../ch4-rpc/ch4-07-pbgo.html">
+            
+                    
+                    4.7 pbgo: 基于Protobuf的框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                <a href="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                    
+                    4.8 grpcurl工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ch4-rpc/ch4-09-ext.html">
+            
+                <a href="../ch4-rpc/ch4-09-ext.html">
+            
+                    
+                    4.9 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    第5章 Go和Web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="ch5-01-introduction.html">
+            
+                <a href="ch5-01-introduction.html">
+            
+                    
+                    5.1 Web开发简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="ch5-02-router.html">
+            
+                <a href="ch5-02-router.html">
+            
+                    
+                    5.2 请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="ch5-03-middleware.html">
+            
+                <a href="ch5-03-middleware.html">
+            
+                    
+                    5.3 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="ch5-04-validator.html">
+            
+                <a href="ch5-04-validator.html">
+            
+                    
+                    5.4 请求校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="ch5-05-database.html">
+            
+                <a href="ch5-05-database.html">
+            
+                    
+                    5.5 和数据库打交道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="ch5-06-ratelimit.html">
+            
+                <a href="ch5-06-ratelimit.html">
+            
+                    
+                    5.6 服务流量限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="ch5-07-layout-of-web-project.html">
+            
+                <a href="ch5-07-layout-of-web-project.html">
+            
+                    
+                    5.7 大型Web项目分层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="ch5-08-interface-and-web.html">
+            
+                <a href="ch5-08-interface-and-web.html">
+            
+                    
+                    5.8 接口和表驱动开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.9" data-path="ch5-09-gated-launch.html">
+            
+                <a href="ch5-09-gated-launch.html">
+            
+                    
+                    5.9 灰度发布和A/B测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="ch5-10-ext.html">
+            
+                <a href="ch5-10-ext.html">
+            
+                    
+                    5.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch6-cloud/readme.html">
+            
+                <a href="../ch6-cloud/readme.html">
+            
+                    
+                    第6章 分布式系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch6-cloud/ch6-01-dist-id.html">
+            
+                <a href="../ch6-cloud/ch6-01-dist-id.html">
+            
+                    
+                    6.1 分布式 id 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch6-cloud/ch6-02-lock.html">
+            
+                <a href="../ch6-cloud/ch6-02-lock.html">
+            
+                    
+                    6.2 分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch6-cloud/ch6-03-delay-job.html">
+            
+                <a href="../ch6-cloud/ch6-03-delay-job.html">
+            
+                    
+                    6.3 延时任务系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch6-cloud/ch6-04-search-engine.html">
+            
+                <a href="../ch6-cloud/ch6-04-search-engine.html">
+            
+                    
+                    6.4 分布式搜索引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../ch6-cloud/ch6-05-load-balance.html">
+            
+                <a href="../ch6-cloud/ch6-05-load-balance.html">
+            
+                    
+                    6.5 负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../ch6-cloud/ch6-06-config.html">
+            
+                <a href="../ch6-cloud/ch6-06-config.html">
+            
+                    
+                    6.6 分布式配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../ch6-cloud/ch6-07-crawler.html">
+            
+                <a href="../ch6-cloud/ch6-07-crawler.html">
+            
+                    
+                    6.7 分布式爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../ch6-cloud/ch6-08-ext.html">
+            
+                <a href="../ch6-cloud/ch6-08-ext.html">
+            
+                    
+                    6.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/readme.html">
+            
+                <a href="../appendix/readme.html">
+            
+                    
+                    附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/appendix-a-trap.html">
+            
+                <a href="../appendix/appendix-a-trap.html">
+            
+                    
+                    附录A: Go语言常见坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/appendix-b-gems.html">
+            
+                <a href="../appendix/appendix-b-gems.html">
+            
+                    
+                    附录B: 有趣的代码片段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/appendix-c-author.html">
+            
+                <a href="../appendix/appendix-c-author.html">
+            
+                    
+                    附录C: 作者简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >5.9 灰度发布和A/B测试</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="59-&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x548C;-ab-test">5.9 &#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x548C; A/B test</h1>
+<p>&#x4E2D;&#x578B;&#x7684;&#x4E92;&#x8054;&#x7F51;&#x516C;&#x53F8;&#x5F80;&#x5F80;&#x6709;&#x7740;&#x4EE5;&#x767E;&#x4E07;&#x8BA1;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x800C;&#x5927;&#x578B;&#x4E92;&#x8054;&#x7F51;&#x516C;&#x53F8;&#x7684;&#x7CFB;&#x7EDF;&#x5219;&#x53EF;&#x80FD;&#x8981;&#x670D;&#x52A1;&#x5343;&#x4E07;&#x7EA7;&#x751A;&#x81F3;&#x4EBF;&#x7EA7;&#x7684;&#x7528;&#x6237;&#x9700;&#x6C42;&#x3002;&#x5927;&#x578B;&#x7CFB;&#x7EDF;&#x7684;&#x8BF7;&#x6C42;&#x6D41;&#x5165;&#x5F80;&#x5F80;&#x662F;&#x6E90;&#x6E90;&#x4E0D;&#x65AD;&#x7684;&#xFF0C;&#x4EFB;&#x4F55;&#x98CE;&#x5439;&#x8349;&#x52A8;&#xFF0C;&#x90FD;&#x4E00;&#x5B9A;&#x4F1A;&#x6709;&#x6700;&#x7EC8;&#x7528;&#x6237;&#x611F;&#x53D7;&#x5F97;&#x5230;&#x3002;&#x4F8B;&#x5982;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x5728;&#x4E0A;&#x7EBF;&#x9014;&#x4E2D;&#x4F1A;&#x62D2;&#x7EDD;&#x4E00;&#x4E9B;&#x4E0A;&#x6E38;&#x8FC7;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x800C;&#x8FD9;&#x65F6;&#x5019;&#x4F9D;&#x8D56;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x6CA1;&#x6709;&#x505A;&#x4EFB;&#x4F55;&#x5BB9;&#x9519;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x5C31;&#x4F1A;&#x4E00;&#x76F4;&#x5411;&#x4E0A;&#x629B;&#x51FA;&#xFF0C;&#x76F4;&#x5230;&#x89E6;&#x8FBE;&#x6700;&#x7EC8;&#x7528;&#x6237;&#x3002;&#x5F62;&#x6210;&#x4E00;&#x6B21;&#x5BF9;&#x7528;&#x6237;&#x5207;&#x5207;&#x5B9E;&#x5B9E;&#x7684;&#x4F24;&#x5BB3;&#x3002;&#x8FD9;&#x79CD;&#x4F24;&#x5BB3;&#x53EF;&#x80FD;&#x662F;&#x5728;&#x7528;&#x6237;&#x7684;APP&#x4E0A;&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x8BA9;&#x7528;&#x6237;&#x6478;&#x4E0D;&#x7740;&#x5934;&#x8111;&#x7684;&#x8BE1;&#x5F02;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7528;&#x6237;&#x53EA;&#x8981;&#x5237;&#x65B0;&#x4E00;&#x4E0B;&#x9875;&#x9762;&#x5C31;&#x53EF;&#x4EE5;&#x5FD8;&#x8BB0;&#x8FD9;&#x4EF6;&#x4E8B;&#x3002;&#x4F46;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x8BA9;&#x6B63;&#x5728;&#x5FC3;&#x6025;&#x5982;&#x711A;&#x5730;&#x548C;&#x51E0;&#x4E07;&#x7ADE;&#x4E89;&#x5BF9;&#x624B;&#x540C;&#x65F6;&#x62A2;&#x593A;&#x79D2;&#x6740;&#x5546;&#x54C1;&#x7684;&#x7528;&#x6237;&#xFF0C;&#x56E0;&#x4E3A;&#x4EE3;&#x7801;&#x4E0A;&#x7684;&#x5C0F;&#x95EE;&#x9898;&#xFF0C;&#x4E27;&#x5931;&#x6389;&#x4E86;&#x5148;&#x53D1;&#x4F18;&#x52BF;&#xFF0C;&#x4E0E;&#x81EA;&#x5DF1;&#x8E72;&#x4E86;&#x51E0;&#x4E2A;&#x6708;&#x7684;&#x5FC3;&#x4EEA;&#x4EA7;&#x54C1;&#x5931;&#x4E4B;&#x4EA4;&#x81C2;&#x3002;&#x5BF9;&#x7528;&#x6237;&#x7684;&#x4F24;&#x5BB3;&#x6709;&#x591A;&#x5927;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x7684;&#x7CFB;&#x7EDF;&#x5BF9;&#x4E8E;&#x4F60;&#x7684;&#x7528;&#x6237;&#x6765;&#x8BF4;&#x6709;&#x591A;&#x91CD;&#x8981;&#x3002;</p>
+<p>&#x4E0D;&#x7BA1;&#x600E;&#x4E48;&#x8BF4;&#xFF0C;&#x5728;&#x5927;&#x578B;&#x7CFB;&#x7EDF;&#x4E2D;&#x5BB9;&#x9519;&#x662F;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x80FD;&#x591F;&#x8BA9;&#x7CFB;&#x7EDF;&#x6309;&#x767E;&#x5206;&#x6BD4;&#xFF0C;&#x5206;&#x6279;&#x6B21;&#x5230;&#x8FBE;&#x6700;&#x7EC8;&#x7528;&#x6237;&#xFF0C;&#x4E5F;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x3002;&#x867D;&#x7136;&#x5F53;&#x4ECA;&#x7684;&#x4E92;&#x8054;&#x7F51;&#x516C;&#x53F8;&#x7CFB;&#x7EDF;&#xFF0C;&#x540D;&#x4E49;&#x4E0A;&#x4F1A;&#x8BF4;&#x81EA;&#x5DF1;&#x4E0A;&#x7EBF;&#x524D;&#x90FD;&#x7ECF;&#x8FC7;&#x4E86;&#x5145;&#x5206;&#x614E;&#x91CD;&#x4E25;&#x683C;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x4F46;&#x5C31;&#x7B97;&#x5B83;&#x4EEC;&#x771F;&#x5F97;&#x505A;&#x5230;&#x4E86;&#xFF0C;&#x4EE3;&#x7801;&#x7684;bug&#x603B;&#x662F;&#x5728;&#x6240;&#x96BE;&#x514D;&#x7684;&#x3002;&#x5373;&#x4F7F;&#x4EE3;&#x7801;&#x6CA1;&#x6709;bug&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x670D;&#x52A1;&#x4E4B;&#x95F4;&#x7684;&#x534F;&#x4F5C;&#x4E5F;&#x662F;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x201C;&#x903B;&#x8F91;&#x201D;&#x4E0A;&#x7684;&#x975E;&#x6280;&#x672F;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x5C31;&#x663E;&#x5F97;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x4E86;&#xFF0C;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x4E5F;&#x79F0;&#x4E3A;&#x91D1;&#x4E1D;&#x96C0;&#x53D1;&#x5E03;&#xFF0C;&#x4F20;&#x8BF4;17&#x4E16;&#x7EAA;&#x7684;&#x82F1;&#x56FD;&#x77FF;&#x4E95;&#x5DE5;&#x4EBA;&#x53D1;&#x73B0;&#x91D1;&#x4E1D;&#x96C0;&#x5BF9;&#x74E6;&#x65AF;&#x6C14;&#x4F53;&#x975E;&#x5E38;&#x654F;&#x611F;&#xFF0C;&#x74E6;&#x65AF;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x6D53;&#x5EA6;&#x65F6;&#xFF0C;&#x91D1;&#x4E1D;&#x96C0;&#x5373;&#x4F1A;&#x6B7B;&#x4EA1;&#xFF0C;&#x4F46;&#x91D1;&#x4E1D;&#x96C0;&#x7684;&#x81F4;&#x6B7B;&#x91CF;&#x74E6;&#x65AF;&#x5BF9;&#x4EBA;&#x5E76;&#x4E0D;&#x81F4;&#x6B7B;&#xFF0C;&#x56E0;&#x6B64;&#x91D1;&#x4E1D;&#x96C0;&#x88AB;&#x7528;&#x6765;&#x5F53;&#x6210;&#x4ED6;&#x4EEC;&#x7684;&#x74E6;&#x65AF;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#x3002;&#x4E92;&#x8054;&#x7F51;&#x7CFB;&#x7EDF;&#x7684;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x4E00;&#x822C;&#x901A;&#x8FC7;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<ol>
+<li>&#x901A;&#x8FC7;&#x5206;&#x6279;&#x6B21;&#x90E8;&#x7F72;&#x5B9E;&#x73B0;&#x7070;&#x5EA6;&#x53D1;&#x5E03;</li>
+<li>&#x901A;&#x8FC7;&#x4E1A;&#x52A1;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x7070;&#x5EA6;&#x53D1;&#x5E03;</li>
+</ol>
+<p>&#x5728;&#x5BF9;&#x7CFB;&#x7EDF;&#x7684;&#x65E7;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x5347;&#x7EA7;&#x8FED;&#x4EE3;&#x65F6;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x7528;&#x7684;&#x6BD4;&#x8F83;&#x591A;&#x3002;&#x65B0;&#x529F;&#x80FD;&#x4E0A;&#x7EBF;&#x65F6;&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x7528;&#x7684;&#x6BD4;&#x8F83;&#x591A;&#x3002;&#x5F53;&#x7136;&#xFF0C;&#x5BF9;&#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x8001;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x8F83;&#x5927;&#x5E45;&#x5EA6;&#x7684;&#x4FEE;&#x6539;&#x65F6;&#xFF0C;&#x4E00;&#x822C;&#x4E5F;&#x4F1A;&#x9009;&#x62E9;&#x6309;&#x4E1A;&#x52A1;&#x89C4;&#x5219;&#x6765;&#x8FDB;&#x884C;&#x53D1;&#x5E03;&#xFF0C;&#x56E0;&#x4E3A;&#x76F4;&#x63A5;&#x5168;&#x91CF;&#x5F00;&#x653E;&#x7ED9;&#x6240;&#x6709;&#x7528;&#x6237;&#x98CE;&#x9669;&#x5B9E;&#x5728;&#x592A;&#x5927;&#x3002;</p>
+<h2 id="591-&#x901A;&#x8FC7;&#x5206;&#x6279;&#x6B21;&#x90E8;&#x7F72;&#x5B9E;&#x73B0;&#x7070;&#x5EA6;&#x53D1;&#x5E03;">5.9.1 &#x901A;&#x8FC7;&#x5206;&#x6279;&#x6B21;&#x90E8;&#x7F72;&#x5B9E;&#x73B0;&#x7070;&#x5EA6;&#x53D1;&#x5E03;</h2>
+<p>&#x5047;&#x5982;&#x670D;&#x52A1;&#x90E8;&#x7F72;&#x5728;15&#x4E2A;&#x5B9E;&#x4F8B;&#xFF08;&#x53EF;&#x80FD;&#x662F;&#x7269;&#x7406;&#x673A;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x5BB9;&#x5668;&#xFF09;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x8FD9;15&#x4E2A;&#x5B9E;&#x4F8B;&#x5206;&#x4E3A;&#x56DB;&#x7EC4;&#xFF0C;&#x6309;&#x7167;&#x5148;&#x540E;&#x987A;&#x5E8F;&#xFF0C;&#x5206;&#x522B;&#x6709;1-2-4-8&#x53F0;&#x673A;&#x5668;&#xFF0C;&#x4FDD;&#x8BC1;&#x6BCF;&#x6B21;&#x6269;&#x5C55;&#x65F6;&#x5927;&#x6982;&#x90FD;&#x662F;&#x4E8C;&#x500D;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<p><img src="../images/ch5-online-group.png" alt="online group"></p>
+<p><em>&#x56FE; 5-20 &#x5206;&#x7EC4;&#x90E8;&#x7F72;</em></p>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;2&#x500D;&#xFF1F;&#x8FD9;&#x6837;&#x80FD;&#x591F;&#x4FDD;&#x8BC1;&#x6211;&#x4EEC;&#x4E0D;&#x7BA1;&#x6709;&#x591A;&#x5C11;&#x53F0;&#x673A;&#x5668;&#xFF0C;&#x90FD;&#x4E0D;&#x4F1A;&#x628A;&#x7EC4;&#x5212;&#x5206;&#x5F97;&#x592A;&#x591A;&#x3002;&#x4F8B;&#x5982;1024&#x53F0;&#x673A;&#x5668;&#xFF0C;&#x4E5F;&#x5C31;&#x53EA;&#x9700;&#x8981;1-2-4-8-16-32-64-128-256-512&#x90E8;&#x7F72;&#x5341;&#x6B21;&#x5C31;&#x53EF;&#x4EE5;&#x5168;&#x90E8;&#x90E8;&#x7F72;&#x5B8C;&#x6BD5;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x4E0A;&#x7EBF;&#x6700;&#x5F00;&#x59CB;&#x5F71;&#x54CD;&#x5230;&#x7684;&#x7528;&#x6237;&#x5728;&#x6574;&#x4F53;&#x7528;&#x6237;&#x4E2D;&#x5360;&#x7684;&#x6BD4;&#x4F8B;&#x4E5F;&#x4E0D;&#x5927;&#xFF0C;&#x6BD4;&#x5982;1000&#x53F0;&#x673A;&#x5668;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x6211;&#x4EEC;&#x4E0A;&#x7EBF;&#x540E;&#x5982;&#x679C;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x4E5F;&#x53EA;&#x5F71;&#x54CD;1/1000&#x7684;&#x7528;&#x6237;&#x3002;&#x5982;&#x679C;10&#x7EC4;&#x5B8C;&#x5168;&#x5E73;&#x5747;&#x5206;&#xFF0C;&#x90A3;&#x4E00;&#x4E0A;&#x7EBF;&#x7ACB;&#x523B;&#x5C31;&#x4F1A;&#x5F71;&#x54CD;1/10&#x7684;&#x7528;&#x6237;&#xFF0C;1/10&#x7684;&#x4E1A;&#x52A1;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x90A3;&#x53EF;&#x80FD;&#x5BF9;&#x4E8E;&#x516C;&#x53F8;&#x6765;&#x8BF4;&#x5C31;&#x5DF2;&#x7ECF;&#x662F;&#x4E00;&#x573A;&#x4E0D;&#x53EF;&#x633D;&#x56DE;&#x7684;&#x4E8B;&#x6545;&#x4E86;&#x3002;</p>
+<p>&#x5728;&#x4E0A;&#x7EBF;&#x65F6;&#xFF0C;&#x6700;&#x6709;&#x6548;&#x7684;&#x89C2;&#x5BDF;&#x624B;&#x6CD5;&#x662F;&#x67E5;&#x770B;&#x7A0B;&#x5E8F;&#x7684;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#xFF0C;&#x5982;&#x679C;&#x8F83;&#x660E;&#x663E;&#x7684;&#x903B;&#x8F91;&#x9519;&#x8BEF;&#xFF0C;&#x4E00;&#x822C;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x7684;&#x6EDA;&#x52A8;&#x901F;&#x5EA6;&#x90FD;&#x4F1A;&#x6709;&#x8089;&#x773C;&#x53EF;&#x89C1;&#x7684;&#x589E;&#x52A0;&#x3002;&#x8FD9;&#x4E9B;&#x9519;&#x8BEF;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;metrics&#x4E00;&#x7C7B;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#x62A5;&#x7ED9;&#x516C;&#x53F8;&#x5185;&#x7684;&#x76D1;&#x63A7;&#x7CFB;&#x7EDF;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x4E0A;&#x7EBF;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x89C2;&#x5BDF;&#x76D1;&#x63A7;&#x66F2;&#x7EBF;&#xFF0C;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x5F02;&#x5E38;&#x53D1;&#x751F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6709;&#x5F02;&#x5E38;&#x60C5;&#x51B5;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x505A;&#x7684;&#x81EA;&#x7136;&#x5C31;&#x662F;&#x56DE;&#x6EDA;&#x4E86;&#x3002;</p>
+<h2 id="592-&#x901A;&#x8FC7;&#x4E1A;&#x52A1;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x7070;&#x5EA6;&#x53D1;&#x5E03;">5.9.2 &#x901A;&#x8FC7;&#x4E1A;&#x52A1;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x7070;&#x5EA6;&#x53D1;&#x5E03;</h2>
+<p>&#x5E38;&#x89C1;&#x7684;&#x7070;&#x5EA6;&#x7B56;&#x7565;&#x6709;&#x591A;&#x79CD;&#xFF0C;&#x8F83;&#x4E3A;&#x7B80;&#x5355;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x4F8B;&#x5982;&#x6211;&#x4EEC;&#x7684;&#x7B56;&#x7565;&#x662F;&#x8981;&#x6309;&#x7167;&#x5343;&#x5206;&#x6BD4;&#x6765;&#x53D1;&#x5E03;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x7528;&#x6237;id&#x3001;&#x624B;&#x673A;&#x53F7;&#x3001;&#x7528;&#x6237;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#xFF0C;&#x7B49;&#x7B49;&#xFF0C;&#x6765;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x54C8;&#x5E0C;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6C42;&#x6A21;&#xFF0C;&#x7528;&#x4F2A;&#x4EE3;&#x7801;&#x8868;&#x793A;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// pass 3/1000</span>
+<span class="hljs-keyword">func</span> passed() <span class="hljs-keyword">bool</span> {
+    key := hashFunctions(userID) % <span class="hljs-number">1000</span>
+    <span class="hljs-keyword">if</span> key &lt;= <span class="hljs-number">2</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+}
+</code></pre>
+<h3 id="5921-&#x53EF;&#x9009;&#x89C4;&#x5219;">5.9.2.1 &#x53EF;&#x9009;&#x89C4;&#x5219;</h3>
+<p>&#x5E38;&#x89C1;&#x7684;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x7CFB;&#x7EDF;&#x4F1A;&#x6709;&#x4E0B;&#x5217;&#x89C4;&#x5219;&#x63D0;&#x4F9B;&#x9009;&#x62E9;&#xFF1A;</p>
+<ol>
+<li>&#x6309;&#x57CE;&#x5E02;&#x53D1;&#x5E03;</li>
+<li>&#x6309;&#x6982;&#x7387;&#x53D1;&#x5E03;</li>
+<li>&#x6309;&#x767E;&#x5206;&#x6BD4;&#x53D1;&#x5E03;</li>
+<li>&#x6309;&#x767D;&#x540D;&#x5355;&#x53D1;&#x5E03;</li>
+<li>&#x6309;&#x4E1A;&#x52A1;&#x7EBF;&#x53D1;&#x5E03;</li>
+<li>&#x6309;UA&#x53D1;&#x5E03;(APP&#x3001;Web&#x3001;PC)</li>
+<li>&#x6309;&#x5206;&#x53D1;&#x6E20;&#x9053;&#x53D1;&#x5E03;</li>
+</ol>
+<p>&#x56E0;&#x4E3A;&#x548C;&#x516C;&#x53F8;&#x7684;&#x4E1A;&#x52A1;&#x76F8;&#x5173;&#xFF0C;&#x6240;&#x4EE5;&#x57CE;&#x5E02;&#x3001;&#x4E1A;&#x52A1;&#x7EBF;&#x3001;UA&#x3001;&#x5206;&#x53D1;&#x6E20;&#x9053;&#x8FD9;&#x4E9B;&#x90FD;&#x53EF;&#x80FD;&#x4F1A;&#x88AB;&#x76F4;&#x63A5;&#x7F16;&#x7801;&#x5728;&#x7CFB;&#x7EDF;&#x91CC;&#xFF0C;&#x4E0D;&#x8FC7;&#x529F;&#x80FD;&#x5176;&#x5B9E;&#x5927;&#x540C;&#x5C0F;&#x5F02;&#x3002;</p>
+<p>&#x6309;&#x767D;&#x540D;&#x5355;&#x53D1;&#x5E03;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x529F;&#x80FD;&#x4E0A;&#x7EBF;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x53EA;&#x6709;&#x516C;&#x53F8;&#x5185;&#x90E8;&#x7684;&#x5458;&#x5DE5;&#x548C;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;&#x65B0;&#x529F;&#x80FD;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x628A;&#x8D26;&#x53F7;&#x3001;&#x90AE;&#x7BB1;&#x5199;&#x5165;&#x5230;&#x767D;&#x540D;&#x5355;&#xFF0C;&#x62D2;&#x7EDD;&#x5176;&#x5B83;&#x4EFB;&#x4F55;&#x8D26;&#x53F7;&#x7684;&#x8BBF;&#x95EE;&#x3002;</p>
+<p>&#x6309;&#x6982;&#x7387;&#x53D1;&#x5E03;&#x5219;&#x662F;&#x6307;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> isTrue() <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>/<span class="hljs-literal">false</span> according to the rate provided by user
+}
+</code></pre>
+<p>&#x5176;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x6982;&#x7387;&#x8FD4;&#x56DE;<code>true</code>&#x6216;&#x8005;<code>false</code>&#xFF0C;&#x5F53;&#x7136;&#xFF0C;<code>true</code>&#x7684;&#x6982;&#x7387;&#x52A0;<code>false</code>&#x7684;&#x6982;&#x7387;&#x5E94;&#x8BE5;&#x662F;100%&#x3002;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E0D;&#x9700;&#x8981;&#x4EFB;&#x4F55;&#x8F93;&#x5165;&#x3002;</p>
+<p>&#x6309;&#x767E;&#x5206;&#x6BD4;&#x53D1;&#x5E03;&#xFF0C;&#x662F;&#x6307;&#x5B9E;&#x73B0;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x7684;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> isTrue(phone <span class="hljs-keyword">string</span>) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">if</span> hash of phone matches {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+}
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x767E;&#x5206;&#x6BD4;&#xFF0C;&#x8FD4;&#x56DE;&#x5BF9;&#x5E94;&#x7684;<code>true</code>&#x548C;<code>false</code>&#xFF0C;&#x548C;&#x4E0A;&#x9762;&#x7684;&#x5355;&#x7EAF;&#x6309;&#x7167;&#x6982;&#x7387;&#x7684;&#x533A;&#x522B;&#x662F;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8C03;&#x7528;&#x65B9;&#x63D0;&#x4F9B;&#x7ED9;&#x6211;&#x4EEC;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x4EE5;&#x8BE5;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x4F5C;&#x4E3A;&#x6E90;&#x6765;&#x8BA1;&#x7B97;&#x54C8;&#x5E0C;&#xFF0C;&#x5E76;&#x4EE5;&#x54C8;&#x5E0C;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x6765;&#x6C42;&#x6A21;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x540C;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x7684;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x5728;&#x4E0B;&#x9762;&#x8FD9;&#x79CD;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x7ED3;&#x679C;&#x53EF;&#x9884;&#x671F;&#x7684;&#x7070;&#x5EA6;&#x7B97;&#x6CD5;&#xFF0C;&#x89C1;<em>&#x56FE; 5-21</em>&#x6240;&#x793A;&#x3002;</p>
+<p><img src="../images/ch5-set-time-line.png" alt="set &#x548C; get &#x6D41;&#x7A0B;&#x4E0D;&#x5E94;&#x8BE5;&#x56E0;&#x4E3A;&#x7070;&#x5EA6;&#x8D70;&#x5230;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684; API"></p>
+<p><em>&#x56FE; 5-21 &#x5148;set&#x7136;&#x540E;&#x9A6C;&#x4E0A;get</em></p>
+<p>&#x5982;&#x679C;&#x91C7;&#x7528;&#x968F;&#x673A;&#x7B56;&#x7565;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x50CF;<em>&#x56FE; 5-22</em>&#x8FD9;&#x6837;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<p><img src="../images/ch5-set-time-line_2.png" alt="set &#x548C; get &#x6D41;&#x7A0B;&#x4E0D;&#x5E94;&#x8BE5;&#x56E0;&#x4E3A;&#x7070;&#x5EA6;&#x8D70;&#x5230;&#x4E0D;&#x540C;&#x7248;&#x672C;&#x7684; API"></p>
+<p><em>&#x56FE; 5-22 &#x5148;set&#x7136;&#x540E;&#x9A6C;&#x4E0A;get</em></p>
+<p>&#x4E3E;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x7F51;&#x7AD9;&#x7684;&#x6CE8;&#x518C;&#x73AF;&#x8282;&#xFF0C;&#x53EF;&#x80FD;&#x6709;&#x4E24;&#x5957;API&#xFF0C;&#x6309;&#x7167;&#x7528;&#x6237;ID&#x8FDB;&#x884C;&#x7070;&#x5EA6;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x4E0D;&#x540C;&#x7684;&#x5B58;&#x53D6;&#x903B;&#x8F91;&#x3002;&#x5982;&#x679C;&#x5B58;&#x50A8;&#x65F6;&#x4F7F;&#x7528;&#x4E86;V1&#x7248;&#x672C;&#x7684;API&#x800C;&#x83B7;&#x53D6;&#x65F6;&#x4F7F;&#x7528;V2&#x7248;&#x672C;&#x7684;API&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x7528;&#x6237;&#x6CE8;&#x518C;&#x6210;&#x529F;&#x540E;&#x53CD;&#x800C;&#x8FD4;&#x56DE;&#x6CE8;&#x518C;&#x5931;&#x8D25;&#x6D88;&#x606F;&#x7684;&#x8BE1;&#x5F02;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="593-&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x5957;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x7CFB;&#x7EDF;">5.9.3 &#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x4E00;&#x5957;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x7CFB;&#x7EDF;</h2>
+<p>&#x524D;&#x9762;&#x4E5F;&#x63D0;&#x5230;&#x4E86;&#xFF0C;&#x63D0;&#x4F9B;&#x7ED9;&#x7528;&#x6237;&#x7684;&#x63A5;&#x53E3;&#x5927;&#x6982;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x548C;&#x4E1A;&#x52A1;&#x7ED1;&#x5B9A;&#x7684;&#x7B80;&#x5355;&#x7070;&#x5EA6;&#x5224;&#x65AD;&#x903B;&#x8F91;&#x3002;&#x4EE5;&#x53CA;&#x8F93;&#x5165;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x4E00;&#x4E9B;&#x7684;&#x54C8;&#x5E0C;&#x7070;&#x5EA6;&#x3002;&#x6211;&#x4EEC;&#x6765;&#x5206;&#x522B;&#x770B;&#x770B;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x8FD9;&#x6837;&#x7684;&#x7070;&#x5EA6;&#x7CFB;&#x7EDF;&#xFF08;&#x51FD;&#x6570;&#xFF09;&#x3002;</p>
+<h3 id="5931-&#x4E1A;&#x52A1;&#x76F8;&#x5173;&#x7684;&#x7B80;&#x5355;&#x7070;&#x5EA6;">5.9.3.1 &#x4E1A;&#x52A1;&#x76F8;&#x5173;&#x7684;&#x7B80;&#x5355;&#x7070;&#x5EA6;</h3>
+<p>&#x516C;&#x53F8;&#x5185;&#x4E00;&#x822C;&#x90FD;&#x4F1A;&#x6709;&#x516C;&#x5171;&#x7684;&#x57CE;&#x5E02;&#x540D;&#x5B57;&#x548C;id&#x7684;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x679C;&#x4E1A;&#x52A1;&#x53EA;&#x6D89;&#x53CA;&#x4E2D;&#x56FD;&#x56FD;&#x5185;&#xFF0C;&#x90A3;&#x4E48;&#x57CE;&#x5E02;&#x6570;&#x91CF;&#x4E0D;&#x4F1A;&#x7279;&#x522B;&#x591A;&#xFF0C;&#x4E14;id&#x53EF;&#x80FD;&#x90FD;&#x5728;10000&#x8303;&#x56F4;&#x4EE5;&#x5185;&#x3002;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x5F00;&#x8F9F;&#x4E00;&#x4E2A;&#x4E00;&#x4E07;&#x5927;&#x5C0F;&#x5DE6;&#x53F3;&#x7684;bool&#x6570;&#x7EC4;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x4E86;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> cityID2Open = [<span class="hljs-number">12000</span>]<span class="hljs-keyword">bool</span>{}
+
+<span class="hljs-keyword">func</span> init() {
+    readConfig()
+    <span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>;i&lt;<span class="hljs-built_in">len</span>(cityID2Open);i++ {
+        <span class="hljs-keyword">if</span> city i is opened in configs {
+            cityID2Open[i] = <span class="hljs-literal">true</span>
+        }
+    }
+}
+
+<span class="hljs-keyword">func</span> isPassed(cityID <span class="hljs-keyword">int</span>) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">return</span> cityID2Open[cityID]
+}
+</code></pre>
+<p>&#x5982;&#x679C;&#x516C;&#x53F8;&#x7ED9;cityID&#x8D4B;&#x7684;&#x503C;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x7528;map&#x6765;&#x5B58;&#x50A8;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#xFF0C;map&#x7684;&#x67E5;&#x8BE2;&#x6BD4;&#x6570;&#x7EC4;&#x7A0D;&#x6162;&#xFF0C;&#x4F46;&#x6269;&#x5C55;&#x4F1A;&#x7075;&#x6D3B;&#x4E00;&#x4E9B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> cityID2Open = <span class="hljs-keyword">map</span>[<span class="hljs-keyword">int</span>]<span class="hljs-keyword">struct</span>{}{}
+
+<span class="hljs-keyword">func</span> init() {
+    readConfig()
+    <span class="hljs-keyword">for</span> _, city := <span class="hljs-keyword">range</span> openCities {
+        cityID2Open[city] = <span class="hljs-keyword">struct</span>{}{}
+    }
+}
+
+<span class="hljs-keyword">func</span> isPassed(cityID <span class="hljs-keyword">int</span>) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">if</span> _, ok := cityID2Open[cityID]; ok {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+}
+</code></pre>
+<p>&#x6309;&#x767D;&#x540D;&#x5355;&#x3001;&#x6309;&#x4E1A;&#x52A1;&#x7EBF;&#x3001;&#x6309;UA&#x3001;&#x6309;&#x5206;&#x53D1;&#x6E20;&#x9053;&#x53D1;&#x5E03;&#xFF0C;&#x672C;&#x8D28;&#x4E0A;&#x548C;&#x6309;&#x57CE;&#x5E02;&#x53D1;&#x5E03;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x518D;&#x8D58;&#x8FF0;&#x4E86;&#x3002;</p>
+<p>&#x6309;&#x6982;&#x7387;&#x53D1;&#x5E03;&#x7A0D;&#x5FAE;&#x7279;&#x6B8A;&#x4E00;&#x4E9B;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E0D;&#x8003;&#x8651;&#x8F93;&#x5165;&#x5B9E;&#x73B0;&#x8D77;&#x6765;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF1A;</p>
+<pre><code class="lang-go">
+<span class="hljs-keyword">func</span> init() {
+    rand.Seed(time.Now().UnixNano())
+}
+
+<span class="hljs-comment">// rate &#x4E3A; 0~100</span>
+<span class="hljs-keyword">func</span> isPassed(rate <span class="hljs-keyword">int</span>) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">if</span> rate &gt;= <span class="hljs-number">100</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    }
+
+    <span class="hljs-keyword">if</span> rate &gt; <span class="hljs-number">0</span> &amp;&amp; rand.Int(<span class="hljs-number">100</span>) &gt; rate {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    }
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+}
+</code></pre>
+<p>&#x6CE8;&#x610F;&#x521D;&#x59CB;&#x5316;&#x79CD;&#x5B50;&#x3002;</p>
+<h3 id="5932-&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;">5.9.3.2 &#x54C8;&#x5E0C;&#x7B97;&#x6CD5;</h3>
+<p>&#x6C42;&#x54C8;&#x5E0C;&#x53EF;&#x7528;&#x7684;&#x7B97;&#x6CD5;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x6BD4;&#x5982;md5&#xFF0C;crc32&#xFF0C;sha1&#x7B49;&#x7B49;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x7684;&#x76EE;&#x7684;&#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x7ED9;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x505A;&#x4E2A;&#x6620;&#x5C04;&#xFF0C;&#x5E76;&#x4E0D;&#x60F3;&#x8981;&#x56E0;&#x4E3A;&#x8BA1;&#x7B97;&#x54C8;&#x5E0C;&#x6D88;&#x8017;&#x8FC7;&#x591A;&#x7684;cpu&#xFF0C;&#x6240;&#x4EE5;&#x73B0;&#x5728;&#x4E1A;&#x754C;&#x4F7F;&#x7528;&#x8F83;&#x591A;&#x7684;&#x7B97;&#x6CD5;&#x662F;murmurhash&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x6211;&#x4EEC;&#x5BF9;&#x8FD9;&#x4E9B;&#x5E38;&#x89C1;&#x7684;hash&#x7B97;&#x6CD5;&#x7684;&#x7B80;&#x5355;benchmark&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x4F7F;&#x7528;&#x4E86;&#x6807;&#x51C6;&#x5E93;&#x7684;md5&#xFF0C;sha1&#x548C;&#x5F00;&#x6E90;&#x7684;murmur3&#x5B9E;&#x73B0;&#x6765;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;crypto/md5&quot;</span>
+    <span class="hljs-string">&quot;crypto/sha1&quot;</span>
+
+    <span class="hljs-string">&quot;github.com/spaolacci/murmur3&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> str = <span class="hljs-string">&quot;hello world&quot;</span>
+
+<span class="hljs-keyword">func</span> md5Hash() [<span class="hljs-number">16</span>]<span class="hljs-keyword">byte</span> {
+    <span class="hljs-keyword">return</span> md5.Sum([]<span class="hljs-keyword">byte</span>(str))
+}
+
+<span class="hljs-keyword">func</span> sha1Hash() [<span class="hljs-number">20</span>]<span class="hljs-keyword">byte</span> {
+    <span class="hljs-keyword">return</span> sha1.Sum([]<span class="hljs-keyword">byte</span>(str))
+}
+
+<span class="hljs-keyword">func</span> murmur32() <span class="hljs-keyword">uint32</span> {
+    <span class="hljs-keyword">return</span> murmur3.Sum32([]<span class="hljs-keyword">byte</span>(str))
+}
+
+<span class="hljs-keyword">func</span> murmur64() <span class="hljs-keyword">uint64</span> {
+    <span class="hljs-keyword">return</span> murmur3.Sum64([]<span class="hljs-keyword">byte</span>(str))
+}
+</code></pre>
+<p>&#x4E3A;&#x8FD9;&#x4E9B;&#x7B97;&#x6CD5;&#x5199;&#x4E00;&#x4E2A;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;testing&quot;</span>
+
+<span class="hljs-keyword">func</span> BenchmarkMD5(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        md5Hash()
+    }
+}
+
+<span class="hljs-keyword">func</span> BenchmarkSHA1(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        sha1Hash()
+    }
+}
+
+<span class="hljs-keyword">func</span> BenchmarkMurmurHash32(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        murmur32()
+    }
+}
+
+<span class="hljs-keyword">func</span> BenchmarkMurmurHash64(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        murmur64()
+    }
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x770B;&#x770B;&#x8FD0;&#x884C;&#x6548;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-shell">~/t/g/hash_bench git:master &#x276F;&#x276F;&#x276F; go test -bench=.
+goos: darwin
+goarch: amd64
+BenchmarkMD5-4          10000000 180 ns/op
+BenchmarkSHA1-4         10000000 211 ns/op
+BenchmarkMurmurHash32-4 50000000  25.7 ns/op
+BenchmarkMurmurHash64-4 20000000  66.2 ns/op
+PASS
+ok _/Users/caochunhui/test/go/hash_bench 7.050s
+</code></pre>
+<p>&#x53EF;&#x89C1;murmurhash&#x76F8;&#x6BD4;&#x5176;&#x5B83;&#x7684;&#x7B97;&#x6CD5;&#x6709;&#x4E09;&#x500D;&#x4EE5;&#x4E0A;&#x7684;&#x6027;&#x80FD;&#x63D0;&#x5347;&#x3002;&#x663E;&#x7136;&#x505A;&#x8D1F;&#x8F7D;&#x5747;&#x8861;&#x7684;&#x8BDD;&#xFF0C;&#x7528;murmurhash&#x8981;&#x6BD4;md5&#x548C;sha1&#x90FD;&#x8981;&#x597D;&#xFF0C;&#x8FD9;&#x4E9B;&#x5E74;&#x793E;&#x533A;&#x91CC;&#x8FD8;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x4E9B;&#x66F4;&#x9AD8;&#x6548;&#x7684;&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#x6D8C;&#x73B0;&#xFF0C;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x8BFB;&#x8005;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x8C03;&#x7814;&#x3002;</p>
+<h3 id="5933-&#x5206;&#x5E03;&#x662F;&#x5426;&#x5747;&#x5300;">5.9.3.3 &#x5206;&#x5E03;&#x662F;&#x5426;&#x5747;&#x5300;</h3>
+<p>&#x5BF9;&#x4E8E;&#x54C8;&#x5E0C;&#x7B97;&#x6CD5;&#x6765;&#x8BF4;&#xFF0C;&#x9664;&#x4E86;&#x6027;&#x80FD;&#x65B9;&#x9762;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x8FD8;&#x8981;&#x8003;&#x8651;&#x54C8;&#x5E0C;&#x540E;&#x7684;&#x503C;&#x662F;&#x5426;&#x5206;&#x5E03;&#x5747;&#x5300;&#x3002;&#x5982;&#x679C;&#x54C8;&#x5E0C;&#x540E;&#x7684;&#x503C;&#x5206;&#x5E03;&#x4E0D;&#x5747;&#x5300;&#xFF0C;&#x90A3;&#x4E5F;&#x81EA;&#x7136;&#x5C31;&#x8D77;&#x4E0D;&#x5230;&#x5747;&#x5300;&#x7070;&#x5EA6;&#x7684;&#x6548;&#x679C;&#x4E86;&#x3002;</p>
+<p>&#x4EE5;murmur3&#x4E3A;&#x4F8B;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x4EE5;15810000000&#x5F00;&#x5934;&#xFF0C;&#x9020;&#x4E00;&#x5343;&#x4E07;&#x4E2A;&#x548C;&#x624B;&#x673A;&#x53F7;&#x7C7B;&#x4F3C;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x8BA1;&#x7B97;&#x540E;&#x7684;&#x54C8;&#x5E0C;&#x503C;&#x5206;&#x5341;&#x4E2A;&#x6876;&#xFF0C;&#x5E76;&#x89C2;&#x5BDF;&#x8BA1;&#x6570;&#x662F;&#x5426;&#x5747;&#x5300;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    <span class="hljs-string">&quot;github.com/spaolacci/murmur3&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> bucketSize = <span class="hljs-number">10</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> bucketMap = <span class="hljs-keyword">map</span>[<span class="hljs-keyword">uint64</span>]<span class="hljs-keyword">int</span>{}
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">15000000000</span>; i &lt; <span class="hljs-number">15000000000</span>+<span class="hljs-number">10000000</span>; i++ {
+        hashInt := murmur64(fmt.Sprint(i)) % <span class="hljs-keyword">uint64</span>(bucketSize)
+        bucketMap[hashInt]++
+    }
+    fmt.Println(bucketMap)
+}
+
+<span class="hljs-keyword">func</span> murmur64(p <span class="hljs-keyword">string</span>) <span class="hljs-keyword">uint64</span> {
+    <span class="hljs-keyword">return</span> murmur3.Sum64([]<span class="hljs-keyword">byte</span>(p))
+}
+</code></pre>
+<p>&#x770B;&#x770B;&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-shell">map[7:999475 5:1000359 1:999945 6:1000200 3:1000193 9:1000765 2:1000044 \
+4:1000343 8:1000823 0:997853]
+</code></pre>
+<p>&#x504F;&#x5DEE;&#x90FD;&#x5728;1/100&#x4EE5;&#x5185;&#xFF0C;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x3002;&#x8BFB;&#x8005;&#x5728;&#x8C03;&#x7814;&#x5176;&#x5B83;&#x7B97;&#x6CD5;&#xFF0C;&#x5E76;&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x505A;&#x7070;&#x5EA6;&#x53D1;&#x5E03;&#x65F6;&#xFF0C;&#x4E5F;&#x5E94;&#x8BE5;&#x4ECE;&#x672C;&#x8282;&#x4E2D;&#x63D0;&#x5230;&#x7684;&#x6027;&#x80FD;&#x548C;&#x5747;&#x8861;&#x5EA6;&#x4E24;&#x65B9;&#x9762;&#x51FA;&#x53D1;&#xFF0C;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8003;&#x5BDF;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch5-08-interface-and-web.html" class="navigation navigation-prev " aria-label="Previous page: 5.8 接口和表驱动开发">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch5-10-ext.html" class="navigation navigation-next " aria-label="Next page: 5.10 补充说明">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"5.9 灰度发布和A/B测试","level":"1.6.9","depth":2,"next":{"title":"5.10 补充说明","level":"1.6.10","depth":2,"path":"ch5-web/ch5-10-ext.md","ref":"ch5-web/ch5-10-ext.md","articles":[]},"previous":{"title":"5.8 接口和表驱动开发","level":"1.6.8","depth":2,"path":"ch5-web/ch5-08-interface-and-web.md","ref":"ch5-web/ch5-08-interface-and-web.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go语言高级编程","language":"zh-hans","gitbook":"3.x","description":"Go语言高级编程"},"file":{"path":"ch5-web/ch5-09-gated-launch.md","mtime":"2019-07-14T09:43:54.095Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T13:21:40.542Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

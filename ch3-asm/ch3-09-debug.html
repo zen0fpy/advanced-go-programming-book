@@ -1,0 +1,1387 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>3.9 Delve调试器 · Go语言高级编程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch3-10-ext.html" />
+    
+    
+    <link rel="prev" href="ch3-08-goroutine-id.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch1-basic/readme.html">
+            
+                <a href="../ch1-basic/readme.html">
+            
+                    
+                    第1章 语言基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch1-basic/ch1-01-genesis.html">
+            
+                <a href="../ch1-basic/ch1-01-genesis.html">
+            
+                    
+                    1.1 Go语言创世纪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                <a href="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                    
+                    1.2 Hello, World 的革命
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                <a href="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                    
+                    1.3 数组、字符串和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                <a href="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                    
+                    1.4 函数、方法和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch1-basic/ch1-05-mem.html">
+            
+                <a href="../ch1-basic/ch1-05-mem.html">
+            
+                    
+                    1.5 面向并发的内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch1-basic/ch1-06-goroutine.html">
+            
+                <a href="../ch1-basic/ch1-06-goroutine.html">
+            
+                    
+                    1.6 常见的并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                <a href="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                    
+                    1.7 错误和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../ch1-basic/ch1-08-ext.html">
+            
+                <a href="../ch1-basic/ch1-08-ext.html">
+            
+                    
+                    1.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../ch2-cgo/readme.html">
+            
+                <a href="../ch2-cgo/readme.html">
+            
+                    
+                    第2章 CGO编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                <a href="../ch2-cgo/ch2-01-hello-cgo.html">
+            
+                    
+                    2.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../ch2-cgo/ch2-02-basic.html">
+            
+                <a href="../ch2-cgo/ch2-02-basic.html">
+            
+                    
+                    2.2 CGO基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                <a href="../ch2-cgo/ch2-03-cgo-types.html">
+            
+                    
+                    2.3 类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../ch2-cgo/ch2-04-func.html">
+            
+                <a href="../ch2-cgo/ch2-04-func.html">
+            
+                    
+                    2.4 函数调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../ch2-cgo/ch2-05-internal.html">
+            
+                <a href="../ch2-cgo/ch2-05-internal.html">
+            
+                    
+                    2.5 内部机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../ch2-cgo/ch2-06-qsort.html">
+            
+                <a href="../ch2-cgo/ch2-06-qsort.html">
+            
+                    
+                    2.6 实战: 封装qsort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../ch2-cgo/ch2-07-memory.html">
+            
+                <a href="../ch2-cgo/ch2-07-memory.html">
+            
+                    
+                    2.7 CGO内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../ch2-cgo/ch2-08-class.html">
+            
+                <a href="../ch2-cgo/ch2-08-class.html">
+            
+                    
+                    2.8 C++类包装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                <a href="../ch2-cgo/ch2-09-static-shared-lib.html">
+            
+                    
+                    2.9 静态库和动态库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../ch2-cgo/ch2-10-link.html">
+            
+                <a href="../ch2-cgo/ch2-10-link.html">
+            
+                    
+                    2.10 编译和链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../ch2-cgo/ch2-11-ext.html">
+            
+                <a href="../ch2-cgo/ch2-11-ext.html">
+            
+                    
+                    2.11 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    第3章 汇编语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="ch3-01-basic.html">
+            
+                <a href="ch3-01-basic.html">
+            
+                    
+                    3.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="ch3-02-arch.html">
+            
+                <a href="ch3-02-arch.html">
+            
+                    
+                    3.2 计算机结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="ch3-03-const-and-var.html">
+            
+                <a href="ch3-03-const-and-var.html">
+            
+                    
+                    3.3 常量和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="ch3-04-func.html">
+            
+                <a href="ch3-04-func.html">
+            
+                    
+                    3.4 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="ch3-05-control-flow.html">
+            
+                <a href="ch3-05-control-flow.html">
+            
+                    
+                    3.5 控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="ch3-06-func-again.html">
+            
+                <a href="ch3-06-func-again.html">
+            
+                    
+                    3.6 再论函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="ch3-07-hack-asm.html">
+            
+                <a href="ch3-07-hack-asm.html">
+            
+                    
+                    3.7 汇编语言的威力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="ch3-08-goroutine-id.html">
+            
+                <a href="ch3-08-goroutine-id.html">
+            
+                    
+                    3.8 例子：Goroutine ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.9" data-path="ch3-09-debug.html">
+            
+                <a href="ch3-09-debug.html">
+            
+                    
+                    3.9 Delve调试器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="ch3-10-ext.html">
+            
+                <a href="ch3-10-ext.html">
+            
+                    
+                    3.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch4-rpc/readme.html">
+            
+                <a href="../ch4-rpc/readme.html">
+            
+                    
+                    第4章 RPC和Protobuf
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                <a href="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                    
+                    4.1 RPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                <a href="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                    
+                    4.2 Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                    
+                    4.3 玩转RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch4-rpc/ch4-04-grpc.html">
+            
+                <a href="../ch4-rpc/ch4-04-grpc.html">
+            
+                    
+                    4.4 gRPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                    
+                    4.5 gRPC进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                <a href="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                    
+                    4.6 gRPC和Protobuf扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ch4-rpc/ch4-07-pbgo.html">
+            
+                <a href="../ch4-rpc/ch4-07-pbgo.html">
+            
+                    
+                    4.7 pbgo: 基于Protobuf的框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                <a href="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                    
+                    4.8 grpcurl工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ch4-rpc/ch4-09-ext.html">
+            
+                <a href="../ch4-rpc/ch4-09-ext.html">
+            
+                    
+                    4.9 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch5-web/readme.html">
+            
+                <a href="../ch5-web/readme.html">
+            
+                    
+                    第5章 Go和Web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch5-web/ch5-01-introduction.html">
+            
+                <a href="../ch5-web/ch5-01-introduction.html">
+            
+                    
+                    5.1 Web开发简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch5-web/ch5-02-router.html">
+            
+                <a href="../ch5-web/ch5-02-router.html">
+            
+                    
+                    5.2 请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch5-web/ch5-03-middleware.html">
+            
+                <a href="../ch5-web/ch5-03-middleware.html">
+            
+                    
+                    5.3 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch5-web/ch5-04-validator.html">
+            
+                <a href="../ch5-web/ch5-04-validator.html">
+            
+                    
+                    5.4 请求校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../ch5-web/ch5-05-database.html">
+            
+                <a href="../ch5-web/ch5-05-database.html">
+            
+                    
+                    5.5 和数据库打交道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../ch5-web/ch5-06-ratelimit.html">
+            
+                <a href="../ch5-web/ch5-06-ratelimit.html">
+            
+                    
+                    5.6 服务流量限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                <a href="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                    
+                    5.7 大型Web项目分层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../ch5-web/ch5-08-interface-and-web.html">
+            
+                <a href="../ch5-web/ch5-08-interface-and-web.html">
+            
+                    
+                    5.8 接口和表驱动开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../ch5-web/ch5-09-gated-launch.html">
+            
+                <a href="../ch5-web/ch5-09-gated-launch.html">
+            
+                    
+                    5.9 灰度发布和A/B测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../ch5-web/ch5-10-ext.html">
+            
+                <a href="../ch5-web/ch5-10-ext.html">
+            
+                    
+                    5.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch6-cloud/readme.html">
+            
+                <a href="../ch6-cloud/readme.html">
+            
+                    
+                    第6章 分布式系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch6-cloud/ch6-01-dist-id.html">
+            
+                <a href="../ch6-cloud/ch6-01-dist-id.html">
+            
+                    
+                    6.1 分布式 id 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch6-cloud/ch6-02-lock.html">
+            
+                <a href="../ch6-cloud/ch6-02-lock.html">
+            
+                    
+                    6.2 分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch6-cloud/ch6-03-delay-job.html">
+            
+                <a href="../ch6-cloud/ch6-03-delay-job.html">
+            
+                    
+                    6.3 延时任务系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch6-cloud/ch6-04-search-engine.html">
+            
+                <a href="../ch6-cloud/ch6-04-search-engine.html">
+            
+                    
+                    6.4 分布式搜索引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../ch6-cloud/ch6-05-load-balance.html">
+            
+                <a href="../ch6-cloud/ch6-05-load-balance.html">
+            
+                    
+                    6.5 负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../ch6-cloud/ch6-06-config.html">
+            
+                <a href="../ch6-cloud/ch6-06-config.html">
+            
+                    
+                    6.6 分布式配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../ch6-cloud/ch6-07-crawler.html">
+            
+                <a href="../ch6-cloud/ch6-07-crawler.html">
+            
+                    
+                    6.7 分布式爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../ch6-cloud/ch6-08-ext.html">
+            
+                <a href="../ch6-cloud/ch6-08-ext.html">
+            
+                    
+                    6.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/readme.html">
+            
+                <a href="../appendix/readme.html">
+            
+                    
+                    附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/appendix-a-trap.html">
+            
+                <a href="../appendix/appendix-a-trap.html">
+            
+                    
+                    附录A: Go语言常见坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/appendix-b-gems.html">
+            
+                <a href="../appendix/appendix-b-gems.html">
+            
+                    
+                    附录B: 有趣的代码片段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/appendix-c-author.html">
+            
+                <a href="../appendix/appendix-c-author.html">
+            
+                    
+                    附录C: 作者简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >3.9 Delve调试器</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="39-delve&#x8C03;&#x8BD5;&#x5668;">3.9 Delve&#x8C03;&#x8BD5;&#x5668;</h1>
+<p>&#x76EE;&#x524D;Go&#x8BED;&#x8A00;&#x652F;&#x6301;GDB&#x3001;LLDB&#x548C;Delve&#x51E0;&#x79CD;&#x8C03;&#x8BD5;&#x5668;&#x3002;&#x5176;&#x4E2D;GDB&#x662F;&#x6700;&#x65E9;&#x652F;&#x6301;&#x7684;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;LLDB&#x662F;macOS&#x7CFB;&#x7EDF;&#x63A8;&#x8350;&#x7684;&#x6807;&#x51C6;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x3002;&#x4F46;&#x662F;GDB&#x548C;LLDB&#x5BF9;Go&#x8BED;&#x8A00;&#x7684;&#x4E13;&#x6709;&#x7279;&#x6027;&#x90FD;&#x7F3A;&#x4E4F;&#x5F88;&#x5927;&#x652F;&#x6301;&#xFF0C;&#x800C;&#x53EA;&#x6709;Delve&#x662F;&#x4E13;&#x95E8;&#x4E3A;Go&#x8BED;&#x8A00;&#x8BBE;&#x8BA1;&#x5F00;&#x53D1;&#x7684;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x3002;&#x800C;&#x4E14;Delve&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x91C7;&#x7528;Go&#x8BED;&#x8A00;&#x5F00;&#x53D1;&#xFF0C;&#x5BF9;Windows&#x5E73;&#x53F0;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x6837;&#x7684;&#x652F;&#x6301;&#x3002;&#x672C;&#x8282;&#x6211;&#x4EEC;&#x57FA;&#x4E8E;Delve&#x7B80;&#x5355;&#x89E3;&#x91CA;&#x5982;&#x4F55;&#x8C03;&#x8BD5;Go&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;&#x3002;</p>
+<h2 id="391-delve&#x5165;&#x95E8;">3.9.1 Delve&#x5165;&#x95E8;</h2>
+<p>&#x9996;&#x5148;&#x6839;&#x636E;&#x5B98;&#x65B9;&#x7684;&#x6587;&#x6863;&#x6B63;&#x786E;&#x5B89;&#x88C5;Delve&#x8C03;&#x8BD5;&#x5668;&#x3002;&#x6211;&#x4EEC;&#x4F1A;&#x5148;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;Go&#x8BED;&#x8A00;&#x4EE3;&#x7801;&#xFF0C;&#x7528;&#x4E8E;&#x719F;&#x6089;&#x4E0B;Delve&#x7684;&#x7B80;&#x5355;&#x7528;&#x6CD5;&#x3002;</p>
+<p>&#x521B;&#x5EFA;main.go&#x6587;&#x4EF6;&#xFF0C;main&#x51FD;&#x6570;&#x5148;&#x901A;&#x8FC7;&#x5FAA;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x51FA;&#x5207;&#x7247;&#x7684;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    nums := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">int</span>, <span class="hljs-number">5</span>)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>(nums); i++ {
+        nums[i] = i * i
+    }
+    fmt.Println(nums)
+}
+</code></pre>
+<p>&#x547D;&#x4EE4;&#x884C;&#x8FDB;&#x5165;&#x5305;&#x6240;&#x5728;&#x76EE;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x5165;<code>dlv debug</code>&#x547D;&#x4EE4;&#x8FDB;&#x5165;&#x8C03;&#x8BD5;&#xFF1A;</p>
+<pre><code>$ dlv debug
+Type &apos;help&apos; for list of commands.
+(dlv)
+</code></pre><p>&#x8F93;&#x5165;help&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5230;Delve&#x63D0;&#x4F9B;&#x7684;&#x8C03;&#x8BD5;&#x547D;&#x4EE4;&#x5217;&#x8868;&#xFF1A;</p>
+<pre><code>(dlv) help
+The following commands are available:
+    args ------------------------ Print function arguments.
+    break (alias: b) ------------ Sets a breakpoint.
+    breakpoints (alias: bp) ----- Print out info for active breakpoints.
+    clear ----------------------- Deletes breakpoint.
+    clearall -------------------- Deletes multiple breakpoints.
+    condition (alias: cond) ----- Set breakpoint condition.
+    config ---------------------- Changes configuration parameters.
+    continue (alias: c) --------- Run until breakpoint or program termination.
+    disassemble (alias: disass) - Disassembler.
+    down ------------------------ Move the current frame down.
+    exit (alias: quit | q) ------ Exit the debugger.
+    frame ----------------------- Set the current frame, or execute command...
+    funcs ----------------------- Print list of functions.
+    goroutine ------------------- Shows or changes current goroutine
+    goroutines ------------------ List program goroutines.
+    help (alias: h) ------------- Prints the help message.
+    list (alias: ls | l) -------- Show source code.
+    locals ---------------------- Print local variables.
+    next (alias: n) ------------- Step over to next source line.
+    on -------------------------- Executes a command when a breakpoint is hit.
+    print (alias: p) ------------ Evaluate an expression.
+    regs ------------------------ Print contents of CPU registers.
+    restart (alias: r) ---------- Restart process.
+    set ------------------------- Changes the value of a variable.
+    source ---------------------- Executes a file containing a list of delve...
+    sources --------------------- Print list of source files.
+    stack (alias: bt) ----------- Print stack trace.
+    step (alias: s) ------------- Single step through program.
+    step-instruction (alias: si)  Single step a single cpu instruction.
+    stepout --------------------- Step out of the current function.
+    thread (alias: tr) ---------- Switch to the specified thread.
+    threads --------------------- Print out info for every traced thread.
+    trace (alias: t) ------------ Set tracepoint.
+    types ----------------------- Print list of types
+    up -------------------------- Move the current frame up.
+    vars ------------------------ Print package variables.
+    whatis ---------------------- Prints type of an expression.
+Type help followed by a command for full documentation.
+(dlv)
+</code></pre><p>&#x6BCF;&#x4E2A;Go&#x7A0B;&#x5E8F;&#x7684;&#x5165;&#x53E3;&#x662F;main.main&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;break&#x5728;&#x6B64;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#xFF1A;</p>
+<pre><code>(dlv) break main.main
+Breakpoint 1 set at 0x10ae9b8 for main.main() ./main.go:7
+</code></pre><p>&#x7136;&#x540E;&#x901A;&#x8FC7;breakpoints&#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x7684;&#x6240;&#x6709;&#x65AD;&#x70B9;&#xFF1A;</p>
+<pre><code>(dlv) breakpoints
+Breakpoint unrecovered-panic at 0x102a380 for runtime.startpanic()
+    /usr/local/go/src/runtime/panic.go:588 (0)
+        print runtime.curg._panic.arg
+Breakpoint 1 at 0x10ae9b8 for main.main() ./main.go:7 (0)
+</code></pre><p>&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x9664;&#x4E86;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;&#x7684;main.main&#x51FD;&#x6570;&#x65AD;&#x70B9;&#x5916;&#xFF0C;Delve&#x5185;&#x90E8;&#x5DF2;&#x7ECF;&#x4E3A;panic&#x5F02;&#x5E38;&#x51FD;&#x6570;&#x8BBE;&#x7F6E;&#x4E86;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#x3002;</p>
+<p>&#x901A;&#x8FC7;vars&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5168;&#x90E8;&#x5305;&#x7EA7;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x56E0;&#x4E3A;&#x6700;&#x7EC8;&#x7684;&#x76EE;&#x6807;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x542B;&#x6709;&#x5927;&#x91CF;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x6B63;&#x5219;&#x53C2;&#x6570;&#x9009;&#x62E9;&#x60F3;&#x67E5;&#x770B;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code>(dlv) vars main
+main.initdone&#xB7; = 2
+runtime.main_init_done = chan bool 0/0
+runtime.mainStarted = true
+(dlv)
+</code></pre><p>&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;continue&#x547D;&#x4EE4;&#x8BA9;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x65AD;&#x70B9;&#x5904;&#xFF1A;</p>
+<pre><code>(dlv) continue
+&gt; main.main() ./main.go:7 (hits goroutine(1):1 total:1) (PC: 0x10ae9b8)
+     2:
+     3: import (
+     4:         &quot;fmt&quot;
+     5: )
+     6:
+=&gt;   7: func main() {
+     8:         nums := make([]int, 5)
+     9:         for i := 0; i &lt; len(nums); i++ {
+    10:                 nums[i] = i * i
+    11:         }
+    12:         fmt.Println(nums)
+(dlv)
+</code></pre><p>&#x8F93;&#x5165;next&#x547D;&#x4EE4;&#x5355;&#x6B65;&#x6267;&#x884C;&#x8FDB;&#x5165;main&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF1A;</p>
+<pre><code>(dlv) next
+&gt; main.main() ./main.go:8 (PC: 0x10ae9cf)
+     3: import (
+     4:         &quot;fmt&quot;
+     5: )
+     6:
+     7: func main() {
+=&gt;   8:         nums := make([]int, 5)
+     9:         for i := 0; i &lt; len(nums); i++ {
+    10:                 nums[i] = i * i
+    11:         }
+    12:         fmt.Println(nums)
+    13: }
+(dlv)
+</code></pre><p>&#x8FDB;&#x5165;&#x51FD;&#x6570;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;args&#x548C;locals&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x548C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code>(dlv) args
+(no args)
+(dlv) locals
+nums = []int len: 842350763880, cap: 17491881, nil
+</code></pre><p>&#x56E0;&#x4E3A;main&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x6B64;args&#x547D;&#x4EE4;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8F93;&#x51FA;&#x3002;&#x800C;locals&#x547D;&#x4EE4;&#x5219;&#x8F93;&#x51FA;&#x4E86;&#x5C40;&#x90E8;&#x53D8;&#x91CF;nums&#x5207;&#x7247;&#x7684;&#x503C;&#xFF1A;&#x6B64;&#x65F6;&#x5207;&#x7247;&#x8FD8;&#x672A;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5207;&#x7247;&#x7684;&#x5E95;&#x5C42;&#x6307;&#x9488;&#x4E3A;nil&#xFF0C;&#x957F;&#x5EA6;&#x548C;&#x5BB9;&#x91CF;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x6570;&#x503C;&#x3002;</p>
+<p>&#x518D;&#x6B21;&#x8F93;&#x5165;next&#x547D;&#x4EE4;&#x5355;&#x6B65;&#x6267;&#x884C;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5230;nums&#x5207;&#x7247;&#x521D;&#x59CB;&#x5316;&#x4E4B;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x4E86;&#xFF1A;</p>
+<pre><code>(dlv) next
+&gt; main.main() ./main.go:9 (PC: 0x10aea12)
+     4:         &quot;fmt&quot;
+     5: )
+     6:
+     7: func main() {
+     8:         nums := make([]int, 5)
+=&gt;   9:         for i := 0; i &lt; len(nums); i++ {
+    10:                 nums[i] = i * i
+    11:         }
+    12:         fmt.Println(nums)
+    13: }
+(dlv) locals
+nums = []int len: 5, cap: 5, [...]
+i = 17601536
+(dlv)
+</code></pre><p>&#x6B64;&#x65F6;&#x56E0;&#x4E3A;&#x8C03;&#x8BD5;&#x5668;&#x5DF2;&#x7ECF;&#x5230;&#x4E86;for&#x8BED;&#x53E5;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x51FA;&#x73B0;&#x4E86;&#x8FD8;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x53D8;&#x91CF;i&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x7EC4;&#x5408;&#x4F7F;&#x7528;break&#x548C;condition&#x547D;&#x4EE4;&#xFF0C;&#x5728;&#x5FAA;&#x73AF;&#x5185;&#x90E8;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x65AD;&#x70B9;&#xFF0C;&#x5F53;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;i&#x7B49;&#x4E8E;3&#x65F6;&#x65AD;&#x70B9;&#x751F;&#x6548;&#xFF1A;</p>
+<pre><code>(dlv) break main.go:10
+Breakpoint 2 set at 0x10aea33 for main.main() ./main.go:10
+(dlv) condition 2 i==3
+(dlv)
+</code></pre><p>&#x7136;&#x540E;&#x901A;&#x8FC7;continue&#x6267;&#x884C;&#x5230;&#x521A;&#x8BBE;&#x7F6E;&#x7684;&#x6761;&#x4EF6;&#x65AD;&#x70B9;&#xFF0C;&#x5E76;&#x4E14;&#x8F93;&#x51FA;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF1A;</p>
+<pre><code>(dlv) continue
+&gt; main.main() ./main.go:10 (hits goroutine(1):1 total:1) (PC: 0x10aea33)
+     5: )
+     6:
+     7: func main() {
+     8:         nums := make([]int, 5)
+     9:         for i := 0; i &lt; len(nums); i++ {
+=&gt;  10:                 nums[i] = i * i
+    11:         }
+    12:         fmt.Println(nums)
+    13: }
+(dlv) locals
+nums = []int len: 5, cap: 5, [...]
+i = 3
+(dlv) print nums
+[]int len: 5, cap: 5, [0,1,4,0,0]
+(dlv)
+</code></pre><p>&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x5F53;&#x5FAA;&#x73AF;&#x53D8;&#x91CF;i&#x7B49;&#x4E8E;3&#x65F6;&#xFF0C;nums&#x5207;&#x7247;&#x7684;&#x524D;3&#x4E2A;&#x5143;&#x7D20;&#x5DF2;&#x7ECF;&#x6B63;&#x786E;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;stack&#x67E5;&#x770B;&#x5F53;&#x524D;&#x6267;&#x884C;&#x51FD;&#x6570;&#x7684;&#x6808;&#x5E27;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code>(dlv) stack
+0  0x00000000010aea33 in main.main
+   at ./main.go:10
+1  0x000000000102bd60 in runtime.main
+   at /usr/local/go/src/runtime/proc.go:198
+2  0x0000000001053bd1 in runtime.goexit
+   at /usr/local/go/src/runtime/asm_amd64.s:2361
+(dlv)
+</code></pre><p>&#x6216;&#x8005;&#x901A;&#x8FC7;goroutine&#x548C;goroutines&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x5F53;&#x524D;Goroutine&#x76F8;&#x5173;&#x7684;&#x4FE1;&#x606F;&#xFF1A;</p>
+<pre><code>(dlv) goroutine
+Thread 101686 at ./main.go:10
+Goroutine 1:
+  Runtime: ./main.go:10 main.main (0x10aea33)
+  User: ./main.go:10 main.main (0x10aea33)
+  Go: /usr/local/go/src/runtime/asm_amd64.s:258 runtime.rt0_go (0x1051643)
+  Start: /usr/local/go/src/runtime/proc.go:109 runtime.main (0x102bb90)
+(dlv) goroutines
+[4 goroutines]
+* Goroutine 1 - User: ./main.go:10 main.main (0x10aea33) (thread 101686)
+  Goroutine 2 - User: /usr/local/go/src/runtime/proc.go:292 \
+                runtime.gopark (0x102c189)
+  Goroutine 3 - User: /usr/local/go/src/runtime/proc.go:292 \
+                runtime.gopark (0x102c189)
+  Goroutine 4 - User: /usr/local/go/src/runtime/proc.go:292 \
+                runtime.gopark (0x102c189)
+(dlv)
+</code></pre><p>&#x6700;&#x540E;&#x5B8C;&#x6210;&#x8C03;&#x8BD5;&#x5DE5;&#x4F5C;&#x540E;&#x8F93;&#x5165;quit&#x547D;&#x4EE4;&#x9000;&#x51FA;&#x8C03;&#x8BD5;&#x5668;&#x3002;&#x81F3;&#x6B64;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x638C;&#x63E1;&#x4E86;Delve&#x8C03;&#x8BD5;&#x5668;&#x5668;&#x7684;&#x7B80;&#x5355;&#x7528;&#x6CD5;&#x3002;</p>
+<h2 id="392-&#x8C03;&#x8BD5;&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;">3.9.2 &#x8C03;&#x8BD5;&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;</h2>
+<p>&#x7528;Delve&#x8C03;&#x8BD5;Go&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;&#x7684;&#x8FC7;&#x7A0B;&#x6BD4;&#x8C03;&#x8BD5;Go&#x8BED;&#x8A00;&#x7A0B;&#x5E8F;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x3002;&#x8C03;&#x8BD5;&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x65F6;&#x523B;&#x5173;&#x6CE8;&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x679C;&#x6D89;&#x53CA;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x6216;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x6216;&#x53C2;&#x6570;&#x8FD8;&#x9700;&#x8981;&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x6808;&#x5BC4;&#x5B58;&#x5668;SP&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x4E3A;&#x4E86;&#x7F16;&#x8BD1;&#x6F14;&#x793A;&#xFF0C;&#x6211;&#x4EEC;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x66F4;&#x7B80;&#x5355;&#x7684;main&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">func</span> main() { asmSayHello() }
+
+<span class="hljs-keyword">func</span> asmSayHello()
+</code></pre>
+<p>&#x5728;main&#x51FD;&#x6570;&#x4E2D;&#x8C03;&#x7528;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x7684;asmSayHello&#x51FD;&#x6570;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>asmSayHello&#x51FD;&#x6570;&#x5728;main_amd64.s&#x6587;&#x4EF6;&#x4E2D;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code>#include &quot;textflag.h&quot;
+#include &quot;funcdata.h&quot;
+
+// &quot;Hello World!\n&quot;
+DATA  text&lt;&gt;+0(SB)/8,$&quot;Hello Wo&quot;
+DATA  text&lt;&gt;+8(SB)/8,$&quot;rld!\n&quot;
+GLOBL text&lt;&gt;(SB),NOPTR,$16
+
+// func asmSayHello()
+TEXT &#xB7;asmSayHello(SB), $16-0
+    NO_LOCAL_POINTERS
+    MOVQ $text&lt;&gt;+0(SB), AX
+    MOVQ AX, (SP)
+    MOVQ $16, 8(SP)
+    CALL runtime&#xB7;printstring(SB)
+    RET
+</code></pre><p>&#x53C2;&#x8003;&#x524D;&#x9762;&#x7684;&#x8C03;&#x8BD5;&#x6D41;&#x7A0B;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x5230;main&#x51FD;&#x6570;&#x65AD;&#x70B9;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;disassemble&#x53CD;&#x6C47;&#x7F16;&#x547D;&#x4EE4;&#x67E5;&#x770B;main&#x51FD;&#x6570;&#x5BF9;&#x5E94;&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>(dlv) break main.main
+Breakpoint 1 set at 0x105011f for main.main() ./main.go:3
+(dlv) continue
+&gt; main.main() ./main.go:3 (hits goroutine(1):1 total:1) (PC: 0x105011f)
+  1: package main
+  2:
+=&gt;3: func main() { asmSayHello() }
+  4:
+  5: func asmSayHello()
+(dlv) disassemble
+TEXT main.main(SB) /path/to/pkg/main.go
+  main.go:3 0x1050110  65488b0c25a0080000 mov rcx, qword ptr g  [0x8a0]
+  main.go:3 0x1050119  483b6110           cmp rsp, qword ptr [r  +0x10]
+  main.go:3 0x105011d  761a               jbe 0x1050139
+=&gt;main.go:3 0x105011f* 4883ec08           sub rsp, 0x8
+  main.go:3 0x1050123  48892c24           mov qword ptr [rsp], rbp
+  main.go:3 0x1050127  488d2c24           lea rbp, ptr [rsp]
+  main.go:3 0x105012b  e880000000         call $main.asmSayHello
+  main.go:3 0x1050130  488b2c24           mov rbp, qword ptr [rsp]
+  main.go:3 0x1050134  4883c408           add rsp, 0x8
+  main.go:3 0x1050138  c3                 ret
+  main.go:3 0x1050139  e87288ffff         call $runtime.morestack_noctxt
+  main.go:3 0x105013e  ebd0               jmp $main.main
+(dlv)
+</code></pre><p>&#x867D;&#x7136;main&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8BED;&#x53E5;&#xFF0C;&#x4F46;&#x662F;&#x5374;&#x751F;&#x6210;&#x4E86;&#x5F88;&#x591A;&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x3002;&#x5728;&#x51FD;&#x6570;&#x7684;&#x5F00;&#x5934;&#x901A;&#x8FC7;&#x6BD4;&#x8F83;rsp&#x5BC4;&#x5B58;&#x5668;&#x5224;&#x65AD;&#x6808;&#x7A7A;&#x95F4;&#x662F;&#x5426;&#x4E0D;&#x8DB3;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x8DB3;&#x5219;&#x8DF3;&#x8F6C;&#x5230;0x1050139&#x5730;&#x5740;&#x8C03;&#x7528;runtime.morestack&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x6808;&#x6269;&#x5BB9;&#xFF0C;&#x7136;&#x540E;&#x8DF3;&#x56DE;&#x5230;main&#x51FD;&#x6570;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;&#x91CD;&#x65B0;&#x8FDB;&#x884C;&#x6808;&#x7A7A;&#x95F4;&#x6D4B;&#x8BD5;&#x3002;&#x800C;&#x5728;asmSayHello&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#xFF0C;&#x5148;&#x6269;&#x5C55;rsp&#x7A7A;&#x95F4;&#x7528;&#x4E8E;&#x4E34;&#x65F6;&#x5B58;&#x50A8;rbp&#x5BC4;&#x5B58;&#x5668;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x540E;&#x901A;&#x8FC7;&#x6808;&#x6062;&#x590D;rbp&#x7684;&#x503C;&#x5E76;&#x56DE;&#x6536;&#x4E34;&#x65F6;&#x6808;&#x7A7A;&#x95F4;&#x3002;&#x901A;&#x8FC7;&#x5BF9;&#x6BD4;Go&#x8BED;&#x8A00;&#x4EE3;&#x7801;&#x548C;&#x5BF9;&#x5E94;&#x7684;&#x6C47;&#x7F16;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x52A0;&#x6DF1;&#x5BF9;Go&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x7684;&#x7406;&#x89E3;&#x3002;</p>
+<p>&#x4ECE;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x89D2;&#x5EA6;&#x6DF1;&#x523B;Go&#x8BED;&#x8A00;&#x5404;&#x79CD;&#x7279;&#x6027;&#x7684;&#x5DE5;&#x4F5C;&#x673A;&#x5236;&#x5BF9;&#x8C03;&#x8BD5;&#x5DE5;&#x4F5C;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x7684;&#x5E2E;&#x52A9;&#x3002;&#x5982;&#x679C;&#x5E0C;&#x671B;&#x5728;&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x5C42;&#x9762;&#x8C03;&#x8BD5;Go&#x4EE3;&#x7801;&#xFF0C;Delve&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;step-instruction&#x5355;&#x6B65;&#x6267;&#x884C;&#x6C47;&#x7F16;&#x6307;&#x4EE4;&#x7684;&#x547D;&#x4EE4;&#x3002;</p>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x7528;break&#x547D;&#x4EE4;&#x5728;asmSayHello&#x51FD;&#x6570;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#xFF0C;&#x5E76;&#x4E14;&#x8F93;&#x5165;continue&#x547D;&#x4EE4;&#x8BA9;&#x8C03;&#x8BD5;&#x5668;&#x6267;&#x884C;&#x5230;&#x65AD;&#x70B9;&#x4F4D;&#x7F6E;&#x505C;&#x4E0B;&#xFF1A;</p>
+<pre><code>(dlv) break main.asmSayHello
+Breakpoint 2 set at 0x10501bf for main.asmSayHello() ./main_amd64.s:10
+(dlv) continue
+&gt; main.asmSayHello() ./main_amd64.s:10 (hits goroutine(1):1 total:1) (PC: 0x10501bf)
+     5: DATA  text&lt;&gt;+0(SB)/8,$&quot;Hello Wo&quot;
+     6: DATA  text&lt;&gt;+8(SB)/8,$&quot;rld!\n&quot;
+     7: GLOBL text&lt;&gt;(SB),NOPTR,$16
+     8:
+     9: // func asmSayHello()
+=&gt;  10: TEXT &#xB7;asmSayHello(SB), $16-0
+    11:         NO_LOCAL_POINTERS
+    12:         MOVQ $text&lt;&gt;+0(SB), AX
+    13:         MOVQ AX, (SP)
+    14:         MOVQ $16, 8(SP)
+    15:         CALL runtime&#xB7;printstring(SB)
+(dlv)
+</code></pre><p>&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;regs&#x67E5;&#x770B;&#x5168;&#x90E8;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code>(dlv) regs
+       rax = 0x0000000001050110
+       rbx = 0x0000000000000000
+       rcx = 0x000000c420000300
+       rdx = 0x0000000001070be0
+       rdi = 0x000000c42007c020
+       rsi = 0x0000000000000001
+       rbp = 0x000000c420049f78
+       rsp = 0x000000c420049f70
+        r8 = 0x7fffffffffffffff
+        r9 = 0xffffffffffffffff
+       r10 = 0x0000000000000100
+       r11 = 0x0000000000000286
+       r12 = 0x000000c41fffff7c
+       r13 = 0x0000000000000000
+       r14 = 0x0000000000000178
+       r15 = 0x0000000000000004
+       rip = 0x00000000010501bf
+    rflags = 0x0000000000000206
+...
+(dlv)
+</code></pre><p>&#x56E0;&#x4E3A;AMD64&#x7684;&#x5404;&#x79CD;&#x5BC4;&#x5B58;&#x5668;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x9879;&#x76EE;&#x7684;&#x4FE1;&#x606F;&#x4E2D;&#x523B;&#x610F;&#x7701;&#x7565;&#x4E86;&#x975E;&#x901A;&#x7528;&#x7684;&#x5BC4;&#x5B58;&#x5668;&#x3002;&#x5982;&#x679C;&#x518D;&#x5355;&#x6B65;&#x6267;&#x884C;&#x5230;13&#x884C;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;AX&#x5BC4;&#x5B58;&#x5668;&#x503C;&#x7684;&#x53D8;&#x5316;&#x3002;</p>
+<pre><code>(dlv) regs
+       rax = 0x00000000010a4060
+       rbx = 0x0000000000000000
+       rcx = 0x000000c420000300
+...
+(dlv)
+</code></pre><p>&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x63A8;&#x65AD;&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;&#x5185;&#x90E8;&#x5B9A;&#x4E49;&#x7684;<code>text&lt;&gt;</code>&#x6570;&#x636E;&#x7684;&#x5730;&#x5740;&#x4E3A;0x00000000010a4060&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x8FC7;print&#x547D;&#x4EE4;&#x6765;&#x67E5;&#x770B;&#x8BE5;&#x5185;&#x5B58;&#x5185;&#x7684;&#x6570;&#x636E;&#xFF1A;</p>
+<pre><code>(dlv) print *(*[5]byte)(uintptr(0x00000000010a4060))
+[5]uint8 [72,101,108,108,111]
+(dlv)
+</code></pre><p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x8F93;&#x51FA;&#x7684;<code>[5]uint8 [72,101,108,108,111]</code>&#x521A;&#x597D;&#x662F;&#x5BF9;&#x5E94;&#x201C;Hello&#x201D;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x901A;&#x8FC7;&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x67E5;&#x770B;SP&#x5BF9;&#x5E94;&#x7684;&#x6808;&#x6307;&#x9488;&#x4F4D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x67E5;&#x770B;&#x6808;&#x4E2D;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;</p>
+<p>&#x81F3;&#x6B64;&#x6211;&#x4EEC;&#x5C31;&#x638C;&#x63E1;&#x4E86;Go&#x6C47;&#x7F16;&#x7A0B;&#x5E8F;&#x7684;&#x7B80;&#x5355;&#x8C03;&#x8BD5;&#x6280;&#x672F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ch3-08-goroutine-id.html" class="navigation navigation-prev " aria-label="Previous page: 3.8 例子：Goroutine ID">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch3-10-ext.html" class="navigation navigation-next " aria-label="Next page: 3.10 补充说明">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"3.9 Delve调试器","level":"1.4.9","depth":2,"next":{"title":"3.10 补充说明","level":"1.4.10","depth":2,"path":"ch3-asm/ch3-10-ext.md","ref":"ch3-asm/ch3-10-ext.md","articles":[]},"previous":{"title":"3.8 例子：Goroutine ID","level":"1.4.8","depth":2,"path":"ch3-asm/ch3-08-goroutine-id.md","ref":"ch3-asm/ch3-08-goroutine-id.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go语言高级编程","language":"zh-hans","gitbook":"3.x","description":"Go语言高级编程"},"file":{"path":"ch3-asm/ch3-09-debug.md","mtime":"2018-12-17T09:30:09.323Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T13:21:40.542Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

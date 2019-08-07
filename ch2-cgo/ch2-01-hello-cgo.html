@@ -1,0 +1,1270 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1 快速入门 · Go语言高级编程</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ch2-02-basic.html" />
+    
+    
+    <link rel="prev" href="readme.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../ch1-basic/readme.html">
+            
+                <a href="../ch1-basic/readme.html">
+            
+                    
+                    第1章 语言基础
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../ch1-basic/ch1-01-genesis.html">
+            
+                <a href="../ch1-basic/ch1-01-genesis.html">
+            
+                    
+                    1.1 Go语言创世纪
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                <a href="../ch1-basic/ch1-02-hello-revolution.html">
+            
+                    
+                    1.2 Hello, World 的革命
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                <a href="../ch1-basic/ch1-03-array-string-and-slice.html">
+            
+                    
+                    1.3 数组、字符串和切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                <a href="../ch1-basic/ch1-04-func-method-interface.html">
+            
+                    
+                    1.4 函数、方法和接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../ch1-basic/ch1-05-mem.html">
+            
+                <a href="../ch1-basic/ch1-05-mem.html">
+            
+                    
+                    1.5 面向并发的内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../ch1-basic/ch1-06-goroutine.html">
+            
+                <a href="../ch1-basic/ch1-06-goroutine.html">
+            
+                    
+                    1.6 常见的并发模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                <a href="../ch1-basic/ch1-07-error-and-panic.html">
+            
+                    
+                    1.7 错误和异常
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../ch1-basic/ch1-08-ext.html">
+            
+                <a href="../ch1-basic/ch1-08-ext.html">
+            
+                    
+                    1.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="readme.html">
+            
+                <a href="readme.html">
+            
+                    
+                    第2章 CGO编程
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="ch2-01-hello-cgo.html">
+            
+                <a href="ch2-01-hello-cgo.html">
+            
+                    
+                    2.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="ch2-02-basic.html">
+            
+                <a href="ch2-02-basic.html">
+            
+                    
+                    2.2 CGO基础
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="ch2-03-cgo-types.html">
+            
+                <a href="ch2-03-cgo-types.html">
+            
+                    
+                    2.3 类型转换
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="ch2-04-func.html">
+            
+                <a href="ch2-04-func.html">
+            
+                    
+                    2.4 函数调用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="ch2-05-internal.html">
+            
+                <a href="ch2-05-internal.html">
+            
+                    
+                    2.5 内部机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="ch2-06-qsort.html">
+            
+                <a href="ch2-06-qsort.html">
+            
+                    
+                    2.6 实战: 封装qsort
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="ch2-07-memory.html">
+            
+                <a href="ch2-07-memory.html">
+            
+                    
+                    2.7 CGO内存模型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="ch2-08-class.html">
+            
+                <a href="ch2-08-class.html">
+            
+                    
+                    2.8 C++类包装
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="ch2-09-static-shared-lib.html">
+            
+                <a href="ch2-09-static-shared-lib.html">
+            
+                    
+                    2.9 静态库和动态库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="ch2-10-link.html">
+            
+                <a href="ch2-10-link.html">
+            
+                    
+                    2.10 编译和链接参数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="ch2-11-ext.html">
+            
+                <a href="ch2-11-ext.html">
+            
+                    
+                    2.11 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../ch3-asm/readme.html">
+            
+                <a href="../ch3-asm/readme.html">
+            
+                    
+                    第3章 汇编语言
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../ch3-asm/ch3-01-basic.html">
+            
+                <a href="../ch3-asm/ch3-01-basic.html">
+            
+                    
+                    3.1 快速入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../ch3-asm/ch3-02-arch.html">
+            
+                <a href="../ch3-asm/ch3-02-arch.html">
+            
+                    
+                    3.2 计算机结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../ch3-asm/ch3-03-const-and-var.html">
+            
+                <a href="../ch3-asm/ch3-03-const-and-var.html">
+            
+                    
+                    3.3 常量和全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../ch3-asm/ch3-04-func.html">
+            
+                <a href="../ch3-asm/ch3-04-func.html">
+            
+                    
+                    3.4 函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../ch3-asm/ch3-05-control-flow.html">
+            
+                <a href="../ch3-asm/ch3-05-control-flow.html">
+            
+                    
+                    3.5 控制流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../ch3-asm/ch3-06-func-again.html">
+            
+                <a href="../ch3-asm/ch3-06-func-again.html">
+            
+                    
+                    3.6 再论函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../ch3-asm/ch3-07-hack-asm.html">
+            
+                <a href="../ch3-asm/ch3-07-hack-asm.html">
+            
+                    
+                    3.7 汇编语言的威力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                <a href="../ch3-asm/ch3-08-goroutine-id.html">
+            
+                    
+                    3.8 例子：Goroutine ID
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../ch3-asm/ch3-09-debug.html">
+            
+                <a href="../ch3-asm/ch3-09-debug.html">
+            
+                    
+                    3.9 Delve调试器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../ch3-asm/ch3-10-ext.html">
+            
+                <a href="../ch3-asm/ch3-10-ext.html">
+            
+                    
+                    3.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../ch4-rpc/readme.html">
+            
+                <a href="../ch4-rpc/readme.html">
+            
+                    
+                    第4章 RPC和Protobuf
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                <a href="../ch4-rpc/ch4-01-rpc-intro.html">
+            
+                    
+                    4.1 RPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                <a href="../ch4-rpc/ch4-02-pb-intro.html">
+            
+                    
+                    4.2 Protobuf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-03-netrpc-hack.html">
+            
+                    
+                    4.3 玩转RPC
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../ch4-rpc/ch4-04-grpc.html">
+            
+                <a href="../ch4-rpc/ch4-04-grpc.html">
+            
+                    
+                    4.4 gRPC入门
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                <a href="../ch4-rpc/ch4-05-grpc-hack.html">
+            
+                    
+                    4.5 gRPC进阶
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                <a href="../ch4-rpc/ch4-06-grpc-ext.html">
+            
+                    
+                    4.6 gRPC和Protobuf扩展
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../ch4-rpc/ch4-07-pbgo.html">
+            
+                <a href="../ch4-rpc/ch4-07-pbgo.html">
+            
+                    
+                    4.7 pbgo: 基于Protobuf的框架
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                <a href="../ch4-rpc/ch4-08-grpcurl.html">
+            
+                    
+                    4.8 grpcurl工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../ch4-rpc/ch4-09-ext.html">
+            
+                <a href="../ch4-rpc/ch4-09-ext.html">
+            
+                    
+                    4.9 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../ch5-web/readme.html">
+            
+                <a href="../ch5-web/readme.html">
+            
+                    
+                    第5章 Go和Web
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../ch5-web/ch5-01-introduction.html">
+            
+                <a href="../ch5-web/ch5-01-introduction.html">
+            
+                    
+                    5.1 Web开发简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../ch5-web/ch5-02-router.html">
+            
+                <a href="../ch5-web/ch5-02-router.html">
+            
+                    
+                    5.2 请求路由
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../ch5-web/ch5-03-middleware.html">
+            
+                <a href="../ch5-web/ch5-03-middleware.html">
+            
+                    
+                    5.3 中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../ch5-web/ch5-04-validator.html">
+            
+                <a href="../ch5-web/ch5-04-validator.html">
+            
+                    
+                    5.4 请求校验
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../ch5-web/ch5-05-database.html">
+            
+                <a href="../ch5-web/ch5-05-database.html">
+            
+                    
+                    5.5 和数据库打交道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../ch5-web/ch5-06-ratelimit.html">
+            
+                <a href="../ch5-web/ch5-06-ratelimit.html">
+            
+                    
+                    5.6 服务流量限制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                <a href="../ch5-web/ch5-07-layout-of-web-project.html">
+            
+                    
+                    5.7 大型Web项目分层
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../ch5-web/ch5-08-interface-and-web.html">
+            
+                <a href="../ch5-web/ch5-08-interface-and-web.html">
+            
+                    
+                    5.8 接口和表驱动开发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../ch5-web/ch5-09-gated-launch.html">
+            
+                <a href="../ch5-web/ch5-09-gated-launch.html">
+            
+                    
+                    5.9 灰度发布和A/B测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../ch5-web/ch5-10-ext.html">
+            
+                <a href="../ch5-web/ch5-10-ext.html">
+            
+                    
+                    5.10 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../ch6-cloud/readme.html">
+            
+                <a href="../ch6-cloud/readme.html">
+            
+                    
+                    第6章 分布式系统
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../ch6-cloud/ch6-01-dist-id.html">
+            
+                <a href="../ch6-cloud/ch6-01-dist-id.html">
+            
+                    
+                    6.1 分布式 id 生成器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../ch6-cloud/ch6-02-lock.html">
+            
+                <a href="../ch6-cloud/ch6-02-lock.html">
+            
+                    
+                    6.2 分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../ch6-cloud/ch6-03-delay-job.html">
+            
+                <a href="../ch6-cloud/ch6-03-delay-job.html">
+            
+                    
+                    6.3 延时任务系统
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../ch6-cloud/ch6-04-search-engine.html">
+            
+                <a href="../ch6-cloud/ch6-04-search-engine.html">
+            
+                    
+                    6.4 分布式搜索引擎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../ch6-cloud/ch6-05-load-balance.html">
+            
+                <a href="../ch6-cloud/ch6-05-load-balance.html">
+            
+                    
+                    6.5 负载均衡
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../ch6-cloud/ch6-06-config.html">
+            
+                <a href="../ch6-cloud/ch6-06-config.html">
+            
+                    
+                    6.6 分布式配置管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../ch6-cloud/ch6-07-crawler.html">
+            
+                <a href="../ch6-cloud/ch6-07-crawler.html">
+            
+                    
+                    6.7 分布式爬虫
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../ch6-cloud/ch6-08-ext.html">
+            
+                <a href="../ch6-cloud/ch6-08-ext.html">
+            
+                    
+                    6.8 补充说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../appendix/readme.html">
+            
+                <a href="../appendix/readme.html">
+            
+                    
+                    附录
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../appendix/appendix-a-trap.html">
+            
+                <a href="../appendix/appendix-a-trap.html">
+            
+                    
+                    附录A: Go语言常见坑
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../appendix/appendix-b-gems.html">
+            
+                <a href="../appendix/appendix-b-gems.html">
+            
+                    
+                    附录B: 有趣的代码片段
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../appendix/appendix-c-author.html">
+            
+                <a href="../appendix/appendix-c-author.html">
+            
+                    
+                    附录C: 作者简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.1 快速入门</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="21-&#x5FEB;&#x901F;&#x5165;&#x95E8;">2.1 &#x5FEB;&#x901F;&#x5165;&#x95E8;</h1>
+<p>&#x672C;&#x8282;&#x6211;&#x4EEC;&#x5C06;&#x901A;&#x8FC7;&#x4E00;&#x7CFB;&#x5217;&#x7531;&#x6D45;&#x5165;&#x6DF1;&#x7684;&#x5C0F;&#x4F8B;&#x5B50;&#x6765;&#x5FEB;&#x901F;&#x638C;&#x63E1;CGO&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x3002;</p>
+<h2 id="211-&#x6700;&#x7B80;cgo&#x7A0B;&#x5E8F;">2.1.1 &#x6700;&#x7B80;CGO&#x7A0B;&#x5E8F;</h2>
+<p>&#x771F;&#x5B9E;&#x7684;CGO&#x7A0B;&#x5E8F;&#x4E00;&#x822C;&#x90FD;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x3002;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7531;&#x6D45;&#x5165;&#x6DF1;&#xFF0C;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x7684;CGO&#x7A0B;&#x5E8F;&#x8BE5;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x5462;&#xFF1F;&#x8981;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x6700;&#x7B80;CGO&#x7A0B;&#x5E8F;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x5FFD;&#x89C6;&#x4E00;&#x4E9B;&#x590D;&#x6742;&#x7684;CGO&#x7279;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x8981;&#x5C55;&#x793A;CGO&#x7A0B;&#x5E8F;&#x548C;&#x7EAF;Go&#x7A0B;&#x5E8F;&#x7684;&#x5DEE;&#x522B;&#x6765;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x6211;&#x4EEC;&#x6784;&#x5EFA;&#x7684;&#x6700;&#x7B80;CGO&#x7A0B;&#x5E8F;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// hello.go</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-built_in">println</span>(<span class="hljs-string">&quot;hello cgo&quot;</span>)
+}
+</code></pre>
+<p>&#x4EE3;&#x7801;&#x901A;&#x8FC7;<code>import &quot;C&quot;</code>&#x8BED;&#x53E5;&#x542F;&#x7528;CGO&#x7279;&#x6027;&#xFF0C;&#x4E3B;&#x51FD;&#x6570;&#x53EA;&#x662F;&#x901A;&#x8FC7;Go&#x5185;&#x7F6E;&#x7684;println&#x51FD;&#x6570;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5176;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x548C;CGO&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x867D;&#x7136;&#x6CA1;&#x6709;&#x8C03;&#x7528;CGO&#x7684;&#x76F8;&#x5173;&#x51FD;&#x6570;&#xFF0C;&#x4F46;&#x662F;<code>go build</code>&#x547D;&#x4EE4;&#x4F1A;&#x5728;&#x7F16;&#x8BD1;&#x548C;&#x94FE;&#x63A5;&#x9636;&#x6BB5;&#x542F;&#x52A8;gcc&#x7F16;&#x8BD1;&#x5668;&#xFF0C;&#x8FD9;&#x5DF2;&#x7ECF;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;CGO&#x7A0B;&#x5E8F;&#x4E86;&#x3002;</p>
+<h2 id="212-&#x57FA;&#x4E8E;c&#x6807;&#x51C6;&#x5E93;&#x51FD;&#x6570;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;">2.1.2 &#x57FA;&#x4E8E;C&#x6807;&#x51C6;&#x5E93;&#x51FD;&#x6570;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;</h2>
+<p>&#x7B2C;&#x4E00;&#x7AE0;&#x90A3;&#x4E2A;CGO&#x7A0B;&#x5E8F;&#x8FD8;&#x4E0D;&#x591F;&#x7B80;&#x5355;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x6765;&#x770B;&#x770B;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x7248;&#x672C;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// hello.go</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//#include &lt;stdio.h&gt;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    C.puts(C.CString(<span class="hljs-string">&quot;Hello, World\n&quot;</span>))
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4E0D;&#x4EC5;&#x4EC5;&#x901A;&#x8FC7;<code>import &quot;C&quot;</code>&#x8BED;&#x53E5;&#x542F;&#x7528;CGO&#x7279;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x5305;&#x542B;C&#x8BED;&#x8A00;&#x7684;<code>&lt;stdio.h&gt;</code>&#x5934;&#x6587;&#x4EF6;&#x3002;&#x7136;&#x540E;&#x901A;&#x8FC7;CGO&#x5305;&#x7684;<code>C.CString</code>&#x51FD;&#x6570;&#x5C06;Go&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x4E3A;C&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6700;&#x540E;&#x8C03;&#x7528;CGO&#x5305;&#x7684;<code>C.puts</code>&#x51FD;&#x6570;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x7A97;&#x53E3;&#x6253;&#x5370;&#x8F6C;&#x6362;&#x540E;&#x7684;C&#x5B57;&#x7B26;&#x4E32;&#x3002;</p>
+<p>&#x76F8;&#x6BD4;&#x201C;Hello, World &#x7684;&#x9769;&#x547D;&#x201D;&#x4E00;&#x8282;&#x4E2D;&#x7684;CGO&#x7A0B;&#x5E8F;&#x6700;&#x5927;&#x7684;&#x4E0D;&#x540C;&#x662F;&#xFF1A;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x5728;&#x7A0B;&#x5E8F;&#x9000;&#x51FA;&#x524D;&#x91CA;&#x653E;<code>C.CString</code>&#x521B;&#x5EFA;&#x7684;C&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x4E32;&#xFF1B;&#x8FD8;&#x6709;&#x6211;&#x4EEC;&#x6539;&#x7528;<code>puts</code>&#x51FD;&#x6570;&#x76F4;&#x63A5;&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x6253;&#x5370;&#xFF0C;&#x4E4B;&#x524D;&#x662F;&#x91C7;&#x7528;<code>fputs</code>&#x5411;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x6253;&#x5370;&#x3002;</p>
+<p>&#x6CA1;&#x6709;&#x91CA;&#x653E;&#x4F7F;&#x7528;<code>C.CString</code>&#x521B;&#x5EFA;&#x7684;C&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x4E32;&#x4F1A;&#x5BFC;&#x81F4;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x5C0F;&#x7A0B;&#x5E8F;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x6837;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x7A0B;&#x5E8F;&#x9000;&#x51FA;&#x540E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x81EA;&#x52A8;&#x56DE;&#x6536;&#x7A0B;&#x5E8F;&#x7684;&#x6240;&#x6709;&#x8D44;&#x6E90;&#x3002;</p>
+<h2 id="213-&#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684;c&#x51FD;&#x6570;">2.1.3 &#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684;C&#x51FD;&#x6570;</h2>
+<p>&#x524D;&#x9762;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x5DF2;&#x6709;&#x7684;&#x51FD;&#x6570;&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5148;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x53EB;<code>SayHello</code>&#x7684;C&#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x6253;&#x5370;&#xFF0C;&#x7136;&#x540E;&#x4ECE;Go&#x8BED;&#x8A00;&#x73AF;&#x5883;&#x4E2D;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;<code>SayHello</code>&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// hello.go</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">/*
+#include &lt;stdio.h&gt;
+
+static void SayHello(const char* s) {
+    puts(s);
+}
+*/</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    C.SayHello(C.CString(<span class="hljs-string">&quot;Hello, World\n&quot;</span>))
+}
+</code></pre>
+<p>&#x9664;&#x4E86;<code>SayHello</code>&#x51FD;&#x6570;&#x662F;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5B9E;&#x73B0;&#x7684;&#x4E4B;&#x5916;&#xFF0C;&#x5176;&#x5B83;&#x7684;&#x90E8;&#x5206;&#x548C;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x57FA;&#x672C;&#x76F8;&#x4F3C;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x5C06;<code>SayHello</code>&#x51FD;&#x6570;&#x653E;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x4E00;&#x4E2A;C&#x8BED;&#x8A00;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;&#xFF08;&#x540E;&#x7F00;&#x540D;&#x5FC5;&#x987B;&#x662F;<code>.c</code>&#xFF09;&#x3002;&#x56E0;&#x4E3A;&#x662F;&#x7F16;&#x5199;&#x5728;&#x72EC;&#x7ACB;&#x7684;C&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4E3A;&#x4E86;&#x5141;&#x8BB8;&#x5916;&#x90E8;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x53BB;&#x6389;&#x51FD;&#x6570;&#x7684;<code>static</code>&#x4FEE;&#x9970;&#x7B26;&#x3002;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// hello.c</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SayHello</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* s)</span> </span>{
+    <span class="hljs-built_in">puts</span>(s);
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x5728;CGO&#x90E8;&#x5206;&#x5148;&#x58F0;&#x660E;<code>SayHello</code>&#x51FD;&#x6570;&#xFF0C;&#x5176;&#x5B83;&#x90E8;&#x5206;&#x4E0D;&#x53D8;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// hello.go</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//void SayHello(const char* s);</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    C.SayHello(C.CString(<span class="hljs-string">&quot;Hello, World\n&quot;</span>))
+}
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5982;&#x679C;&#x4E4B;&#x524D;&#x8FD0;&#x884C;&#x7684;&#x547D;&#x4EE4;&#x662F;<code>go run hello.go</code>&#x6216;<code>go build hello.go</code>&#x7684;&#x8BDD;&#xFF0C;&#x6B64;&#x5904;&#x987B;&#x4F7F;&#x7528;<code>go run &quot;your/package&quot;</code>&#x6216;<code>go build &quot;your/package&quot;</code>&#x624D;&#x53EF;&#x4EE5;&#x3002;&#x82E5;&#x672C;&#x5C31;&#x5728;&#x5305;&#x8DEF;&#x5F84;&#x4E0B;&#x7684;&#x8BDD;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD0;&#x884C;<code>go run .</code>&#x6216;<code>go build</code>&#x3002;</p>
+<p>&#x65E2;&#x7136;<code>SayHello</code>&#x51FD;&#x6570;&#x5DF2;&#x7ECF;&#x653E;&#x5230;&#x72EC;&#x7ACB;&#x7684;C&#x6587;&#x4EF6;&#x4E2D;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x81EA;&#x7136;&#x53EF;&#x4EE5;&#x5C06;&#x5BF9;&#x5E94;&#x7684;C&#x6587;&#x4EF6;&#x7F16;&#x8BD1;&#x6253;&#x5305;&#x4E3A;&#x9759;&#x6001;&#x5E93;&#x6216;&#x52A8;&#x6001;&#x5E93;&#x6587;&#x4EF6;&#x4F9B;&#x4F7F;&#x7528;&#x3002;&#x5982;&#x679C;&#x662F;&#x4EE5;&#x9759;&#x6001;&#x5E93;&#x6216;&#x52A8;&#x6001;&#x5E93;&#x65B9;&#x5F0F;&#x5F15;&#x7528;<code>SayHello</code>&#x51FD;&#x6570;&#x7684;&#x8BDD;&#xFF0C;&#x9700;&#x8981;&#x5C06;&#x5BF9;&#x5E94;&#x7684;C&#x6E90;&#x6587;&#x4EF6;&#x79FB;&#x51FA;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#xFF08;CGO&#x6784;&#x5EFA;&#x7A0B;&#x5E8F;&#x4F1A;&#x81EA;&#x52A8;&#x6784;&#x5EFA;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x7684;C&#x6E90;&#x6587;&#x4EF6;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4;C&#x51FD;&#x6570;&#x540D;&#x51B2;&#x7A81;&#xFF09;&#x3002;&#x5173;&#x4E8E;&#x9759;&#x6001;&#x5E93;&#x7B49;&#x7EC6;&#x8282;&#x5C06;&#x5728;&#x7A0D;&#x540E;&#x7AE0;&#x8282;&#x8BB2;&#x89E3;&#x3002;</p>
+<h2 id="214-c&#x4EE3;&#x7801;&#x7684;&#x6A21;&#x5757;&#x5316;">2.1.4 C&#x4EE3;&#x7801;&#x7684;&#x6A21;&#x5757;&#x5316;</h2>
+<p>&#x5728;&#x7F16;&#x7A0B;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x62BD;&#x8C61;&#x548C;&#x6A21;&#x5757;&#x5316;&#x662F;&#x5C06;&#x590D;&#x6742;&#x95EE;&#x9898;&#x7B80;&#x5316;&#x7684;&#x901A;&#x7528;&#x624B;&#x6BB5;&#x3002;&#x5F53;&#x4EE3;&#x7801;&#x8BED;&#x53E5;&#x53D8;&#x591A;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x76F8;&#x4F3C;&#x7684;&#x4EE3;&#x7801;&#x5C01;&#x88C5;&#x5230;&#x4E00;&#x4E2A;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#xFF1B;&#x5F53;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x53D8;&#x591A;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x51FD;&#x6570;&#x62C6;&#x5206;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x6216;&#x6A21;&#x5757;&#x4E2D;&#x3002;&#x800C;&#x6A21;&#x5757;&#x5316;&#x7F16;&#x7A0B;&#x7684;&#x6838;&#x5FC3;&#x662F;&#x9762;&#x5411;&#x7A0B;&#x5E8F;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF08;&#x8FD9;&#x91CC;&#x7684;&#x63A5;&#x53E3;&#x5E76;&#x4E0D;&#x662F;Go&#x8BED;&#x8A00;&#x7684;interface&#xFF0C;&#x800C;&#x662F;API&#x7684;&#x6982;&#x5FF5;&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x62BD;&#x8C61;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;hello&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x6A21;&#x5757;&#x7684;&#x5168;&#x90E8;&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x90FD;&#x5728;hello.h&#x5934;&#x6587;&#x4EF6;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// hello.h</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SayHello</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* s)</span></span>;
+</code></pre>
+<p>&#x5176;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;SayHello&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x3002;&#x4F46;&#x662F;&#x4F5C;&#x4E3A;hello&#x6A21;&#x5757;&#x7684;&#x7528;&#x6237;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x653E;&#x5FC3;&#x5730;&#x4F7F;&#x7528;SayHello&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x65E0;&#x9700;&#x5173;&#x5FC3;&#x51FD;&#x6570;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;&#x800C;&#x4F5C;&#x4E3A;SayHello&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x8005;&#x6765;&#x8BF4;&#xFF0C;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x53EA;&#x8981;&#x6EE1;&#x8DB3;&#x5934;&#x6587;&#x4EF6;&#x4E2D;&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x7684;&#x89C4;&#x8303;&#x5373;&#x53EF;&#x3002;&#x4E0B;&#x9762;&#x662F;SayHello&#x51FD;&#x6570;&#x7684;C&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#xFF0C;&#x5BF9;&#x5E94;hello.c&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// hello.c</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;hello.h&quot;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SayHello</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* s)</span> </span>{
+    <span class="hljs-built_in">puts</span>(s);
+}
+</code></pre>
+<p>&#x5728;hello.c&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5934;&#xFF0C;&#x5B9E;&#x73B0;&#x8005;&#x901A;&#x8FC7;<code>#include &quot;hello.h&quot;</code>&#x8BED;&#x53E5;&#x5305;&#x542B;SayHello&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x6EE1;&#x8DB3;&#x6A21;&#x5757;&#x5BF9;&#x5916;&#x516C;&#x5F00;&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x63A5;&#x53E3;&#x6587;&#x4EF6;hello.h&#x662F;hello&#x6A21;&#x5757;&#x7684;&#x5B9E;&#x73B0;&#x8005;&#x548C;&#x4F7F;&#x7528;&#x8005;&#x5171;&#x540C;&#x7684;&#x7EA6;&#x5B9A;&#xFF0C;&#x4F46;&#x662F;&#x8BE5;&#x7EA6;&#x5B9A;&#x5E76;&#x6CA1;&#x6709;&#x8981;&#x6C42;&#x5FC5;&#x987B;&#x4F7F;&#x7528;C&#x8BED;&#x8A00;&#x6765;&#x5B9E;&#x73B0;SayHello&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;C++&#x8BED;&#x8A00;&#x6765;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x8FD9;&#x4E2A;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="lang-c++"><span class="hljs-comment">// hello.cpp</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+
+<span class="hljs-keyword">extern</span> <span class="hljs-string">&quot;C&quot;</span> {
+    <span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-string">&quot;hello.h&quot;</span></span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SayHello</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span>* s)</span> </span>{
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; s;
+}
+</code></pre>
+<p>&#x5728;C++&#x7248;&#x672C;&#x7684;SayHello&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;C++&#x7279;&#x6709;&#x7684;<code>std::cout</code>&#x8F93;&#x51FA;&#x6D41;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4E0D;&#x8FC7;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;C++&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x7684;SayHello&#x51FD;&#x6570;&#x6EE1;&#x8DB3;C&#x8BED;&#x8A00;&#x5934;&#x6587;&#x4EF6;hello.h&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x89C4;&#x8303;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x901A;&#x8FC7;<code>extern &quot;C&quot;</code>&#x8BED;&#x53E5;&#x6307;&#x793A;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x94FE;&#x63A5;&#x7B26;&#x53F7;&#x9075;&#x5FAA;C&#x8BED;&#x8A00;&#x7684;&#x89C4;&#x5219;&#x3002;</p>
+<p>&#x5728;&#x91C7;&#x7528;&#x9762;&#x5411;C&#x8BED;&#x8A00;API&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5F7B;&#x5E95;&#x89E3;&#x653E;&#x4E86;&#x6A21;&#x5757;&#x5B9E;&#x73B0;&#x8005;&#x7684;&#x8BED;&#x8A00;&#x67B7;&#x9501;&#xFF1A;&#x5B9E;&#x73B0;&#x8005;&#x53EF;&#x4EE5;&#x7528;&#x4EFB;&#x4F55;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x6A21;&#x5757;&#xFF0C;&#x53EA;&#x8981;&#x6700;&#x7EC8;&#x6EE1;&#x8DB3;&#x516C;&#x5F00;&#x7684;API&#x7EA6;&#x5B9A;&#x5373;&#x53EF;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;C&#x8BED;&#x8A00;&#x5B9E;&#x73B0;SayHello&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x66F4;&#x590D;&#x6742;&#x7684;C++&#x8BED;&#x8A00;&#x6765;&#x5B9E;&#x73B0;SayHello&#x51FD;&#x6570;&#xFF0C;&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#x751A;&#x81F3;Go&#x8BED;&#x8A00;&#x6765;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;SayHello&#x51FD;&#x6570;&#x3002;</p>
+<h2 id="215-&#x7528;go&#x91CD;&#x65B0;&#x5B9E;&#x73B0;c&#x51FD;&#x6570;">2.1.5 &#x7528;Go&#x91CD;&#x65B0;&#x5B9E;&#x73B0;C&#x51FD;&#x6570;</h2>
+<p>&#x5176;&#x5B9E;CGO&#x4E0D;&#x4EC5;&#x4EC5;&#x7528;&#x4E8E;Go&#x8BED;&#x8A00;&#x4E2D;&#x8C03;&#x7528;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5BFC;&#x51FA;Go&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x7ED9;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x3002;&#x5728;&#x524D;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x62BD;&#x8C61;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;hello&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x6A21;&#x5757;&#x7684;&#x5168;&#x90E8;&#x63A5;&#x53E3;&#x51FD;&#x6570;&#x90FD;&#x5728;hello.h&#x5934;&#x6587;&#x4EF6;&#x5B9A;&#x4E49;&#xFF1A;</p>
+<pre><code class="lang-c"><span class="hljs-comment">// hello.h</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">SayHello</span><span class="hljs-params">(<span class="hljs-comment">/*const*/</span> <span class="hljs-keyword">char</span>* s)</span></span>;
+</code></pre>
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;hello.go&#x6587;&#x4EF6;&#xFF0C;&#x7528;Go&#x8BED;&#x8A00;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;C&#x8BED;&#x8A00;&#x63A5;&#x53E3;&#x7684;SayHello&#x51FD;&#x6570;:</p>
+<pre><code class="lang-go"><span class="hljs-comment">// hello.go</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-comment">//export SayHello</span>
+<span class="hljs-keyword">func</span> SayHello(s *C.char) {
+    fmt.Print(C.GoString(s))
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x901A;&#x8FC7;CGO&#x7684;<code>//export SayHello</code>&#x6307;&#x4EE4;&#x5C06;Go&#x8BED;&#x8A00;&#x5B9E;&#x73B0;&#x7684;&#x51FD;&#x6570;<code>SayHello</code>&#x5BFC;&#x51FA;&#x4E3A;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#x3002;&#x4E3A;&#x4E86;&#x9002;&#x914D;CGO&#x5BFC;&#x51FA;&#x7684;C&#x8BED;&#x8A00;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x7981;&#x6B62;&#x4E86;&#x5728;&#x51FD;&#x6570;&#x7684;&#x58F0;&#x660E;&#x8BED;&#x53E5;&#x4E2D;&#x7684;const&#x4FEE;&#x9970;&#x7B26;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x91CC;&#x5176;&#x5B9E;&#x6709;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x7684;<code>SayHello</code>&#x51FD;&#x6570;&#xFF1A;&#x4E00;&#x4E2A;Go&#x8BED;&#x8A00;&#x73AF;&#x5883;&#x7684;&#xFF1B;&#x53E6;&#x4E00;&#x4E2A;&#x662F;C&#x8BED;&#x8A00;&#x73AF;&#x5883;&#x7684;&#x3002;cgo&#x751F;&#x6210;&#x7684;C&#x8BED;&#x8A00;&#x7248;&#x672C;SayHello&#x51FD;&#x6570;&#x6700;&#x7EC8;&#x4F1A;&#x901A;&#x8FC7;&#x6865;&#x63A5;&#x4EE3;&#x7801;&#x8C03;&#x7528;Go&#x8BED;&#x8A00;&#x7248;&#x672C;&#x7684;SayHello&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x9762;&#x5411;C&#x8BED;&#x8A00;&#x63A5;&#x53E3;&#x7684;&#x7F16;&#x7A0B;&#x6280;&#x672F;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x4EC5;&#x4EC5;&#x89E3;&#x653E;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x8005;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x7B80;&#x5316;&#x7684;&#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;&#x8005;&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;SayHello&#x5F53;&#x4F5C;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x5E93;&#x7684;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#xFF08;&#x548C;puts&#x51FD;&#x6570;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#x7C7B;&#x4F3C;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//#include &lt;hello.h&gt;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    C.SayHello(C.CString(<span class="hljs-string">&quot;Hello, World\n&quot;</span>))
+}
+</code></pre>
+<p>&#x4E00;&#x5207;&#x4F3C;&#x4E4E;&#x90FD;&#x56DE;&#x5230;&#x4E86;&#x5F00;&#x59CB;&#x7684;CGO&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x4EE3;&#x7801;&#x5185;&#x6DB5;&#x66F4;&#x4E30;&#x5BCC;&#x4E86;&#x3002;</p>
+<h2 id="216-&#x9762;&#x5411;c&#x63A5;&#x53E3;&#x7684;go&#x7F16;&#x7A0B;">2.1.6 &#x9762;&#x5411;C&#x63A5;&#x53E3;&#x7684;Go&#x7F16;&#x7A0B;</h2>
+<p>&#x5728;&#x5F00;&#x59CB;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5168;&#x90E8;CGO&#x4EE3;&#x7801;&#x90FD;&#x5728;&#x4E00;&#x4E2A;Go&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x7136;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x9762;&#x5411;C&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#x7684;&#x6280;&#x672F;&#x5C06;SayHello&#x5206;&#x522B;&#x62C6;&#x5206;&#x5230;&#x4E0D;&#x540C;&#x7684;C&#x6587;&#x4EF6;&#xFF0C;&#x800C;main&#x4F9D;&#x7136;&#x662F;Go&#x6587;&#x4EF6;&#x3002;&#x518D;&#x7136;&#x540E;&#xFF0C;&#x662F;&#x7528;Go&#x51FD;&#x6570;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x4E86;C&#x8BED;&#x8A00;&#x63A5;&#x53E3;&#x7684;SayHello&#x51FD;&#x6570;&#x3002;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x76EE;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#x6765;&#x8BF4;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8981;&#x62C6;&#x5206;&#x5230;&#x4E09;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x786E;&#x5B9E;&#x6709;&#x4E9B;&#x7E41;&#x7410;&#x4E86;&#x3002;</p>
+<p>&#x6B63;&#x6240;&#x8C13;&#x5408;&#x4E45;&#x5FC5;&#x5206;&#x3001;&#x5206;&#x4E45;&#x5FC5;&#x5408;&#xFF0C;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x5C1D;&#x8BD5;&#x5C06;&#x4F8B;&#x5B50;&#x4E2D;&#x7684;&#x51E0;&#x4E2A;&#x6587;&#x4EF6;&#x91CD;&#x65B0;&#x5408;&#x5E76;&#x5230;&#x4E00;&#x4E2A;Go&#x6587;&#x4EF6;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x5408;&#x5E76;&#x540E;&#x7684;&#x6210;&#x679C;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//void SayHello(char* s);</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    C.SayHello(C.CString(<span class="hljs-string">&quot;Hello, World\n&quot;</span>))
+}
+
+<span class="hljs-comment">//export SayHello</span>
+<span class="hljs-keyword">func</span> SayHello(s *C.char) {
+    fmt.Print(C.GoString(s))
+}
+</code></pre>
+<p>&#x73B0;&#x5728;&#x7248;&#x672C;&#x7684;CGO&#x4EE3;&#x7801;&#x4E2D;C&#x8BED;&#x8A00;&#x4EE3;&#x7801;&#x7684;&#x6BD4;&#x4F8B;&#x5DF2;&#x7ECF;&#x5F88;&#x5C11;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x4F9D;&#x7136;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x4EE5;Go&#x8BED;&#x8A00;&#x7684;&#x601D;&#x7EF4;&#x6765;&#x63D0;&#x70BC;&#x6211;&#x4EEC;&#x7684;CGO&#x4EE3;&#x7801;&#x3002;&#x901A;&#x8FC7;&#x5206;&#x6790;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;<code>SayHello</code>&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Go&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x6700;&#x76F4;&#x63A5;&#x7684;&#x3002;&#x5728;Go1.10&#x4E2D;CGO&#x65B0;&#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;<code>_GoString_</code>&#x9884;&#x5B9A;&#x4E49;&#x7684;C&#x8BED;&#x8A00;&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x6765;&#x8868;&#x793A;Go&#x8BED;&#x8A00;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x6539;&#x8FDB;&#x540E;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// +build go1.10</span>
+
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-comment">//void SayHello(_GoString_ s);</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;C&quot;</span>
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    C.SayHello(<span class="hljs-string">&quot;Hello, World\n&quot;</span>)
+}
+
+<span class="hljs-comment">//export SayHello</span>
+<span class="hljs-keyword">func</span> SayHello(s <span class="hljs-keyword">string</span>) {
+    fmt.Print(s)
+}
+</code></pre>
+<p>&#x867D;&#x7136;&#x770B;&#x8D77;&#x6765;&#x5168;&#x90E8;&#x662F;Go&#x8BED;&#x8A00;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x662F;&#x5148;&#x4ECE;Go&#x8BED;&#x8A00;&#x7684;<code>main</code>&#x51FD;&#x6570;&#xFF0C;&#x5230;CGO&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;C&#x8BED;&#x8A00;&#x7248;&#x672C;<code>SayHello</code>&#x6865;&#x63A5;&#x51FD;&#x6570;&#xFF0C;&#x6700;&#x540E;&#x53C8;&#x56DE;&#x5230;&#x4E86;Go&#x8BED;&#x8A00;&#x73AF;&#x5883;&#x7684;<code>SayHello</code>&#x51FD;&#x6570;&#x3002;&#x8FD9;&#x4E2A;&#x4EE3;&#x7801;&#x5305;&#x542B;&#x4E86;CGO&#x7F16;&#x7A0B;&#x7684;&#x7CBE;&#x534E;&#xFF0C;&#x8BFB;&#x8005;&#x9700;&#x8981;&#x6DF1;&#x5165;&#x7406;&#x89E3;&#x3002;</p>
+<p><em>&#x601D;&#x8003;&#x9898;: main&#x51FD;&#x6570;&#x548C;SayHello&#x51FD;&#x6570;&#x662F;&#x5426;&#x5728;&#x540C;&#x4E00;&#x4E2A;Goroutine&#x91CC;&#x6267;&#x884C;&#xFF1F;</em></p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="readme.html" class="navigation navigation-prev " aria-label="Previous page: 第2章 CGO编程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ch2-02-basic.html" class="navigation navigation-next " aria-label="Next page: 2.2 CGO基础">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1 快速入门","level":"1.3.1","depth":2,"next":{"title":"2.2 CGO基础","level":"1.3.2","depth":2,"path":"ch2-cgo/ch2-02-basic.md","ref":"ch2-cgo/ch2-02-basic.md","articles":[]},"previous":{"title":"第2章 CGO编程","level":"1.3","depth":1,"path":"ch2-cgo/readme.md","ref":"ch2-cgo/readme.md","articles":[{"title":"2.1 快速入门","level":"1.3.1","depth":2,"path":"ch2-cgo/ch2-01-hello-cgo.md","ref":"ch2-cgo/ch2-01-hello-cgo.md","articles":[]},{"title":"2.2 CGO基础","level":"1.3.2","depth":2,"path":"ch2-cgo/ch2-02-basic.md","ref":"ch2-cgo/ch2-02-basic.md","articles":[]},{"title":"2.3 类型转换","level":"1.3.3","depth":2,"path":"ch2-cgo/ch2-03-cgo-types.md","ref":"ch2-cgo/ch2-03-cgo-types.md","articles":[]},{"title":"2.4 函数调用","level":"1.3.4","depth":2,"path":"ch2-cgo/ch2-04-func.md","ref":"ch2-cgo/ch2-04-func.md","articles":[]},{"title":"2.5 内部机制","level":"1.3.5","depth":2,"path":"ch2-cgo/ch2-05-internal.md","ref":"ch2-cgo/ch2-05-internal.md","articles":[]},{"title":"2.6 实战: 封装qsort","level":"1.3.6","depth":2,"path":"ch2-cgo/ch2-06-qsort.md","ref":"ch2-cgo/ch2-06-qsort.md","articles":[]},{"title":"2.7 CGO内存模型","level":"1.3.7","depth":2,"path":"ch2-cgo/ch2-07-memory.md","ref":"ch2-cgo/ch2-07-memory.md","articles":[]},{"title":"2.8 C++类包装","level":"1.3.8","depth":2,"path":"ch2-cgo/ch2-08-class.md","ref":"ch2-cgo/ch2-08-class.md","articles":[]},{"title":"2.9 静态库和动态库","level":"1.3.9","depth":2,"path":"ch2-cgo/ch2-09-static-shared-lib.md","ref":"ch2-cgo/ch2-09-static-shared-lib.md","articles":[]},{"title":"2.10 编译和链接参数","level":"1.3.10","depth":2,"path":"ch2-cgo/ch2-10-link.md","ref":"ch2-cgo/ch2-10-link.md","articles":[]},{"title":"2.11 补充说明","level":"1.3.11","depth":2,"path":"ch2-cgo/ch2-11-ext.md","ref":"ch2-cgo/ch2-11-ext.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-search"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"highlight":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"preface.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go语言高级编程","language":"zh-hans","gitbook":"3.x","description":"Go语言高级编程"},"file":{"path":"ch2-cgo/ch2-01-hello-cgo.md","mtime":"2019-03-28T06:28:31.736Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-07T13:21:40.542Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
